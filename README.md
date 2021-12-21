@@ -13,7 +13,7 @@ OFFICIAL CODE OF CONDUCT:
 
 4) If two team members have opposing theories they will each present their pitch to the third member who will make a final decison. If the third member is unable to come to a conclusion then both ideas will be assigned to a colored snail as chosen by their original pitch founder and the ideas will race 60 seconds to the death.
 
-5) Timely attendence of all stand-ups, meetings, and slack summons' will be expected of all members. Trello updates are expected even at a minimum daily, even if that update is "Took the day off"
+5) Timely attendence of all stand-ups, meetings, and slack summons' will be expected of all members. Trello updates are expected at a minimum daily, even if that update is "Took the day off"
 
 6) All voices will be heard in all discussions
 

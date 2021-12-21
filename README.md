@@ -17,6 +17,6 @@ OFFICIAL CODE OF CONDUCT:
 
 6) All voices will be heard in all discussions
 
-7) All disccussions (trello, zoom, slack, etc) will remain container safe. If you ask yourself "Is this container safe?" it isnt. If at anytime a member feels as though they aren't being respected they should be given the space and freedom to air their issues either publicly or privately with the other member to have them addressed.
+7) All disccussions (trello, zoom, slack, etc) will remain container safe. If you ask yourself "Is this container safe?" it isnt. If at anytime a member feels as though they aren't being respected they will be given the space and freedom to air their issues either publicly or privately with the other member to have them addressed.
 
 8) Individual Responsibilites are EVERYONES responsibility 

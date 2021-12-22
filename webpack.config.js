@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const config = {
+module.exports = {
+  mode: 'development',
   entry: [
-    'react-hot-loader/patch',
     './src/index.js'
   ],
   output: {
@@ -14,8 +14,11 @@ const config = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        loader: "babel-loader",
+        exclude: /node_modules/,
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+        }
       }
     ]
   },
@@ -26,3 +29,23 @@ const config = {
   }
 };
 
+
+// module.exports = {
+//   entry: `${SRC_DIR}/index.jsx`,
+//   mode: "development",
+//   output: {
+//     filename: "bundle.js",
+//     path: DIST_DIR,
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.jsx?/,
+//         loader: "babel-loader",
+//         options: {
+//           presets: ["@babel/preset-env", "@babel/preset-react"],
+//         },
+//       },
+//     ],
+//   },
+// };

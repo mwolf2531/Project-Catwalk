@@ -1,0 +1,53 @@
+.main { /*container flexbox settings */
+  display: flex;
+  gap: 10px; /* all gap */
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+/* ------------------------Header---------------------- */
+
+.header {
+  order: 0;
+  border: 2px solid red;
+}
+
+/* ------------------------Over View---------------------- */
+
+.overview {
+  order: 1;
+  border: 2px solid blue;
+}
+
+/* ------------------------Questions---------------------- */
+
+.questions {
+  order: 2;
+  border: 2px solid purple;
+}
+
+/* ------------------------Reviews---------------------- */
+
+.reviews {
+  order: 3;
+  border: 2px solid green;
+}
+.reviewsContainer{
+  display: flex;
+}
+.revStars{
+  order: 0;
+  border: 2px solid blue;
+}
+.revBody{
+  order: 1;
+  border: 2px solid red;
+}
+
+/* ------------------------Footer---------------------- */
+
+.footer {
+  order: 4;
+  border: 2px solid cornflowerblue;
+}
+

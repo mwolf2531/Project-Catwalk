@@ -12,11 +12,35 @@
   border: 2px solid red;
 }
 
-/* ------------------------Over View---------------------- */
+/* --------------Over View------------------ */
 
 .overview {
   order: 1;
+  /* overflow-x: auto; */
+  padding: 10px;
   border: 2px solid blue;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 60% 40%;
+  grid-template-areas:
+  'one'
+  'two'
+  'three';
+}
+
+.o-top-left-container {
+  border: 2px solid red
+}
+
+.o-top-right-container {
+  border: 2px solid rgb(72, 255, 0)
+}
+
+.o-bottom-container {
+  border: 2px solid rgb(0, 81, 255);
+  width: 75%;
+  justify-self: center;
+  grid-column-end: span 2;
 }
 
 /* ------------------------Questions---------------------- */

@@ -1,4 +1,5 @@
 import React from "react"
+import OverviewWidget from './Overview/OverviewWidget.jsx'
 
 class App extends React.Component {
   render() {
@@ -7,6 +8,7 @@ class App extends React.Component {
         <h1>
           Team Artemis
         </h1>
+        <OverviewWidget/>
       </>
     );
   }

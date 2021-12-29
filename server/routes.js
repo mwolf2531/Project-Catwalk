@@ -4,7 +4,7 @@ const router = express.Router();
 //SUPPORT ROUTES
 //test route at /api/test
 router.get('/test', (req, res) => {
-  res.send('Hello World!')
+  res.send('API Router says Hello World!');
 })
 
 //ALEX's ROUTES

@@ -1,4 +1,10 @@
+const express = require('express');
+const router = express.Router();
+
 //SUPPORT ROUTES
+router.get('/test', (req, res) => {
+  res.send('Hello World!')
+})
 
 //ALEX's ROUTES
 // get "allReviews" - pulls all review data for the current item
@@ -9,3 +15,5 @@
 //MEGAN'S ROUTES
 
 //RYDER's ROUTES
+
+module.exports = router;

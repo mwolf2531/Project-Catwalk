@@ -1,6 +1,7 @@
 import React from 'react';
 import BodyElement from './bodyElement.jsx';
 import Averages from './averagesElement.jsx';
+import axios from 'axios';
 
 //Main Reviews Element. Holds the bodyElement and averagesElement.
 //contains the more reviews and add a review button
@@ -19,7 +20,21 @@ class ReviewWidget extends React.Component {
     //TODO
   }
 
+  getReviews() {
+    axios.get('/api/reviews')
+      .then(function (res) {
+        console.log('Axios /reviews ', res);
+        this.setState({
+          reviews: res
+        });
+      })
+      .catch(function (err) {
+        console.log('Axios /reviews failed >', err);
+      });
+  }
+
   render() {
+    this.getReviews();
     return <div className="reviews"> Reviews Section
       {/* <Averages />
       <BodyElement />

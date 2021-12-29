@@ -7,8 +7,8 @@ app.use(express.json());
 app.use(express.static(__dirname + '/../dist'));
 
 //using express, telll our server to use the routes.js file for all requests
-const routes = require('./routes.js');
-app.use('/', routes);
+const APIRoutes = require('./routes.js');
+app.use('/api', APIRoutes);
 // app.get('/test', (req, res) => {
 //   res.send('Hello World!')
 // })

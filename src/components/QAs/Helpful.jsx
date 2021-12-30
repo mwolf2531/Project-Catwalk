@@ -1,33 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
 class Helpful extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      disabled: false,
-      placeholder: 'Report'
+      count: 0,
+      disabled: false
     }
 
     this.handleClick = this.handleClick.bind(this);
   }
 
+
   handleClick(event) {
     event.preventDefault();
     if (this.state.disabled) {
+      this.setState({
+        count: this.state.count + 1
+      })
       return;
     }
     this.setState({
       disabled: true,
-      placeholder: 'Reported'
+      count: this.state.count + 1
     });
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>{this.state.placeholder}</button>
+        <button onClick={this.handleClick}>Helpful? Yes ({this.state.count})</button>
       </div>
     )
   }

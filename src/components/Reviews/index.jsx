@@ -13,12 +13,6 @@ class ReviewWidget extends React.Component {
       reviews: []
     };
   }
-  //Initialize - download all review data from the database for this product
-  //API request to server - get all review data
-  //Store review data in the state
-  initialize() {
-    //TODO
-  }
 
   getReviews() {
     axios.get('/api/reviews')

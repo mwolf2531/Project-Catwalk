@@ -28,6 +28,7 @@ class QAWidget extends React.Component {
         </div>
         <div>
           <Report />
+          <Helpful />
         </div>
       </div>
     )

@@ -35,7 +35,7 @@ export class OverviewWidget extends Component {
 
   getProduct() {
     axios
-      .get("/api/products/:product_id")
+      .get("/api/products/product_id")
       .then((res) => {
         let data = res.data
         console.log("Product", data);

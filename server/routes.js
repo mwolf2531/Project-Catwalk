@@ -120,9 +120,12 @@ router.put('/report', (req, putRes) => {
 router.get('/products', (req, getRes) => {
   //Call API, Get review data
   let options = {
-    method: 'GET',
     url: url + '/products',
-    headers: headers
+    headers: headers,
+    params: {
+      page: 1, // 	Selects the page of results to return. Default 1.
+      count: 5, // Specifies how many results per page to return. Default 5.
+    }
   };
   axios(options)
     .then((res) => {
@@ -134,13 +137,15 @@ router.get('/products', (req, getRes) => {
       });
 })
 
-router.get(`/products/:product_id`, (req, getRes) => {
+router.get(`/products/product_id`, (req, getRes) => {
   //Call API, Get review data
-  let id = 37313;
+  let id = 37313; // grab this from the request || using sample product
   let options = {
-    method: 'GET',
     url: url + `/products/${id}`,
-    headers: headers
+    headers: headers,
+    params: {
+      product_id: id // Required ID of the Product requested | current placeholder
+    }
   };
   axios(options)
     .then((res) => {
@@ -151,6 +156,65 @@ router.get(`/products/:product_id`, (req, getRes) => {
        res.send(err)
       });
 })
+
+router.get(`/products/product_id/styles`, (req, getRes) => {
+  //Call API, Get review data
+  let id = 37313; // grab this from the request || using sample product
+  let options = {
+    url: url + `/products/${id}/styles`,
+    headers: headers,
+    params: {
+      product_id: id // Required ID of the Product requested | current placeholder
+    }
+  };
+  axios(options)
+    .then((res) => {
+      console.log(res.data);
+      getRes.send(res.data)
+    })
+    .catch((err) => {
+       res.send(err)
+      });
+})
+
+router.get(`/cart`, (req, getRes) => {
+  //Call API, Get review data
+  let options = {
+    url: url + `/cart`,
+    headers: headers,
+  };
+  axios(options)
+  .then((res) => {
+    console.log(res.data);
+    getRes.send(res.data)
+  })
+  .catch((err) => {
+    res.send(err)
+  });
+})
+
+router.post(`/cart`, (req, getRes) => {
+  //Call API, Get review data
+  let sku = 37; // ID for the product being added to the cart | get from product Styles
+  let options = {
+    method: 'POST',
+    url: url + `/cart`,
+    headers: headers,
+    params: {
+      sku_id: sku
+    }
+  };
+  axios(options)
+    .then((res) => {
+      console.log(res.data);
+      getRes.send(res.data)
+    })
+    .catch((err) => {
+       res.send(err)
+      });
+})
+
+
 
 
 module.exports = router;

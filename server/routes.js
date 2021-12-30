@@ -4,15 +4,15 @@ const axios = require('axios');
 //Server info variable (API)
 const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe`;
 //Header (API Auth)
-const {headers} = require('./APIHelper.js');
+const { headers } = require('./APIHelper.js');
 //SUPPORT ROUTES
 //test route at /api/test
-router.get('/test', (req, res) => {
+router.get('/tests', (req, res) => {
   res.send('API Router says Hello World!');
 })
 //ALEX's ROUTES
 // get "allReviews" - pulls all review data for the current item
-router.get('/reviews', (req, res) => {
+router.get('/reviews', (req, getRes) => {
   //Call API, Get review data
   let options = {
     method: 'GET',
@@ -22,7 +22,8 @@ router.get('/reviews', (req, res) => {
   axios(options)
     .then(function (res) {
       console.log(res.data);
-      res.send(res.data) })
+      getRes.send(res.data)
+    })
     .catch(function (err) { res.send(err) });
 })
 // post "review" - posts a new user created review

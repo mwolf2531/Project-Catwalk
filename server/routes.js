@@ -16,15 +16,21 @@ router.get('/reviews', (req, getRes) => {
   //Call API, Get review data
   let options = {
     method: 'GET',
-    url: url + '/products',
-    headers: headers
+    url: url + '/reviews',
+    headers: headers,
+    params: {
+      page: 1,
+      count: 5,
+      sort: 'relevant',
+      product_id: 37314
+    }
   };
   axios(options)
     .then(function (res) {
       console.log(res.data);
       getRes.send(res.data)
     })
-    .catch(function (err) { res.send(err) });
+    .catch(function (err) { getRes.send(err) });
 })
 // post "review" - posts a new user created review
 // post "helpful" - posts a user toggle of the "helpful" trait review

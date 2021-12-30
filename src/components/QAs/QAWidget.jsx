@@ -7,6 +7,12 @@ import Report from './Report.jsx';
 import SearchBar from './SearchBar.jsx';
 
 class QAWidget extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
 
   render() {
     return (

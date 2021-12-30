@@ -22,12 +22,8 @@ router.get('/reviews', (req, getRes) => {
   axios(options)
     .then(function (res) {
       console.log(res.data);
-<<<<<<< HEAD
-      getRes.send(res.data) })
-=======
       getRes.send(res.data)
     })
->>>>>>> 5d5b994103719bda661cad24e3366c5a11232df9
     .catch(function (err) { res.send(err) });
 })
 // post "review" - posts a new user created review
@@ -47,10 +43,30 @@ router.get('/products', (req, getRes) => {
   axios(options)
     .then((res) => {
       console.log(res.data);
-      res.send(res.data)
+      getRes.send(res.data)
     })
     .catch((err) => {
        res.send(err)
       });
 })
+
+router.get(`/products/:product_id`, (req, getRes) => {
+  //Call API, Get review data
+  let id = 37313;
+  let options = {
+    method: 'GET',
+    url: url + `/products/${id}`,
+    headers: headers
+  };
+  axios(options)
+    .then((res) => {
+      console.log(res.data);
+      getRes.send(res.data)
+    })
+    .catch((err) => {
+       res.send(err)
+      });
+})
+
+
 module.exports = router;

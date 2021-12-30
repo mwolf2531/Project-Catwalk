@@ -15,15 +15,32 @@ export class OverviewWidget extends Component {
       //TODO: current product selected
     };
     //TODO: dont forget to bind handlers and whatever elese
+    this.getProduct = this.getProduct.bind(this)
   }
 
   getAllProducts() {
     axios
       .get("/api/products")
       .then((res) => {
-        console.log("/products", res);
+        let data = res.data
+        console.log("/products", data);
         this.setState({
-          products: res.data
+          productz: data
+        })
+      })
+      .catch((err) => {
+        console.log("Axios /products ERR", err);
+      });
+  }
+
+  getProduct() {
+    axios
+      .get("/api/products/:product_id")
+      .then((res) => {
+        let data = res.data
+        console.log("Product", data);
+        this.setState({
+          products: data
         })
       })
       .catch((err) => {
@@ -37,9 +54,8 @@ export class OverviewWidget extends Component {
   // TODO: Click handler for style selected
   // calls the api func to grab current
 
-  // TODO: add componentDidMount for initial render
   componentDidMount() {
-    this.getAllProducts();
+    this.getProduct();
   }
 
   render() {
@@ -49,7 +65,9 @@ export class OverviewWidget extends Component {
           <ImageGallery />
         </div>
         <div className="o-top-right-container">
-          <ProductInfo />
+          <ProductInfo
+            product={this.state.products}
+          />
           <StyleSelector />
           <AddToCart />
         </div>

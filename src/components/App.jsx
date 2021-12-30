@@ -1,6 +1,7 @@
 import React from "react"
 import OverviewWidget from './Overview/OverviewWidget.jsx';
 import QAWidget from './QAs/QAWidget.jsx';
+import ReviewWidget from './Reviews/index.jsx';
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         </h1>
         <OverviewWidget />
         <QAWidget />
+        <ReviewWidget />
       </>
     );
   }

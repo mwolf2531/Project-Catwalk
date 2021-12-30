@@ -1,3 +1,5 @@
+import React from "react";
+import StarDisplay from './starDisplay.jsx';
 //This Element creates a single review
 
 //Takes in an individual review from the state and turns it into a templated review

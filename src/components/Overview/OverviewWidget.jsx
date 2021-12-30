@@ -4,6 +4,7 @@ import AddToCart from "./AddToCart.jsx";
 import ProductInfo from "./ProductInfo.jsx";
 import StyleSelector from "./StyleSelector.jsx";
 import ProductSlogan from "./ProductSlogan.jsx";
+import axios from "axios";
 
 export class OverviewWidget extends Component {
   constructor(props) {
@@ -16,8 +17,19 @@ export class OverviewWidget extends Component {
     //TODO: dont forget to bind handlers and whatever elese
   }
 
-  // TODO: make api call from GET /products to get all products on initial load
-  // setState to hold info
+  getAllProducts() {
+    axios
+      .get("/api/products")
+      .then((res) => {
+        console.log("/products", res);
+        this.setState({
+          products: res.data
+        })
+      })
+      .catch((err) => {
+        console.log("Axios /products ERR", err);
+      });
+  }
 
   // TODO: api call GET /products/:product_id
   // set state of current product with selected id
@@ -26,6 +38,9 @@ export class OverviewWidget extends Component {
   // calls the api func to grab current
 
   // TODO: add componentDidMount for initial render
+  componentDidMount() {
+    this.getAllProducts();
+  }
 
   render() {
     return (

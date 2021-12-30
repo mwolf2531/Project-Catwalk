@@ -12,7 +12,7 @@ router.get('/test', (req, res) => {
 })
 //ALEX's ROUTES
 // get "allReviews" - pulls all review data for the current item
-router.get('/reviews', (req, res) => {
+router.get('/reviews', (req, getRes) => {
   //Call API, Get review data
   let options = {
     method: 'GET',
@@ -22,7 +22,7 @@ router.get('/reviews', (req, res) => {
   axios(options)
     .then(function (res) {
       console.log(res.data);
-      res.send(res.data) })
+      getRes.send(res.data) })
     .catch(function (err) { res.send(err) });
 })
 // post "review" - posts a new user created review
@@ -30,5 +30,22 @@ router.get('/reviews', (req, res) => {
 // post "report" - posts a user toggle of a particular report option (bad language, hate speech, etc) - Can be faked
 //MEGAN'S ROUTES
 
-//RYDER's ROUTES
+//-----------------------RYDER's ROUTES---------------------
+
+router.get('/products', (req, getRes) => {
+  //Call API, Get review data
+  let options = {
+    method: 'GET',
+    url: url + '/products',
+    headers: headers
+  };
+  axios(options)
+    .then((res) => {
+      console.log(res.data);
+      res.send(res.data)
+    })
+    .catch((err) => {
+       res.send(err)
+      });
+})
 module.exports = router;

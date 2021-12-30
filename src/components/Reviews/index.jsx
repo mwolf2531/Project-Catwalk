@@ -23,7 +23,7 @@ class ReviewWidget extends React.Component {
   getReviews() {
     axios.get('/api/reviews')
       .then(function (res) {
-        //console.log('Axios /reviews ', res);
+        console.log('Axios /reviews ', res);
       })
       .catch(function (err) {
         console.log('Axios /reviews failed >', err);

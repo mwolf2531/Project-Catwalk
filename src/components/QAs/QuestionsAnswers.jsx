@@ -1,18 +1,17 @@
 import React from 'react';
 
 
-class QuestionsAnswers extends React.Component {
+const QuestionsAnswers = (props) => {
 
-
-  render() {
-    return (
-      <div>
-        Questions and Answers
-      </div>
-    )
-  }
-
+  return (
+    <div>
+      <div>Q: </div>
+      <div>A: </div>
+      <div>by User, January 1, 2019</div>
+    </div>
+  )
 }
+
 
 export default QuestionsAnswers;
 

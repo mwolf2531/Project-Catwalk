@@ -7,7 +7,7 @@ class AddAnswer extends React.Component {
   render() {
     return (
       <div>
-        Add Answer
+        <button>Add Answer</button>
       </div>
     )
   }

@@ -10,7 +10,7 @@ const StyleSelector = ({ styles, loaded }) => {
     return (
       <div className="style-thumbnail-container">
         {styles.map((item, i) => (
-          <Styles key={i} style={item.name} photos={item.photos} />
+          <Styles  key={i} style={item.name} photos={item.photos} />
         ))}
       </div>
     );

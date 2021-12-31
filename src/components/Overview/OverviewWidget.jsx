@@ -12,8 +12,9 @@ export class OverviewWidget extends Component {
     super(props);
     this.state = {
       ex: "placeholder",
-      products: [],
+      products: {features:[]},
       styles: [],
+
       loaded: false
       //TODO: current product selected
     };
@@ -40,17 +41,18 @@ export class OverviewWidget extends Component {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        // console.log("Product", data);
+        console.log("Product", data);
         this.setState({
           products: data
         })
+        this.getProductStyle()
       })
       .catch((err) => {
         console.log("Axios /products ERR", err);
       })
-      .then(() => {
-        this.getProductStyle()
-      })
+      // .then(() => {
+      //   this.getProductStyle()
+      // })
   }
 
   getProductStyle() {

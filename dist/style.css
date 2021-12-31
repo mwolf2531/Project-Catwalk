@@ -43,6 +43,7 @@
   border: 2px solid rgb(0, 81, 255);
   width: 90%;
   justify-self: center;
+  text-align: center;
   /* grid-column-end: span 2; */
 }
 

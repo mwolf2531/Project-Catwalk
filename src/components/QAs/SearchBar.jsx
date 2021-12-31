@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 
-class SearchBar extends React.Component {
+const SearchBar = (props) => {
 
-
-  render() {
-    return (
-      <div>
-        Search
-      </div>
-    )
-  }
-
+  return (
+    <div className="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." name="search" />
+        <button type="submit"><i className="fa fa-search"></i>Search</button>
+      </form>
+    </div>
+  )
 }
+
 
 export default SearchBar;
 

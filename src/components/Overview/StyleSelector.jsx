@@ -1,16 +1,33 @@
 import React from "react";
 import Styles from "./Styles.jsx";
 
-const StyleSelector = ({ styles }) => {
-  console.log(styles.results)
-  return (
-    <div>
-      {/* {styles.results.map((item, i) => (
-        <Styles key={i} photos={item.photos} />
-      ))} */}
-    </div>
-  );
+const StyleSelector = ({ styles, loaded }) => {
+  console.log("styles!!!!:", styles);
+  if (!loaded) {
+    return <div>Loading...</div>;
+  } else {
+    console.log("loaded:", loaded);
+    return (
+      <div className="style-thumbnail-container">
+        {styles.map((item, i) => (
+          <Styles key={i} style={item.name} photos={item.photos} />
+        ))}
+      </div>
+    );
+  }
 };
+
+// const StyleSelector = ({ styles, loaded }) => {
+//   console.log("styles!!!!:", styles);
+//   console.log("loaded:", loaded);
+//   return (
+//     <div className="style-thumbnail-container">
+//       {styles.map((item, i) => (
+//         <Styles key={i} style={item.name} photos={item.photos} />
+//       ))}
+//     </div>
+//   );
+// };
 
 export default StyleSelector;
 // import React, { Component } from "react";

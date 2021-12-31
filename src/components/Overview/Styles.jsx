@@ -1,10 +1,16 @@
 import React from "react";
 
-const Styles = (props) => {
+const Styles = ({ style, photos }) => {
   return (
-    <div>
-      {props.photos}
-    </div>
+    <>
+      {/* {style} */}
+
+        {/* {photos.map((item, i) => {
+          return <img key={i} src={item.thumbnail_url} />;
+        })} */}
+        <img className='style-thumbnail' src={photos[0].thumbnail_url} />
+
+    </>
   );
 };
 

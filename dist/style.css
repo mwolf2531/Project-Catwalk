@@ -1,4 +1,5 @@
-.main { /*container flexbox settings */
+.main {
+  /*container flexbox settings */
   display: flex;
   gap: 10px; /* all gap */
   flex-direction: column;
@@ -22,10 +23,11 @@
   display: grid;
   gap: 0.5rem;
   grid-template-columns: 60% 40%;
-  grid-template-areas:
-  'one'
-  'two'
-  'three';
+  /* grid-template-areas:
+    "one"
+    "two"
+    "three"
+    "four" */
 }
 
 .o-top-left-container {
@@ -34,14 +36,36 @@
 }
 
 .o-top-right-container {
-  border: 2px solid rgb(72, 255, 0)
+  border: 2px solid rgb(72, 255, 0);
 }
 
-.o-bottom-container {
+.o-bottom-left-container {
   border: 2px solid rgb(0, 81, 255);
-  width: 75%;
+  width: 90%;
   justify-self: center;
-  grid-column-end: span 2;
+  /* grid-column-end: span 2; */
+}
+
+.o-bottom-right-container {
+  border: 2px solid rgb(255, 196, 0);
+}
+
+.style-thumbnail-container {
+  flex-direction: row;
+}
+
+.style-thumbnail {
+  border-radius: 100%;
+  background-color: black;
+  width: 75px;
+  height: 75px;
+  display: inline-block; /* makes it fit in like an <img> */
+  background-size: cover; /* or contain */
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 5px;
+  flex-wrap: wrap;
+  flex: 4 ;
 }
 
 /* ------------------------Questions---------------------- */
@@ -57,14 +81,14 @@
   order: 3;
   border: 2px solid green;
 }
-.reviewsContainer{
+.reviewsContainer {
   display: flex;
 }
-.revStars{
+.revStars {
   order: 0;
   border: 2px solid blue;
 }
-.revBody{
+.revBody {
   order: 1;
   border: 2px solid red;
 }
@@ -75,4 +99,3 @@
   order: 4;
   border: 2px solid cornflowerblue;
 }
-

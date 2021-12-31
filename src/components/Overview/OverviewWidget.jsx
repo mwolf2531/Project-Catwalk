@@ -4,6 +4,7 @@ import AddToCart from "./AddToCart.jsx";
 import ProductInfo from "./ProductInfo.jsx";
 import StyleSelector from "./StyleSelector.jsx";
 import ProductSlogan from "./ProductSlogan.jsx";
+import Features from './Features.jsx';
 import axios from "axios";
 
 export class OverviewWidget extends Component {
@@ -13,6 +14,7 @@ export class OverviewWidget extends Component {
       ex: "placeholder",
       products: [],
       styles: [],
+      loaded: false
       //TODO: current product selected
     };
     //TODO: dont forget to bind handlers and whatever elese
@@ -24,7 +26,7 @@ export class OverviewWidget extends Component {
     axios.get("/api/products")
       .then((res) => {
         let data = res.data
-        console.log("/products", data);
+        // console.log("/products", data);
         this.setState({
           productz: data
         })
@@ -38,7 +40,7 @@ export class OverviewWidget extends Component {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        console.log("Product", data);
+        // console.log("Product", data);
         this.setState({
           products: data
         })
@@ -55,9 +57,10 @@ export class OverviewWidget extends Component {
     axios.get("api/products/product_id/styles")
     .then((res) => {
       let data = res.data
-      console.log("STYLE", data);
+      console.log("STYLEz", data);
       this.setState({
-        styles: data
+        styles: data,
+        loaded: true
       })
     })
     .catch((err) => {
@@ -86,15 +89,22 @@ export class OverviewWidget extends Component {
             product={this.state.products}
           />
           <StyleSelector
-            styles={this.state.styles}
+            styles={this.state.styles.results}
+            loaded={this.state.loaded}
           />
           <AddToCart
             size={this.state.styles}
           />
         </div>
-        <div className="o-bottom-container">
+        <div className="o-bottom-left-container">
           <ProductSlogan
             product={this.state.products}
+          />
+        </div>
+        <div className='o-bottom-right-container'>
+          <Features
+            product={this.state.products.features}
+            loaded={this.state.loaded}
           />
         </div>
       </div>

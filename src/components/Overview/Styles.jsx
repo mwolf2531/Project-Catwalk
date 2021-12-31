@@ -1,12 +1,16 @@
 import React from "react";
 
-const Styles = (props) => {
+const Styles = ({ style, photos }) => {
   return (
-    <div>
-      [This is where bubbles appear]
-      {/* TODO: map over styles prop and display individual style inside of circles */}
-      {/* TODO: add a check to current style selected */}
-    </div>
+    <>
+      {/* {style} */}
+
+        {/* {photos.map((item, i) => {
+          return <img key={i} src={item.thumbnail_url} />;
+        })} */}
+        <img className='style-thumbnail' src={photos[0].thumbnail_url} />
+
+    </>
   );
 };
 

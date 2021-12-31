@@ -123,9 +123,8 @@ router.get('/questions', (req, getRes) => {
     headers: headers,
     params: {
       product_id: 37314,
-      page: 20,
-      count: 20
-
+      page: 1,
+      count: 5
     }
   };
   axios(options)

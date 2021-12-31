@@ -115,5 +115,43 @@ router.put('/report', (req, putRes) => {
 })
 //MEGAN'S ROUTES
 
+router.get('/questions', (req, getRes) => {
+  //Call API, Get question data
+  let options = {
+    method: 'GET',
+    url: url + '/qa/questions',
+    headers: headers,
+    params: {
+      product_id: 37314,
+      page: 20,
+      count: 20
+
+    }
+  };
+  axios(options)
+    .then(function (res) {
+      getRes.send(res.data)
+    })
+    .catch(function (err) { getRes.send(err) });
+})
+
+router.get('/certainQuestion', (req, getRes) => {
+  //Call API, Get question data
+  let options = {
+    method: 'GET',
+    url: url + '/qa/questions/2/answers',
+    headers: headers,
+    params: {
+      question_id: 2
+    }
+  };
+  axios(options)
+    .then(function (res) {
+      getRes.send(res.data)
+    })
+    .catch(function (err) { getRes.send(err) });
+})
+
+
 //RYDER's ROUTES
 module.exports = router;

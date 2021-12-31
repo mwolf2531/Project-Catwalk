@@ -5,6 +5,7 @@ import Helpful from './Helpful.jsx';
 import QuestionsAnswers from './QuestionsAnswers.jsx';
 import Report from './Report.jsx';
 import SearchBar from './SearchBar.jsx';
+import MoreAnswers from './MoreAnswers.jsx';
 
 class QAWidget extends React.Component {
   constructor(props) {
@@ -22,6 +23,9 @@ class QAWidget extends React.Component {
         </div>
         <div>
           <QuestionsAnswers />
+        </div>
+        <div>
+          <MoreAnswers />
         </div>
         <div>
           <AddQuestion />

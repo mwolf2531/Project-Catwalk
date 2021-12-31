@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 class AddQuestion extends React.Component {
@@ -7,7 +8,7 @@ class AddQuestion extends React.Component {
   render() {
     return (
       <div>
-        Add Question
+        <button>Add A Question +</button>
       </div>
     )
   }

@@ -11,16 +11,17 @@ export class OverviewWidget extends Component {
     super(props);
     this.state = {
       ex: "placeholder",
-      //TODO: products
+      products: [],
+      styles: [],
       //TODO: current product selected
     };
     //TODO: dont forget to bind handlers and whatever elese
     this.getProduct = this.getProduct.bind(this)
+    this.getProductStyle = this.getProductStyle.bind(this)
   }
 
   getAllProducts() {
-    axios
-      .get("/api/products")
+    axios.get("/api/products")
       .then((res) => {
         let data = res.data
         console.log("/products", data);
@@ -34,8 +35,7 @@ export class OverviewWidget extends Component {
   }
 
   getProduct() {
-    axios
-      .get("/api/products/product_id")
+    axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
         console.log("Product", data);
@@ -45,7 +45,24 @@ export class OverviewWidget extends Component {
       })
       .catch((err) => {
         console.log("Axios /products ERR", err);
-      });
+      })
+      .then(() => {
+        this.getProductStyle()
+      })
+  }
+
+  getProductStyle() {
+    axios.get("api/products/product_id/styles")
+    .then((res) => {
+      let data = res.data
+      console.log("STYLE", data);
+      this.setState({
+        styles: data
+      })
+    })
+    .catch((err) => {
+      console.log("Axios /style ERR",err )
+    })
   }
 
   // TODO: api call GET /products/:product_id
@@ -68,17 +85,23 @@ export class OverviewWidget extends Component {
           <ProductInfo
             product={this.state.products}
           />
-          <StyleSelector />
-          <AddToCart />
+          <StyleSelector
+            styles={this.state.styles}
+          />
+          <AddToCart
+            size={this.state.styles}
+          />
         </div>
         <div className="o-bottom-container">
-          <ProductSlogan />
+          <ProductSlogan
+            product={this.state.products}
+          />
         </div>
       </div>
     );
   }
 }
-//TODO: Pass list of products to ProductInfo
+//: Pass list of products to ProductInfo
 
 //TODO: Pass current product to ProductSlogan
 

@@ -1,9 +1,10 @@
 import React from "react";
 
-const ProductSlogan = (props) => {
+const ProductSlogan = ({product}) => {
   return (
     <div>
-      [Product Description + Slogan]
+      <span>{product.slogan}</span>
+      <span>{product.description}</span>
       {/* TODO: display slogan and description and last section to bottom */}
     </div>
   );

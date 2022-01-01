@@ -20,17 +20,16 @@ router.get('/reviews', (req, getRes) => {
     headers: headers,
     params: {
       page: 1, //review page to pull from
-      count: 5, //number of reviews to pull
+      count: 50, //number of reviews to pull
       sort: 'relevant', //placeholder - replace with currently selected sort method
       product_id: 37314 //placeholder - replace with id of current product
     }
   };
   axios(options)
-    .then(function (res) {
-      console.log(res.data);
+    .then( (res) => {
       getRes.send(res.data)
     })
-    .catch(function (err) { getRes.send(err) });
+    .catch( (err) => { getRes.send(err) });
 })
 // get "metaData" - pulls all review meta data for the current item
 router.get('/revMeta', (req, getRes) => {
@@ -44,11 +43,11 @@ router.get('/revMeta', (req, getRes) => {
     }
   };
   axios(options)
-    .then(function (res) {
+    .then( (res) => {
       console.log(res.data);
       getRes.send(res.data)
     })
-    .catch(function (err) { getRes.send(err) });
+    .catch( (err) => { getRes.send(err) });
 })
 // post "review" - posts a new user created review
 router.post('/reviews', (req, postRes) => {
@@ -71,11 +70,11 @@ router.post('/reviews', (req, postRes) => {
     }
   };
   axios(options)
-    .then(function (res) {
+    .then( (res) => {
       console.log(res.data);
       postRes.send(res.data)
     })
-    .catch(function (err) { postRes.send(err) });
+    .catch( (err) => { postRes.send(err) });
 })
 // put "helpful" - posts a user toggle of the "helpful" trait review
 router.put('/helpful', (req, putRes) => {
@@ -89,11 +88,11 @@ router.put('/helpful', (req, putRes) => {
     }
   };
   axios(options)
-    .then(function (res) {
+    .then( (res) => {
       console.log(res.data);
       putRes.send(res.data)
     })
-    .catch(function (err) { putRes.send(err) });
+    .catch( (err) => { putRes.send(err) });
 })
 // put "report" - posts a user toggle of a particular report option (bad language, hate speech, etc)
 router.put('/report', (req, putRes) => {
@@ -107,11 +106,11 @@ router.put('/report', (req, putRes) => {
     }
   };
   axios(options)
-    .then(function (res) {
+    .then( (res) => {
       console.log(res.data);
       putRes.send(res.data)
     })
-    .catch(function (err) { putRes.send(err) });
+    .catch( (err) => { putRes.send(err) });
 })
 //MEGAN'S ROUTES
 router.get('/questions', (req, getRes) => {
@@ -127,10 +126,10 @@ router.get('/questions', (req, getRes) => {
     }
   };
   axios(options)
-    .then(function (res) {
+    .then( (res) => {
       getRes.send(res.data)
     })
-    .catch(function (err) { getRes.send(err) });
+    .catch( (err) => { getRes.send(err) });
 })
 
 router.get('/certainQuestion', (req, getRes) => {
@@ -144,10 +143,10 @@ router.get('/certainQuestion', (req, getRes) => {
     }
   };
   axios(options)
-    .then(function (res) {
+    .then( (res) => {
       getRes.send(res.data)
     })
-    .catch(function (err) { getRes.send(err) });
+    .catch( (err) => { getRes.send(err) });
 })
 
 //-----------------------RYDER's ROUTES---------------------

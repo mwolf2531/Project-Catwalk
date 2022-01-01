@@ -52,11 +52,15 @@
 }
 
 .style-thumbnail-container {
-  flex-direction: row;
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border: lawngreen 2px solid;
 }
 
 .style-thumbnail {
-  border-radius: 100%;
+  border-radius: 50%;
   background-color: black;
   width: 75px;
   height: 75px;
@@ -65,8 +69,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   margin: 5px;
-  flex-wrap: wrap;
-  flex: 4 ;
 }
 
 /* ------------------------Questions---------------------- */

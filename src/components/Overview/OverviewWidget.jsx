@@ -14,13 +14,23 @@ export class OverviewWidget extends Component {
       ex: "placeholder",
       products: {features:[]},
       styles: [],
-
+      currentStyle: {},
       loaded: false
       //TODO: current product selected
     };
     //TODO: dont forget to bind handlers and whatever elese
-    this.getProduct = this.getProduct.bind(this)
-    this.getProductStyle = this.getProductStyle.bind(this)
+    this.getProduct = this.getProduct.bind(this);
+    this.getProductStyle = this.getProductStyle.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    // console.log("CLICKED",event)
+    // event.preventDefault();
+    this.setState({
+      currentStyle: event
+    })
+    // console.log("AYYYYYYYY", this.state.currentStyle)
   }
 
   getAllProducts() {
@@ -41,7 +51,7 @@ export class OverviewWidget extends Component {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        console.log("Product", data);
+        // console.log("Product", data);
         this.setState({
           products: data
         })
@@ -59,7 +69,7 @@ export class OverviewWidget extends Component {
     axios.get("api/products/product_id/styles")
     .then((res) => {
       let data = res.data
-      console.log("STYLEz", data);
+      // console.log("STYLEz", data);
       this.setState({
         styles: data,
         loaded: true
@@ -69,6 +79,8 @@ export class OverviewWidget extends Component {
       console.log("Axios /style ERR",err )
     })
   }
+
+
 
   // TODO: api call GET /products/:product_id
   // set state of current product with selected id
@@ -93,6 +105,7 @@ export class OverviewWidget extends Component {
           <StyleSelector
             styles={this.state.styles.results}
             loaded={this.state.loaded}
+            onClick={this.handleClick}
           />
           <AddToCart
             size={this.state.styles}

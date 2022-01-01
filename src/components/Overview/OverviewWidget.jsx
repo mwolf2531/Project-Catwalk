@@ -80,8 +80,6 @@ export class OverviewWidget extends Component {
     })
   }
 
-
-
   // TODO: api call GET /products/:product_id
   // set state of current product with selected id
 

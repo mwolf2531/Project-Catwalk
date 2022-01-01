@@ -14,7 +14,7 @@ export class OverviewWidget extends Component {
       ex: "placeholder",
       products: {features:[]},
       styles: [],
-      currentStyle: {},
+      currentStyle: [],
       loaded: false
       //TODO: current product selected
     };
@@ -25,7 +25,8 @@ export class OverviewWidget extends Component {
   }
 
   handleClick(event) {
-    // console.log("CLICKED",event)
+    // event.preventDefault();
+    console.log("CLICKED",event)
     // event.preventDefault();
     this.setState({
       currentStyle: event
@@ -51,28 +52,26 @@ export class OverviewWidget extends Component {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        // console.log("Product", data);
+        console.log("Product", data);
         this.setState({
-          products: data
+          products: data,
         })
         this.getProductStyle()
       })
       .catch((err) => {
         console.log("Axios /products ERR", err);
       })
-      // .then(() => {
-      //   this.getProductStyle()
-      // })
   }
 
   getProductStyle() {
     axios.get("api/products/product_id/styles")
     .then((res) => {
       let data = res.data
-      // console.log("STYLEz", data);
+      console.log("STYLEz", data);
       this.setState({
         styles: data,
-        loaded: true
+        loaded: true,
+        currentStyle: data.results[0].photos
       })
     })
     .catch((err) => {
@@ -94,7 +93,9 @@ export class OverviewWidget extends Component {
     return (
       <div className="overview">
         <div className="o-top-left-container">
-          <ImageGallery />
+          <ImageGallery
+            currentStyle = {this.state.currentStyle}
+          />
         </div>
         <div className="o-top-right-container">
           <ProductInfo

@@ -12,14 +12,16 @@ class ReviewWidget extends React.Component {
     this.state = {
       reviews: []
     };
+    this.getReviews = this.getReviews.bind(this);
   }
 
   getReviews() {
     axios.get('/api/reviews')
-      .then(function (res) {
-        console.log('Axios /reviews ', res);
+      .then( (res) => {
+        this.setState({reviews: res.data});
+        console.log(this.state)
       })
-      .catch(function (err) {
+      .catch( (err) => {
         console.log('Axios /reviews failed >', err);
       });
   }

@@ -19,8 +19,14 @@ export class OverviewWidget extends Component {
       //TODO: current product selected
     };
     //TODO: dont forget to bind handlers and whatever elese
-    this.getProduct = this.getProduct.bind(this)
-    this.getProductStyle = this.getProductStyle.bind(this)
+    this.getProduct = this.getProduct.bind(this);
+    this.getProductStyle = this.getProductStyle.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+
   }
 
   getAllProducts() {
@@ -69,6 +75,8 @@ export class OverviewWidget extends Component {
       console.log("Axios /style ERR",err )
     })
   }
+
+
 
   // TODO: api call GET /products/:product_id
   // set state of current product with selected id

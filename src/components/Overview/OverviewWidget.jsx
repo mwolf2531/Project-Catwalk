@@ -14,7 +14,7 @@ export class OverviewWidget extends Component {
       ex: "placeholder",
       products: {features:[]},
       styles: [],
-
+      currentStyle: {},
       loaded: false
       //TODO: current product selected
     };
@@ -25,8 +25,12 @@ export class OverviewWidget extends Component {
   }
 
   handleClick(event) {
-    event.preventDefault();
-
+    // console.log("CLICKED",event)
+    // event.preventDefault();
+    this.setState({
+      currentStyle: event
+    })
+    // console.log("AYYYYYYYY", this.state.currentStyle)
   }
 
   getAllProducts() {
@@ -47,7 +51,7 @@ export class OverviewWidget extends Component {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        console.log("Product", data);
+        // console.log("Product", data);
         this.setState({
           products: data
         })
@@ -65,7 +69,7 @@ export class OverviewWidget extends Component {
     axios.get("api/products/product_id/styles")
     .then((res) => {
       let data = res.data
-      console.log("STYLEz", data);
+      // console.log("STYLEz", data);
       this.setState({
         styles: data,
         loaded: true
@@ -101,6 +105,7 @@ export class OverviewWidget extends Component {
           <StyleSelector
             styles={this.state.styles.results}
             loaded={this.state.loaded}
+            onClick={this.handleClick}
           />
           <AddToCart
             size={this.state.styles}

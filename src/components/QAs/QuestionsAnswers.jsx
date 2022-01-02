@@ -1,11 +1,12 @@
 import React from 'react';
 
 
-const QuestionsAnswers = (props) => {
+const QuestionsAnswers = ({ question }) => {
+
 
   return (
     <div>
-      <div>Q: </div>
+      <div>Q:  </div>
       <div>A: </div>
       <div>by User, January 1, 2019</div>
     </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Caraselle from "./Caraselle.jsx";
 import Jumbotron from "./Jumbotron.jsx";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 export class ImageGallery extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export class ImageGallery extends Component {
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   nextSlide() {
@@ -28,7 +30,6 @@ export class ImageGallery extends Component {
   }
 
   prevSlide() {
-    event.preventDefault();
     let length = this.state.currentPic.length;
     if (this.state.currentIndex === 0) {
       this.setState({
@@ -41,8 +42,17 @@ export class ImageGallery extends Component {
     }
   }
 
+  handleClick (event) {
+    console.log(event)
+    let clickIndex = event.target.attributes.index.value
+    console.log('clickIndex:', clickIndex)
+    this.setState({
+      currentIndex: Number(clickIndex)
+    })
+  }
+
+
   componentDidUpdate(prevProps) {
-    event.preventDefault();
     if (this.props.currentStyle !== prevProps.currentStyle) {
       this.setState({
         currentPic: this.props.currentStyle,
@@ -53,16 +63,23 @@ export class ImageGallery extends Component {
   render() {
     return (
       <div className="image-gallery">
-
         <div className="caraselle-container">
-          {this.props.currentStyle.map((image, i) => (
+          {this.state.currentPic.map((image, i) => (
             <Caraselle
-              className="gallery-thumbnails"
+              className={this.state.currentIndex === i ?'current-gallery-thumbnail' : 'gallery-thumbnails'}
               key={i}
+              index={i}
               thumb={image.thumbnail_url}
+              onClick={this.handleClick}
             />
           ))}
+
+          <MdKeyboardArrowDown
+            className="down-arrow"
+            onClick={this.prevSlide}
+          />
         </div>
+
         <FaArrowAltCircleLeft className="left-arrow" onClick={this.prevSlide} />
 
         <div className="jumbotron-container">
@@ -73,7 +90,7 @@ export class ImageGallery extends Component {
                   className="current-image"
                   key={index}
                   onClick={this.nextSlide}
-                  src={image.thumbnail_url}
+                  src={image.url}
                 />
               );
             }

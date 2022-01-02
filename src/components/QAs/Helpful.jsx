@@ -17,9 +17,6 @@ class Helpful extends React.Component {
   handleClick(event) {
     event.preventDefault();
     if (this.state.disabled) {
-      this.setState({
-        count: this.state.count + 1
-      })
       return;
     }
     this.setState({
@@ -30,7 +27,7 @@ class Helpful extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='q-top-right'>
         <button onClick={this.handleClick}>Helpful? Yes ({this.state.count})</button>
       </div>
     )

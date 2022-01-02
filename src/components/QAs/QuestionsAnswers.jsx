@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import Helpful from './Helpful.jsx';
+import AddAnswer from './AddAnswer.jsx';
 
 
-const QuestionsAnswers = ({ question }) => {
+const QuestionsAnswers = ({ question, handleAnswerClose, showAnswerModal, hideAnswerModal, showAnswer }) => {
 
   const questionMap = question.results.map((questions, i) =>
     <div>
-      <div key={i}>Q: {questions.question_body}</div>
+      <div key={i}>Q: {questions.question_body}
+        <Helpful />
+      </div>
       <div key={i + 1}>A: {questions.answers.answer_body}</div>
       <div key={i + 2}>by {questions.answers.answerer_name}</div>
       <div key={i + 3}>{questions.answers.date}</div>

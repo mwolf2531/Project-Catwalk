@@ -8,7 +8,6 @@ import StarDisplay from './starDisplay.jsx';
 class averagesElement extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props', props)
     this.state = {
       avgRate: 3
     };

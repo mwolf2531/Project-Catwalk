@@ -6,7 +6,6 @@ import { BsStarHalf } from 'react-icons/bs';
 import { BsStar } from 'react-icons/bs';
 
 const StarDisplay = ({rating}) => {
-  console.log('rating', rating);
   if (rating === 5) {
     return (
       <div>

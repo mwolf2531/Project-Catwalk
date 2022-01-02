@@ -2,18 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-class AddQuestion extends React.Component {
+const AddQuestion = ({ handleQuestionClose, showQuestion, children }) => {
 
+  const showHideClassName = showQuestion ? "modal display-block" : "modal display-none";
 
-  render() {
-    return (
-      <div>
-        <button>Add A Question +</button>
-      </div>
-    )
-  }
-
+  return (
+    <div className={showHideClassName}>
+      <section className="modal-main">
+        {children}
+        <form action="/action_page.php">
+          <input type="text" placeholder="Name..." name="name" />
+        </form>
+        <form action="/action_page.php">
+          <input type="text" placeholder="Email..." name="email" />
+        </form>
+        <form action="/action_page.php">
+          <input type="text" placeholder="Question..." name="question" />
+        </form>
+        <button type="button" onClick={handleQuestionClose}>
+          Ask your Question
+        </button>
+      </section>
+    </div>
+  );
 }
+
 
 export default AddQuestion;
 

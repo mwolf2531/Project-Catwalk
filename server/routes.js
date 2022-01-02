@@ -44,7 +44,7 @@ router.get('/revMeta', (req, getRes) => {
   };
   axios(options)
     .then( (res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch( (err) => { getRes.send(err) });
@@ -71,7 +71,7 @@ router.post('/reviews', (req, postRes) => {
   };
   axios(options)
     .then( (res) => {
-      console.log(res.data);
+      //console.log(res.data);
       postRes.send(res.data)
     })
     .catch( (err) => { postRes.send(err) });
@@ -89,7 +89,7 @@ router.put('/helpful', (req, putRes) => {
   };
   axios(options)
     .then( (res) => {
-      console.log(res.data);
+      //console.log(res.data);
       putRes.send(res.data)
     })
     .catch( (err) => { putRes.send(err) });
@@ -107,7 +107,7 @@ router.put('/report', (req, putRes) => {
   };
   axios(options)
     .then( (res) => {
-      console.log(res.data);
+      //console.log(res.data);
       putRes.send(res.data)
     })
     .catch( (err) => { putRes.send(err) });
@@ -163,7 +163,7 @@ router.get('/products', (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {
@@ -183,7 +183,7 @@ router.get(`/products/product_id`, (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {
@@ -203,7 +203,7 @@ router.get(`/products/product_id/styles`, (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {
@@ -219,7 +219,7 @@ router.get(`/cart`, (req, getRes) => {
   };
   axios(options)
   .then((res) => {
-    console.log(res.data);
+    //console.log(res.data);
     getRes.send(res.data)
   })
   .catch((err) => {
@@ -240,7 +240,7 @@ router.post(`/cart`, (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {

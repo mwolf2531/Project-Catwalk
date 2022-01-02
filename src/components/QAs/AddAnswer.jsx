@@ -3,16 +3,31 @@ import ReactDOM from 'react-dom';
 
 
 
-class AddAnswer extends React.Component {
-  render() {
-    return (
-      <div>
-        <button>Add Answer</button>
-      </div>
-    )
-  }
+const AddAnswer = ({ handleAnswerClose, showAnswer, children }) => {
 
+  const showHideClassName = showAnswer ? "modal display-block" : "modal display-none";
+
+  return (
+    <div className={showHideClassName}>
+      <section className="modal-main">
+        {children}
+        <form action="/action_page.php">
+          <input type="text" placeholder="Name..." name="name" />
+        </form>
+        <form action="/action_page.php">
+          <input type="text" placeholder="Email..." name="email" />
+        </form>
+        <form action="/action_page.php">
+          <input type="text" placeholder="Answer..." name="question" />
+        </form>
+        <button type="button" onClick={handleAnswerClose}>
+          Submit your Answer
+        </button>
+      </section>
+    </div>
+  );
 }
+
 
 export default AddAnswer;
 

@@ -166,6 +166,13 @@
 .questions {
   order: 2;
   border: 2px solid green;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-rows: auto;
+}
+
+.q-top-right {
+  float: right;
 }
 
 .modal {

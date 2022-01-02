@@ -4,10 +4,10 @@
 //AssembledStarsDisplay is exported for use by Ryder
 
 import React from 'react';
+import StarDisplay from './starDisplay.jsx';
 class averagesElement extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props', props)
     this.state = {
       avgRate: 3
     };
@@ -53,6 +53,7 @@ class averagesElement extends React.Component {
     return (
     <div className="revAverages"> Averages
       <div className="starScore">Average Score: {this.state.avgRate}</div>
+      <StarDisplay className="stars" rating={this.state.avgRate} />
 
     </div>
     )

@@ -36,7 +36,6 @@ class ReviewWidget extends React.Component {
     axios.get('/api/revMeta')
     .then( (res) => {
       this.setState({meta: res.data});
-      console.log('Product Meta<><><>', this.state.meta)
     })
     .catch( (err) => {
       console.log('Axios /revMeta failed >', err);

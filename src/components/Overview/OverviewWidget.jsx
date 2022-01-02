@@ -11,14 +11,11 @@ export class OverviewWidget extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ex: "placeholder",
       products: {features:[]},
       styles: [],
       currentStyle: [],
       loaded: false
-      //TODO: current product selected
     };
-    //TODO: dont forget to bind handlers and whatever elese
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyle = this.getProductStyle.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -52,7 +49,7 @@ export class OverviewWidget extends Component {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        console.log("Product", data);
+        // console.log("Product", data);
         this.setState({
           products: data,
         })
@@ -67,7 +64,7 @@ export class OverviewWidget extends Component {
     axios.get("api/products/product_id/styles")
     .then((res) => {
       let data = res.data
-      console.log("STYLEz", data);
+      // console.log("STYLEz", data);
       this.setState({
         styles: data,
         loaded: true,
@@ -78,12 +75,6 @@ export class OverviewWidget extends Component {
       console.log("Axios /style ERR",err )
     })
   }
-
-  // TODO: api call GET /products/:product_id
-  // set state of current product with selected id
-
-  // TODO: Click handler for style selected
-  // calls the api func to grab current
 
   componentDidMount() {
     this.getProduct();
@@ -125,12 +116,5 @@ export class OverviewWidget extends Component {
     );
   }
 }
-//: Pass list of products to ProductInfo
-
-//TODO: Pass current product to ProductSlogan
-
-//TODO: pass handler to styleSelector
-
-//TODO: pass current Product to imageGallery
 
 export default OverviewWidget;

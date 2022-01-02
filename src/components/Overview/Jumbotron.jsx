@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Jumbotron = ({item}) => {
+const Jumbotron = ({image}) => {
   return (
     <div>
         <img
-         src={item.thumbnail_url} />
+         src={image} />
     </div>
   )
 }

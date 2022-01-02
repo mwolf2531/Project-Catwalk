@@ -6,28 +6,40 @@ export class ImageGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPic: this.props.currentStyle
+
     }
+    this.nextSlide = this.nextSlide.bind(this)
+  }
+
+  nextSlide () {
+
+  }
+
+  prevSlide () {
 
   }
 
   render() {
     return (
       <>
-      {console.log('props:', this.props.currentStyle)}
       <div className='jumbotron-container'>
-      {this.props.currentStyle.map((item, i) => (
+      {this.props.currentStyle.map((image, i) => (
         <Jumbotron key={i}
-          item={item}
-        />
+          image={image.thumbnail_url} />
       ))}
       </div>
 
-        <Caraselle className='caraselle-container'/>
+      <div className='caraselle-container'>
+      {this.props.currentStyle.map((image, i) => (
+        <Caraselle key={i}
+        thumb={image.thumbnail_url} />
+      ))}
+      </div>
+
       </>
     );
   }
 }
-// TODO: pass all pics to caraselle so it can map them out into squares
+
 
 export default ImageGallery;

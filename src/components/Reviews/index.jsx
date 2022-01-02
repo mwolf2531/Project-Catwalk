@@ -10,9 +10,15 @@ class ReviewWidget extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: {},
+      meta: {
+        ratings: {},
+        recommended: {},
+        characteristics: {}
+      }
     };
     this.getReviews = this.getReviews.bind(this);
+    this.getMeta = this.getMeta.bind(this);
   }
 
   getReviews() {
@@ -25,13 +31,25 @@ class ReviewWidget extends React.Component {
         console.log('Axios /reviews failed >', err);
       });
   }
+
+  getMeta() {
+    axios.get('/api/revMeta')
+    .then( (res) => {
+      this.setState({meta: res.data});
+      console.log('Product Meta<><><>', this.state.meta)
+    })
+    .catch( (err) => {
+      console.log('Axios /revMeta failed >', err);
+    });
+  }
   componentDidMount() {
     this.getReviews();
+    this.getMeta();
   }
   render() {
     return <div className="reviews"> Reviews Section
-      {/* <Averages />
-      <BodyElement />
+      <Averages meta={this.state.meta} />
+      {/* <BodyElement />
     //More Reviews Button
       //Adds two more reviews to the scrollable list of reviews in the Body Element
       <button>More Reviews</button>

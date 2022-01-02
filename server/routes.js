@@ -26,10 +26,10 @@ router.get('/reviews', (req, getRes) => {
     }
   };
   axios(options)
-    .then( (res) => {
+    .then((res) => {
       getRes.send(res.data)
     })
-    .catch( (err) => { getRes.send(err) });
+    .catch((err) => { getRes.send(err) });
 })
 // get "metaData" - pulls all review meta data for the current item
 router.get('/revMeta', (req, getRes) => {
@@ -43,11 +43,11 @@ router.get('/revMeta', (req, getRes) => {
     }
   };
   axios(options)
-    .then( (res) => {
-      console.log(res.data);
+    .then((res) => {
+      //console.log(res.data);
       getRes.send(res.data)
     })
-    .catch( (err) => { getRes.send(err) });
+    .catch((err) => { getRes.send(err) });
 })
 // post "review" - posts a new user created review
 router.post('/reviews', (req, postRes) => {
@@ -70,11 +70,11 @@ router.post('/reviews', (req, postRes) => {
     }
   };
   axios(options)
-    .then( (res) => {
-      console.log(res.data);
+    .then((res) => {
+      //console.log(res.data);
       postRes.send(res.data)
     })
-    .catch( (err) => { postRes.send(err) });
+    .catch((err) => { postRes.send(err) });
 })
 // put "helpful" - posts a user toggle of the "helpful" trait review
 router.put('/helpful', (req, putRes) => {
@@ -88,11 +88,11 @@ router.put('/helpful', (req, putRes) => {
     }
   };
   axios(options)
-    .then( (res) => {
-      console.log(res.data);
+    .then((res) => {
+      //console.log(res.data);
       putRes.send(res.data)
     })
-    .catch( (err) => { putRes.send(err) });
+    .catch((err) => { putRes.send(err) });
 })
 // put "report" - posts a user toggle of a particular report option (bad language, hate speech, etc)
 router.put('/report', (req, putRes) => {
@@ -106,13 +106,15 @@ router.put('/report', (req, putRes) => {
     }
   };
   axios(options)
-    .then( (res) => {
-      console.log(res.data);
+    .then((res) => {
+      //console.log(res.data);
       putRes.send(res.data)
     })
-    .catch( (err) => { putRes.send(err) });
+    .catch((err) => { putRes.send(err) });
 })
+
 //MEGAN'S ROUTES
+
 router.get('/questions', (req, getRes) => {
   //Call API, Get question data
   let options = {
@@ -126,10 +128,10 @@ router.get('/questions', (req, getRes) => {
     }
   };
   axios(options)
-    .then( (res) => {
+    .then((res) => {
       getRes.send(res.data)
     })
-    .catch( (err) => { getRes.send(err) });
+    .catch((err) => { getRes.send(err) });
 })
 
 router.get('/certainQuestion', (req, getRes) => {
@@ -143,10 +145,115 @@ router.get('/certainQuestion', (req, getRes) => {
     }
   };
   axios(options)
-    .then( (res) => {
+    .then((res) => {
       getRes.send(res.data)
     })
-    .catch( (err) => { getRes.send(err) });
+    .catch((err) => { getRes.send(err) });
+})
+
+router.post('/questionPost', (req, postRes) => {
+  //Call API, Get review data
+  let options = {
+    method: 'POST',
+    url: url + '/qa/questions',
+    headers: headers,
+    params: {
+      body: 'body of question',
+      name: 'Megan',
+      email: 'user@gmail.com',
+      product_id: 37314
+    }
+  };
+  axios(options)
+    .then((res) => {
+      postRes.send(res.data)
+    })
+    .catch((err) => { postRes.send(err) });
+})
+
+router.post('/answerPost', (req, postRes) => {
+
+  let options = {
+    method: 'POST',
+    url: url + '/qa/questions/300/answers',
+    headers: headers,
+    params: {
+      question_id: 300,
+      body: 'body of answer',
+      name: 'Megan',
+      email: 'user@gmail.com',
+      photos: []
+    }
+  };
+  axios(options)
+    .then((res) => {
+      postRes.send(res.data)
+    })
+    .catch((err) => { postRes.send(err) });
+})
+
+router.put('/questionHelpful', (req, putRes) => {
+  let options = {
+    method: 'PUT',
+    url: url + '/qa/questions/300/helpful',
+    headers: headers,
+    params: {
+      question_id: 300
+    }
+  };
+  axios(options)
+    .then((res) => {
+      putRes.send(res.data)
+    })
+    .catch((err) => { putRes.send(err) });
+})
+
+router.put('/reportQuestion', (req, putRes) => {
+  let options = {
+    method: 'PUT',
+    url: url + '/qa/questions/3000/report',
+    headers: headers,
+    params: {
+      question_id: 3000
+    }
+  };
+  axios(options)
+    .then((res) => {
+      putRes.send(res.data)
+    })
+    .catch((err) => { putRes.send(err) });
+})
+
+router.put('/answerHelpful', (req, putRes) => {
+  let options = {
+    method: 'PUT',
+    url: url + '/qa/answers/300/helpful',
+    headers: headers,
+    params: {
+      answer_id: 300
+    }
+  };
+  axios(options)
+    .then((res) => {
+      putRes.send(res.data)
+    })
+    .catch((err) => { putRes.send(err) });
+})
+
+router.put('/reportAnswer', (req, putRes) => {
+  let options = {
+    method: 'PUT',
+    url: url + '/qa/answers/3000/report',
+    headers: headers,
+    params: {
+      answer_id: 3000
+    }
+  };
+  axios(options)
+    .then((res) => {
+      putRes.send(res.data)
+    })
+    .catch((err) => { putRes.send(err) });
 })
 
 //-----------------------RYDER's ROUTES---------------------
@@ -163,12 +270,12 @@ router.get('/products', (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {
-       res.send(err)
-      });
+      res.send(err)
+    });
 })
 
 router.get(`/products/product_id`, (req, getRes) => {
@@ -183,12 +290,12 @@ router.get(`/products/product_id`, (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {
-       res.send(err)
-      });
+      res.send(err)
+    });
 })
 
 router.get(`/products/product_id/styles`, (req, getRes) => {
@@ -203,12 +310,12 @@ router.get(`/products/product_id/styles`, (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {
-       res.send(err)
-      });
+      res.send(err)
+    });
 })
 
 router.get(`/cart`, (req, getRes) => {
@@ -218,13 +325,13 @@ router.get(`/cart`, (req, getRes) => {
     headers: headers,
   };
   axios(options)
-  .then((res) => {
-    console.log(res.data);
-    getRes.send(res.data)
-  })
-  .catch((err) => {
-    res.send(err)
-  });
+    .then((res) => {
+      //console.log(res.data);
+      getRes.send(res.data)
+    })
+    .catch((err) => {
+      res.send(err)
+    });
 })
 
 router.post(`/cart`, (req, getRes) => {
@@ -240,12 +347,12 @@ router.post(`/cart`, (req, getRes) => {
   };
   axios(options)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       getRes.send(res.data)
     })
     .catch((err) => {
-       res.send(err)
-      });
+      res.send(err)
+    });
 })
 
 module.exports = router;

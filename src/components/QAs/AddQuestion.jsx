@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 const AddQuestion = ({ handleQuestionClose, showQuestion, children }) => {
 
-  const showHideClassName = showQuestion ? "modal display-block" : "modal display-none";
+  let showHideClassName = showQuestion ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>

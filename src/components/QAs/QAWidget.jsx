@@ -14,7 +14,7 @@ class QAWidget extends React.Component {
     this.state = {
       showQuestion: false,
       showAnswer: false,
-      questions: [],
+      questions: { results: [] },
       currentQuestion: '',
       currentAnswer: '',
       currentUser: ''
@@ -24,13 +24,10 @@ class QAWidget extends React.Component {
     this.hideQuestionModal = this.hideQuestionModal.bind(this);
     this.showAnswerModal = this.showAnswerModal.bind(this);
     this.hideAnswerModal = this.hideAnswerModal.bind(this);
+
   }
 
-  componentDidMount() {
-    this.getAllReviews()
-  }
-
-  getAllReviews() {
+  getAllQuestions() {
     axios.get("/api/questions")
       .then((res) => {
         let data = res.data
@@ -58,6 +55,10 @@ class QAWidget extends React.Component {
   hideAnswerModal = () => {
     this.setState({ showAnswer: false });
   };
+
+  componentDidMount() {
+    this.getAllQuestions()
+  }
 
   render() {
     return (

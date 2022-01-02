@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 
 const QuestionsAnswers = ({ question }) => {
 
+  const questionMap = question.results.map((questions, i) =>
+    <div>
+      <div key={i}>Q: {questions.question_body}</div>
+      <div key={i + 1}>A: {questions.answers.answer_body}</div>
+      <div key={i + 2}>by {questions.answers.answerer_name}</div>
+      <div key={i + 3}>{questions.answers.date}</div>
+    </div>
+  );
 
   return (
     <div>
-      <div>Q:  </div>
-      <div>A: </div>
-      <div>by User, January 1, 2019</div>
+      {questionMap}
     </div>
   )
 }

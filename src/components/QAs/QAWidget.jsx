@@ -14,23 +14,17 @@ class QAWidget extends React.Component {
     this.state = {
       showQuestion: false,
       showAnswer: false,
-      questions: [],
-      currentQuestion: '',
-      currentAnswer: '',
-      currentUser: ''
+      questions: { results: [] },
     }
 
     this.showQuestionModal = this.showQuestionModal.bind(this);
     this.hideQuestionModal = this.hideQuestionModal.bind(this);
     this.showAnswerModal = this.showAnswerModal.bind(this);
     this.hideAnswerModal = this.hideAnswerModal.bind(this);
+
   }
 
-  componentDidMount() {
-    this.getAllReviews()
-  }
-
-  getAllReviews() {
+  getAllQuestions() {
     axios.get("/api/questions")
       .then((res) => {
         let data = res.data
@@ -59,19 +53,32 @@ class QAWidget extends React.Component {
     this.setState({ showAnswer: false });
   };
 
+
+  componentDidMount() {
+    this.getAllQuestions()
+  }
+
   render() {
     return (
       <div className='questions'>
-        <div>
+        <div className='q-top-row'>
           <SearchBar />
         </div>
-        <div>
-          <QuestionsAnswers question={this.state.questions} />
+        <div className='q-middle'>
+          <QuestionsAnswers
+            question={this.state.questions} />
+          <AddAnswer
+            handleAnswerClose={this.hideAnswerModal}
+            showAnswer={this.state.showAnswer} />
+          <button type="button"
+            onClick={this.showAnswerModal}>
+            Add Answer
+          </button>
         </div>
-        <div>
+        <div className='q-middle'>
           <MoreAnswers />
         </div>
-        <div>
+        <div className='q-middle'>
           <AddQuestion
             showQuestion={this.state.showQuestion}
             handleQuestionClose={this.hideQuestionModal} />
@@ -81,19 +88,9 @@ class QAWidget extends React.Component {
           </button>
         </div>
         <div>
-          <AddAnswer
-            showAnswer={this.state.showAnswer}
-            handleAnswerClose={this.hideAnswerModal} />
-          <button type="button"
-            onClick={this.showAnswerModal}>
-            Add Answer
-          </button>
+
         </div>
-        <div>
-          <Report />
-          <Helpful />
-        </div>
-      </div>
+      </div >
     )
   }
 

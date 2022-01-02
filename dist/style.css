@@ -51,16 +51,31 @@
   border: 2px solid rgb(255, 196, 0);
 }
 
+.jumbotron-container {
+  border: grey 2px solid;
+  /* width: 100%;
+  height: 100%; */
+}
+
+.caraselle-container {
+  border:rgb(0, 81, 255) 2px solid
+}
+
 .style-thumbnail-container {
   display: flex;
   flex-direction:row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  border: lawngreen 2px solid;
+}
+
+.style-thumbnail:hover {
+
+  border:2pt solid rgb(69, 4, 190);
 }
 
 .style-thumbnail {
   border-radius: 50%;
+  border: 2pt solid rgb(175, 175, 175);
   background-color: black;
   width: 75px;
   height: 75px;
@@ -70,6 +85,7 @@
   background-repeat: no-repeat;
   margin: 5px;
 }
+
 
 /* ------------------------Questions---------------------- */
 

@@ -99,14 +99,23 @@
 .caraselle-container {
   border: 2pt solid rgb(175, 175, 175);
   overflow: auto;
+  text-align: center;
 }
 
 .current-gallery-thumbnail {
-  border: 6px solid cornflowerblue;
+  border-bottom: 5px solid rgb(117, 4, 151);
+  background-color: black;
+  width: 70px;
+  height: 70px;
+  display: inline-block; /* makes it fit in like an <img> */
+  background-size: cover; /* or contain */
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 5px;
 }
 
 .gallery-thumbnails{
-  border: 2px solid rgb(175, 175, 175);
+  border: 1px solid rgb(175, 175, 175);
   background-color: black;
   width: 70px;
   height: 70px;

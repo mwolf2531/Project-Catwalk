@@ -1,9 +1,13 @@
 import React from "react";
 
-const Caraselle = ({thumb}) => {
+const Caraselle = ({thumb, onClick, index}) => {
   return (
     <div>
-    <img src={thumb} />
+    <img
+    index={index}
+    onClick = {() => onClick(event)}
+    className="gallery-thumbnails"
+    src={thumb} />
     </div>
   );
 };

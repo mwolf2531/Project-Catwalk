@@ -76,7 +76,7 @@ export class ImageGallery extends Component {
 
           <MdKeyboardArrowDown
             className="down-arrow"
-            onClick={this.prevSlide}
+            onClick={this.nextSlide}
           />
         </div>
 

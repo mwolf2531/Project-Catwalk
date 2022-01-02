@@ -14,19 +14,22 @@ export class OverviewWidget extends Component {
       products: {features:[]},
       styles: [],
       currentStyle: [],
-      loaded: false
+      loaded: false,
+      clickedItem:{}
     };
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyle = this.getProductStyle.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(event) {
+  handleClick(event, item) {
+    console.log('item:', item)
     // event.preventDefault();
-    console.log("CLICKED",event)
+    // console.log("CLICKED",event)
     // event.preventDefault();
     this.setState({
-      currentStyle: event
+      currentStyle: event,
+      clickedItem: item
     })
     // console.log("AYYYYYYYY", this.state.currentStyle)
   }
@@ -49,7 +52,7 @@ export class OverviewWidget extends Component {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        // console.log("Product", data);
+        console.log("Product", data);
         this.setState({
           products: data,
         })
@@ -68,7 +71,7 @@ export class OverviewWidget extends Component {
       this.setState({
         styles: data,
         loaded: true,
-        currentStyle: data.results[0].photos
+        currentStyle: data.results[0].photos,
       })
     })
     .catch((err) => {
@@ -91,6 +94,7 @@ export class OverviewWidget extends Component {
         <div className="o-top-right-container">
           <ProductInfo
             product={this.state.products}
+            style={this.state.clickedItem}
           />
           <StyleSelector
             styles={this.state.styles.results}

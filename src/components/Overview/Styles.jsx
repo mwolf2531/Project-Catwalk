@@ -4,7 +4,7 @@ const Styles = ({ style, photos, onClick, item }) => {
   return (
     <>
         <img className='style-thumbnail'
-        onClick={() => onClick(item.photos)}
+        onClick={() => onClick(item.photos, item)}
          src={photos[0].thumbnail_url} />
     </>
   );

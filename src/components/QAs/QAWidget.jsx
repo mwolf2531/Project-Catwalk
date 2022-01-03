@@ -23,6 +23,7 @@ class QAWidget extends React.Component {
     this.showAnswerModal = this.showAnswerModal.bind(this);
     this.hideAnswerModal = this.hideAnswerModal.bind(this);
     this.searchBarUpdate = this.searchBarUpdate.bind(this);
+    this.dynamicSearch = this.dynamicSearch.bind(this);
   }
 
   getAllQuestions() {
@@ -59,6 +60,10 @@ class QAWidget extends React.Component {
     this.setState({ searchTerm: event.target.value })
   };
 
+  dynamicSearch = () => {
+    return this.state.questions.results.filter(question => question.question_body.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  }
+
 
   componentDidMount() {
     this.getAllQuestions()
@@ -75,7 +80,9 @@ class QAWidget extends React.Component {
         </div>
         <div className='q-middle'>
           <QuestionsAnswers
-            question={this.state.questions} />
+            question={this.state.questions}
+            search={this.state.searchTerm}
+          />
           <AddAnswer
             handleAnswerClose={this.hideAnswerModal}
             showAnswer={this.state.showAnswer} />

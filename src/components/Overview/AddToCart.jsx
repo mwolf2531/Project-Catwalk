@@ -2,15 +2,29 @@ import React, { Component } from "react";
 
 export class AddToCart extends Component {
   render() {
+    const buttonStyle = {
+      color: "grey",
+    };
     return (
-      <div>
-      <select name='sizes'>
-        <option value='1'>SELECT SIZE</option>
-      </select>
-        <button >ADD TO BAG</button>
-        {/* TODO: make drop down for select size '-' */}
-        {/* TODO: make drop down for quantity 'select size' */}
-        {/* TODO: make button 'add to bag' */}
+      <div className="cart-container">
+        <select className="select-size" name="sizes">
+          <option value="1">SELECT SIZE</option>
+        </select>
+
+        <select
+          className="select-quantity"
+          style={{ textalign: "center" }}
+          name="-"
+        >
+          <option value="1">-</option>
+        </select>
+
+        <div>
+          <button style={buttonStyle} className="bag-button">
+            ADD TO BAG
+          </button>
+
+        </div>
       </div>
     );
   }

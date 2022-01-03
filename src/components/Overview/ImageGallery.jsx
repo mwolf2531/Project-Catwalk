@@ -43,9 +43,7 @@ export class ImageGallery extends Component {
   }
 
   handleClick (event) {
-    console.log(event)
     let clickIndex = event.target.attributes.index.value
-    console.log('clickIndex:', clickIndex)
     this.setState({
       currentIndex: Number(clickIndex)
     })

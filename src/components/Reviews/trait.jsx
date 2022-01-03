@@ -43,19 +43,13 @@ const Trait = ({trait}) => {
         },
       }}
       data = {{
-        labels: [''],
+        labels: ['TraitName'],
         datasets: [
           {
             id: 1,
             label: 'AvgScore',
             data: [3],
             backgroundColor: '#255'
-          },
-          {
-            id: 2,
-            label: 'AvgScore',
-            data: [1.2],
-            backgroundColor: '#377'
           }
         ]
       }}

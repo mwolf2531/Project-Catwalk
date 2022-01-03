@@ -1,7 +1,27 @@
 import React from "react";
 import StarDisplay from './starDisplay.jsx';
+import Helpful from './Helpful.jsx';
+import Report from './Report.jsx';
 //This Element creates a single review
+const Review = ({ review }) => {
+  if (review) {
+    return (
+      <div> Review
+        <div className="reviewTitle">{review.summary}</div>
+        <div className="reviewBody">{review.body}</div>
+        <StarDisplay rating={review.rating} />
+        <div className="revUser">{review.reviewer_name}</div>
+        <div className="timestamp">{review.date}</div>
+        <Helpful helpfulness={review.helpfulness} />
+        <Report />
+      </div>
+    )
+  } else {
+    return (<div></div>)
+  }
+}
 
+export default Review;
 //Takes in an individual review from the state and turns it into a templated review
 
 //StarDisplay

@@ -4,6 +4,7 @@ const Jumbotron = ({image}) => {
   return (
     <div>
         <img
+        alt = 'current style'
          src={image} />
     </div>
   )

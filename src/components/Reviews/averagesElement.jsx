@@ -5,6 +5,7 @@
 
 import React from 'react';
 import StarDisplay from './starDisplay.jsx';
+import Trait from './trait.jsx';
 class averagesElement extends React.Component {
   constructor(props) {
     super(props);
@@ -47,8 +48,6 @@ class averagesElement extends React.Component {
     }
   }
   render() {
-    //Recommendations
-    //Displays the percentage of users who selected "yes" for recommending the product
     //ScoreTable
     //Shows a bar graph depicting the number of ratings in each category (1,2,3,4 or 5 stars)
     //TraitsTable
@@ -59,6 +58,7 @@ class averagesElement extends React.Component {
       <div className="starScore">Average Score: {this.state.avgRate}</div>
       <StarDisplay className="stars" rating={this.state.avgRate} />
       <div className="revRecos">{this.state.recPercent}% of reviews recommend this product</div>
+      <Trait />
     </div>
     )
   }

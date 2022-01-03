@@ -27,7 +27,7 @@ class Helpful extends React.Component {
 
   render() {
     return (
-      <div className='q-top-right'>
+      <div>
         <button onClick={this.handleClick}>Helpful? Yes ({this.state.count})</button>
       </div>
     )

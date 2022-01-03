@@ -12,6 +12,7 @@ const AddAnswer = ({ handleAnswerClose, showAnswer, showAnswerModal, children })
       <div className={showHideClassName}>
         <section className="modal-main">
           {children}
+          <h1>Add an Answer</h1>
           <form action="/action_page.php">
             <input type="text" placeholder="Name..." name="name" />
           </form>

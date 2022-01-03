@@ -2,7 +2,6 @@ import React from "react";
 import StarDisplay from './starDisplay.jsx';
 //This Element creates a single review
 const Review = ({ review }) => {
-  console.log('review', review);
   if (review) {
     return (
       <div> Review

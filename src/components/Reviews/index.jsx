@@ -48,13 +48,9 @@ class ReviewWidget extends React.Component {
   render() {
     return <div className="reviews"> Reviews Section
       <Averages meta={this.state.meta} />
-      {/* <BodyElement />
-    //More Reviews Button
-      //Adds two more reviews to the scrollable list of reviews in the Body Element
+      <BodyElement reviews={this.state.reviews} />
       <button>More Reviews</button>
-    //Add A Review Button
-      //Calls the popup to add a review found in addReview
-      <button>Add A Review +</button> */}
+      <button>Add A Review +</button>
     </div>
   }
 

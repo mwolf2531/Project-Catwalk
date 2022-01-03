@@ -49,11 +49,6 @@ class averagesElement extends React.Component {
     }
   }
   render() {
-    //ScoreTable
-    //Shows a bar graph depicting the number of ratings in each category (1,2,3,4 or 5 stars)
-    //TraitsTable
-    //Import a trait display for each trait the object is reviewed on
-    //Display all trait displays in a single table
     return (
     <div className="revAverages"> Averages
       <div className="starScore">Average Score: {this.state.avgRate}</div>
@@ -62,10 +57,11 @@ class averagesElement extends React.Component {
       <ScoreTable className="scoreTable" scores={this.props.meta.ratings}/>
       {/* TODO: Traits mapped off meta data */}
       <Trait />
+      <div>~~~END OF AVERAGES ELEMENT~~~</div>
     </div>
     )
   }
 
 }
 export default averagesElement;
-//TODO: EXPORT STAR DISPAY FOR RYDER
+//TODO: EXPORT STAR DISPLAY FOR RYDER

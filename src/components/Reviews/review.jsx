@@ -1,5 +1,7 @@
 import React from "react";
 import StarDisplay from './starDisplay.jsx';
+import Helpful from './Helpful.jsx';
+import Report from './Report.jsx';
 //This Element creates a single review
 const Review = ({ review }) => {
   if (review) {
@@ -10,8 +12,8 @@ const Review = ({ review }) => {
         <StarDisplay rating={review.rating} />
         <div className="revUser">{review.reviewer_name}</div>
         <div className="timestamp">{review.date}</div>
-        <button>Helpful?</button>
-        <button>Report!</button>
+        <Helpful helpfulness={review.helpfulness} />
+        <Report />
       </div>
     )
   } else {

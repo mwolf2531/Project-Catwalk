@@ -5,11 +5,13 @@
 
 import React from 'react';
 import StarDisplay from './starDisplay.jsx';
+import Trait from './trait.jsx';
 class averagesElement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      avgRate: 3
+      avgRate: 3,
+      recPercent: 50
     };
     this.makeAverage = this.makeAverage.bind(this);
   }
@@ -27,6 +29,15 @@ class averagesElement extends React.Component {
       avg = Math.round(avg*2)/2;
       this.setState({avgRate: avg});
     }
+    let recos = this.props.meta.recommended;
+    if(recos.true) {
+      recos.true = Number(recos.true);
+      recos.false = Number(recos.false);
+      let totalRecos = recos.true + recos.false;
+      let avgReco = recos.true / totalRecos;
+      avgReco = Math.round(avgReco * 100);
+      this.setState({recPercent: avgReco})
+    }
   }
   componentDidMount() {
 
@@ -37,14 +48,6 @@ class averagesElement extends React.Component {
     }
   }
   render() {
-    //Title
-    //Star Score
-    //Display the average score awarded for the item IE: 3.5 Stars
-    //Stars Display
-    //Display the average score as a star based graphic - ***1/2 Stars
-    //import from starDisplay
-    //Recommendations
-    //Displays the percentage of users who selected "yes" for recommending the product
     //ScoreTable
     //Shows a bar graph depicting the number of ratings in each category (1,2,3,4 or 5 stars)
     //TraitsTable
@@ -54,7 +57,8 @@ class averagesElement extends React.Component {
     <div className="revAverages"> Averages
       <div className="starScore">Average Score: {this.state.avgRate}</div>
       <StarDisplay className="stars" rating={this.state.avgRate} />
-
+      <div className="revRecos">{this.state.recPercent}% of reviews recommend this product</div>
+      <Trait />
     </div>
     )
   }

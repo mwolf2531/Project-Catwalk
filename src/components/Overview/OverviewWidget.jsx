@@ -14,21 +14,19 @@ export class OverviewWidget extends Component {
       products: {features:[]},
       styles: [],
       currentStyle: [],
-      loaded: false
+      loaded: false,
+      clickedItem:{}
     };
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyle = this.getProductStyle.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(event) {
-    // event.preventDefault();
-    console.log("CLICKED",event)
-    // event.preventDefault();
+  handleClick(event, item) {
     this.setState({
-      currentStyle: event
+      currentStyle: event,
+      clickedItem: item
     })
-    // console.log("AYYYYYYYY", this.state.currentStyle)
   }
 
   getAllProducts() {
@@ -68,7 +66,8 @@ export class OverviewWidget extends Component {
       this.setState({
         styles: data,
         loaded: true,
-        currentStyle: data.results[0].photos
+        currentStyle: data.results[0].photos,
+        currentStyleName: data.results[0].name
       })
     })
     .catch((err) => {
@@ -91,11 +90,14 @@ export class OverviewWidget extends Component {
         <div className="o-top-right-container">
           <ProductInfo
             product={this.state.products}
+            style={this.state.clickedItem}
+            name={this.state.currentStyleName}
           />
           <StyleSelector
             styles={this.state.styles.results}
             loaded={this.state.loaded}
-            onClick={this.handleClick}
+            handleClick={this.handleClick}
+            current={this.state.clickedItem}
           />
           <AddToCart
             size={this.state.styles}

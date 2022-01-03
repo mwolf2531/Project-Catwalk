@@ -43,9 +43,7 @@ export class ImageGallery extends Component {
   }
 
   handleClick (event) {
-    console.log(event)
     let clickIndex = event.target.attributes.index.value
-    console.log('clickIndex:', clickIndex)
     this.setState({
       currentIndex: Number(clickIndex)
     })
@@ -66,17 +64,17 @@ export class ImageGallery extends Component {
         <div className="caraselle-container">
           {this.state.currentPic.map((image, i) => (
             <Caraselle
-              className={this.state.currentIndex === i ?'current-gallery-thumbnail' : 'gallery-thumbnails'}
               key={i}
               index={i}
               thumb={image.thumbnail_url}
               onClick={this.handleClick}
+              currentThumb={this.state.currentIndex}
             />
           ))}
 
           <MdKeyboardArrowDown
             className="down-arrow"
-            onClick={this.prevSlide}
+            onClick={this.nextSlide}
           />
         </div>
 

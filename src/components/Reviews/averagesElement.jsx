@@ -6,6 +6,7 @@
 import React from 'react';
 import StarDisplay from './starDisplay.jsx';
 import Trait from './trait.jsx';
+import ScoreTable from './scoreTable.jsx';
 class averagesElement extends React.Component {
   constructor(props) {
     super(props);
@@ -58,6 +59,8 @@ class averagesElement extends React.Component {
       <div className="starScore">Average Score: {this.state.avgRate}</div>
       <StarDisplay className="stars" rating={this.state.avgRate} />
       <div className="revRecos">{this.state.recPercent}% of reviews recommend this product</div>
+      <ScoreTable className="scoreTable" scores={this.props.meta.ratings}/>
+      {/* TODO: Traits mapped off meta data */}
       <Trait />
     </div>
     )

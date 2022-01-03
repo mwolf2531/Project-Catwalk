@@ -42,13 +42,12 @@ export class ImageGallery extends Component {
     }
   }
 
-  handleClick (event) {
-    let clickIndex = event.target.attributes.index.value
+  handleClick(event) {
+    let clickIndex = event.target.attributes.index.value;
     this.setState({
-      currentIndex: Number(clickIndex)
-    })
+      currentIndex: Number(clickIndex),
+    });
   }
-
 
   componentDidUpdate(prevProps) {
     if (this.props.currentStyle !== prevProps.currentStyle) {
@@ -73,12 +72,17 @@ export class ImageGallery extends Component {
           ))}
 
           <MdKeyboardArrowDown
+          size={42}
             className="down-arrow"
             onClick={this.nextSlide}
           />
         </div>
 
-        <FaArrowAltCircleLeft className="left-arrow" onClick={this.prevSlide} />
+        <FaArrowAltCircleLeft
+          size={42}
+          className="left-arrow"
+          onClick={this.prevSlide}
+        />
 
         <div className="jumbotron-container">
           {this.state.currentPic.map((image, index) => {
@@ -95,6 +99,7 @@ export class ImageGallery extends Component {
           })}
         </div>
         <FaArrowAltCircleRight
+          size={42}
           className="right-arrow"
           onClick={this.nextSlide}
         />

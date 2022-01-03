@@ -14,6 +14,7 @@ const Styles = ({ style, photos, onClick, item, current }) => {
         <img
         className={current.name === style  ?'current-style-thumbnail' : 'style-thumbnail'}
         onClick={() => onClick(item.photos, item)}
+        alt = 'style-thumbnails'
          src={photos[0].thumbnail_url} /> <a className="checkmark">{check}</a>
     </>
   );

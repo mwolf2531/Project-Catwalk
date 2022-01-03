@@ -6,6 +6,7 @@
 import React from 'react';
 import StarDisplay from './starDisplay.jsx';
 import Trait from './trait.jsx';
+import ScoreTable from './scoreTable.jsx';
 class averagesElement extends React.Component {
   constructor(props) {
     super(props);
@@ -48,21 +49,19 @@ class averagesElement extends React.Component {
     }
   }
   render() {
-    //ScoreTable
-    //Shows a bar graph depicting the number of ratings in each category (1,2,3,4 or 5 stars)
-    //TraitsTable
-    //Import a trait display for each trait the object is reviewed on
-    //Display all trait displays in a single table
     return (
     <div className="revAverages"> Averages
       <div className="starScore">Average Score: {this.state.avgRate}</div>
       <StarDisplay className="stars" rating={this.state.avgRate} />
       <div className="revRecos">{this.state.recPercent}% of reviews recommend this product</div>
+      <ScoreTable className="scoreTable" scores={this.props.meta.ratings}/>
+      {/* TODO: Traits mapped off meta data */}
       <Trait />
+      <div>~~~END OF AVERAGES ELEMENT~~~</div>
     </div>
     )
   }
 
 }
 export default averagesElement;
-//TODO: EXPORT STAR DISPAY FOR RYDER
+//TODO: EXPORT STAR DISPLAY FOR RYDER

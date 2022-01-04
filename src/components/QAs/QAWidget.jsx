@@ -17,7 +17,8 @@ class QAWidget extends React.Component {
       showAnswer: false,
       questions: { results: [] },
       searchTerm: '',
-      renderAmount: 2
+      renderAmount: 2,
+      answers: []
     }
 
     this.showQuestionModal = this.showQuestionModal.bind(this);
@@ -40,6 +41,29 @@ class QAWidget extends React.Component {
       });
   }
 
+  getAllAnswers() {
+    let questionData = this.state.questions.results
+    for (let i = 0; i < questionData.length; i++) {
+      axios.get(`api/qa/questions/:${questionData[i].question_id}/answers`, {
+        params: {
+          page: 1,
+          count: 100
+        }
+      })
+        .then((res) => {
+          let data = res.data
+          this.setState({
+            answer: data
+          })
+        })
+        .catch((err) => {
+          console.log("Axios /answers ERR", err);
+        });
+    }
+  }
+
+
+
   showQuestionModal = () => {
     this.setState({ showQuestion: true });
   };
@@ -61,13 +85,17 @@ class QAWidget extends React.Component {
     this.setState({ searchTerm: event.target.value })
   };
 
-  onMoreAnswersClick = (prevState) => {
+  onMoreAnswersClick = (event) => {
     event.preventDefault();
     this.setState({ renderAmount: this.state.renderAmount + 2 })
   }
 
   componentDidMount() {
-    this.getAllQuestions()
+    this.getAllQuestions();
+  }
+
+  componentDidUpdate() {
+    this.getAllAnswers();
   }
 
   render() {
@@ -111,7 +139,7 @@ class QAWidget extends React.Component {
       </div >
     )
   }
-
 }
+
 
 export default QAWidget;

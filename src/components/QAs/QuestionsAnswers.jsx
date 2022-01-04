@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Helpful from './Helpful.jsx';
+import HelpfulQuestion from './HelpfulQuestion.jsx';
+import HelpfulAnswer from './HelpfulAnswer.jsx'
 import AddAnswer from './AddAnswer.jsx';
 import Report from './Report.jsx';
 
 
-const QuestionsAnswers = ({ search, question, handleSearchChange }) => {
+const QuestionsAnswers = ({ search, question, handleSearchChange, answer }) => {
 
   const filteredMap =
     question.results.filter(questions => questions.question_body.toLowerCase().includes(search.toLowerCase()));
@@ -14,14 +15,14 @@ const QuestionsAnswers = ({ search, question, handleSearchChange }) => {
       {filteredMap.map((questions, i) =>
         <div key={i}>
           <div>Q: {questions.question_body}
-            <div className='q-top-right'><Helpful /></div>
+            <div className='q-top-right'><HelpfulQuestion helpful={questions.question_helpfulness} /></div>
           </div>
-          <div>A: {questions.answers.answer_body}
+          <div>A: {questions.answers.body}
           </div>
           <div>by {questions.answers.answerer_name}
           </div>
           <span>{questions.answers.date}
-            <Helpful /> <Report />
+            <HelpfulAnswer helpful={questions.answers.helpfulness} /> <Report />
           </span>
         </div>)}
     </div>

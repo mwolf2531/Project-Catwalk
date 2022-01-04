@@ -16,7 +16,8 @@ class QAWidget extends React.Component {
       showQuestion: false,
       showAnswer: false,
       questions: { results: [] },
-      searchTerm: ''
+      searchTerm: '',
+      renderAmount: 2
     }
 
     this.showQuestionModal = this.showQuestionModal.bind(this);
@@ -60,6 +61,11 @@ class QAWidget extends React.Component {
     this.setState({ searchTerm: event.target.value })
   };
 
+  onMoreAnswersClick = (prevState) => {
+    event.preventDefault();
+    this.setState({ renderAmount: this.state.renderAmount + 2 })
+  }
+
   componentDidMount() {
     this.getAllQuestions()
   }
@@ -77,7 +83,7 @@ class QAWidget extends React.Component {
           <QuestionsAnswers
             question={this.state.questions}
             search={this.state.searchTerm}
-            answer={this.state.questions.answers}
+            render={this.state.renderAmount}
           />
           <AddAnswer
             handleAnswerClose={this.hideAnswerModal}
@@ -88,7 +94,7 @@ class QAWidget extends React.Component {
           </button>
         </div>
         <span className='q-middle'>
-          <MoreAnswers />
+          <MoreAnswers rendering={this.onMoreAnswersClick} />
         </span>
         <span className='q-middle'>
           <AddQuestion

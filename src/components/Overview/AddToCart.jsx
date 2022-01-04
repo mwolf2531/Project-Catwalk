@@ -1,14 +1,35 @@
 import React, { Component } from "react";
-import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlinePlus } from "react-icons/ai";
 
 export class AddToCart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      default: {},
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.default !== prevProps.default) {
+      this.setState({
+        default: this.props.default,
+      });
+    }
+  }
+
   render() {
     const buttonStyle = {
       color: "grey",
     };
     const far = {
-      textalign: 'end'
+      textalign: "end",
+    };
+
+    for (let key in this.state.default) {
+      let options = Object.values(this.state.default[key])
     }
+
+
 
     return (
       <div className="cart-container">
@@ -18,17 +39,15 @@ export class AddToCart extends Component {
 
         <select
           className="select-quantity"
-          style={{ textalign: "center" }}
-          name="-"
+          // style={{ textalign: "center" }}
         >
-          <option value="1">-</option>
         </select>
 
         <div>
-          <button style={buttonStyle} className="bag-button">ADD TO BAG{'     '}<AiOutlinePlus style={far}/>
-
+          <button style={buttonStyle} className="bag-button">
+            ADD TO BAG{"     "}
+            <AiOutlinePlus style={far} />
           </button>
-
         </div>
       </div>
     );

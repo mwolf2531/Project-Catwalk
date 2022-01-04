@@ -15,7 +15,8 @@ export class OverviewWidget extends Component {
       styles: [],
       currentStyle: [],
       loaded: false,
-      clickedItem:{}
+      clickedItem:{},
+      currentStyleCart: {}
     };
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyle = this.getProductStyle.bind(this);
@@ -43,11 +44,11 @@ export class OverviewWidget extends Component {
       });
   }
 
+  //TODO:
   getProduct() {
     axios.get("/api/products/product_id")
       .then((res) => {
         let data = res.data
-        // console.log("Product", data);
         this.setState({
           products: data,
         })
@@ -57,17 +58,18 @@ export class OverviewWidget extends Component {
         console.log("Axios /products ERR", err);
       })
   }
+//TODO:
 
   getProductStyle() {
     axios.get("api/products/product_id/styles")
     .then((res) => {
       let data = res.data
-      // console.log("STYLEz", data);
       this.setState({
         styles: data,
         loaded: true,
         currentStyle: data.results[0].photos,
-        currentStyleName: data.results[0].name
+        currentStyleName: data.results[0].name,
+        currentStyleCart: data.results[0].skus
       })
     })
     .catch((err) => {
@@ -101,6 +103,8 @@ export class OverviewWidget extends Component {
           />
           <AddToCart
             size={this.state.styles}
+            item={this.state.clickedItem}
+            default={this.state.currentStyleCart}
           />
         </div>
         <div className="o-bottom-left-container">

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Caraselle from "./Caraselle.jsx";
 import Jumbotron from "./Jumbotron.jsx";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { BsArrowsFullscreen } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import JumboScreen from "./JumboScreen.js";
 
 export class ImageGallery extends Component {
   constructor(props) {
@@ -10,11 +12,22 @@ export class ImageGallery extends Component {
     this.state = {
       currentIndex: 0,
       currentPic: [],
+      show: false,
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
 
   nextSlide() {
     let length = this.state.currentPic.length;
@@ -72,7 +85,7 @@ export class ImageGallery extends Component {
           ))}
 
           <MdKeyboardArrowDown
-          size={42}
+            size={42}
             className="down-arrow"
             onClick={this.nextSlide}
           />
@@ -88,12 +101,20 @@ export class ImageGallery extends Component {
           {this.state.currentPic.map((image, index) => {
             if (this.state.currentIndex === index) {
               return (
-                <img
-                  className="current-image"
-                  key={index}
-                  onClick={this.nextSlide}
-                  src={image.url}
-                />
+                <div key={index}>
+                  <img className="current-image" key={index} src={image.url} />
+                  <main className="view-fullscreen">
+                    <JumboScreen
+                      img={image.url}
+                      show={this.state.show}
+                      handleClose={this.hideModal}
+                    />
+                    <BsArrowsFullscreen
+                      className="fullview-icon"
+                      onClick={this.showModal}
+                    />
+                  </main>
+                </div>
               );
             }
           })}
@@ -109,23 +130,3 @@ export class ImageGallery extends Component {
 }
 
 export default ImageGallery;
-
-// [this.state.currentIndex].thumbnail_url
-
-{
-  /* <div className='caraselle-container'>
-{this.props.currentStyle.map((image, i) => (
-  <Caraselle key={i}
-  thumb={image.thumbnail_url} />
-))}
-</div> */
-}
-
-{
-  /* <div className='jumbotron-container'>
-{this.props.currentStyle.map((image, i) => (
-  <Jumbotron key={i}
-    image={image.thumbnail_url} />
-))}
-</div> */
-}

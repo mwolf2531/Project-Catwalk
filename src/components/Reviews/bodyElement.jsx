@@ -12,7 +12,18 @@ class BodyElement extends React.Component {
       allRevs: [],
       numRevs: 0,
       renderRevs: [],
-      numRenders: 0
+      numRenders: 0,
+      userRev: {
+        product_id: 37314,
+        rating: 3,
+        summary: 'ReviewTitleFromReact',
+        body: 'REACT react REACT react REAAAAAAAACCCCCCCTTTTTT',
+        recommend: true,
+        name: 'ReviewerNameReact',
+        email: 'ReviewerEmail@email.com',
+        photos: [],
+        characteristics: { }
+      }
     };
     this.updateReviews = this.updateReviews.bind(this);
     this.addTwo = this.addTwo.bind(this);
@@ -21,6 +32,14 @@ class BodyElement extends React.Component {
     this.hideReviewModal = this.hideReviewModal.bind(this);
     this.submitReview = this.submitReview.bind(this);
     this.getReviews = this.getReviews.bind(this);
+    this.onChangeRating = this.onChangeRating.bind(this);
+  }
+  onChangeRating (e) {
+    this.setState({
+      userRev: {
+        summary:  e.target.value
+      }
+    });
   }
   updateReviews() {
     let revs = this.state.reviews.results;
@@ -76,7 +95,7 @@ class BodyElement extends React.Component {
   };
 
   submitReview = () => {
-    axios.post('/api/reviews')
+    axios.post('/api/reviews', this.state.userRev)
       .then( (res) => {
         this.getReviews();
       })
@@ -108,7 +127,8 @@ class BodyElement extends React.Component {
           <AddReview
             showReview={this.state.showReview}
             handleReviewSubmit={this.submitReview}
-            handleReviewClose={this.hideReviewModal} />
+            handleReviewClose={this.hideReviewModal}
+            onChangeRating={this.onChangeRating} />
           <button type="button"
             onClick={this.showReviewModal}>
             Add Review +

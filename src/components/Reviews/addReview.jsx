@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const AddReview = ({ handleReviewSubmit, handleReviewClose, showReview, children }) => {
+const AddReview = ({ handleReviewClose, showReview, children }) => {
 
   let showHideClassName = showReview ? "modal display-block" : "modal display-none";
 
@@ -16,7 +16,7 @@ const AddReview = ({ handleReviewSubmit, handleReviewClose, showReview, children
           <form action="">
             <input type="text" placeholder="ReviewTest...." name="test" />
           </form>
-          <button type="button" onClick={handleReviewSubmit}>
+          <button type="button" onClick={handleReviewClose}>
             Submit Review
           </button>
           <button type="button" onClick={handleReviewClose}>

@@ -6,7 +6,9 @@ export class AddToCart extends Component {
     super(props);
     this.state = {
       default: {},
+      clickedStyle: {},
     };
+    this.handleSize = this.handleSize.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -17,6 +19,12 @@ export class AddToCart extends Component {
     }
   }
 
+  handleSize(event) {
+    // this.setState({
+    //   quantity: event
+    // })
+  }
+
   render() {
     const buttonStyle = {
       color: "grey",
@@ -25,22 +33,48 @@ export class AddToCart extends Component {
       textalign: "end",
     };
 
-    for (let key in this.state.default) {
-      let options = Object.values(this.state.default[key])
+    let list = Object.values(this.state.default);
+
+    let dummyData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    let testing = (
+      <select className="select-size" onChange={() => this.handleSize()}>
+        <option>SELECT SIZE</option>
+        {list.map((sku, index) => (
+          <option key={index} value={sku.size}>
+            {sku.size}
+          </option>
+        ))}
+      </select>
+    );
+
+    if (this.props.item !== undefined) {
+      let currentList = Object.values(this.props.item);
+      let testing2 = (
+        <select className="select-size">
+          <option>SELECT SIZE</option>
+          {currentList.map((sku, index) => (
+            <option key={index} value={sku.size}>
+              Size: {sku.size}
+            </option>
+          ))}
+        </select>
+      );
+      testing = testing2;
     }
-
-
 
     return (
       <div className="cart-container">
-        <select className="select-size" name="sizes">
-          <option value="1">SELECT SIZE</option>
-        </select>
 
-        <select
-          className="select-quantity"
-          // style={{ textalign: "center" }}
-        >
+        {testing}
+
+        <select className="select-quantity">
+          <option>-</option>
+          {dummyData.map((sku, index) => (
+            <option key={index} value={sku}>
+              {sku}
+            </option>
+          ))}
         </select>
 
         <div>
@@ -55,3 +89,5 @@ export class AddToCart extends Component {
 }
 
 export default AddToCart;
+
+

@@ -111,7 +111,7 @@ router.get('/questions', (req, getRes) => {
     url: url + '/qa/questions',
     headers: headers,
     params: {
-      product_id: 37314,
+      product_id: 37312,
       page: 1,
       count: 100
     }
@@ -123,14 +123,16 @@ router.get('/questions', (req, getRes) => {
     .catch((err) => { getRes.send(err) });
 })
 
-router.get('/certainQuestion', (req, getRes) => {
+router.get('/answers', (req, getRes) => {
   //Call API, Get question data
   let options = {
     method: 'GET',
-    url: url + '/qa/questions/2/answers',
+    url: url + `/qa/questions/${options.params.question_id}/answers`,
     headers: headers,
     params: {
-      question_id: 2
+      question_id: 2,
+      page: 1,
+      count: 100
     }
   };
   axios(options)

@@ -25,22 +25,33 @@ export class AddToCart extends Component {
       textalign: "end",
     };
 
-    for (let key in this.state.default) {
-      let options = Object.values(this.state.default[key])
-    }
+    console.log(this.state.default);
 
+    let list = Object.values(this.state.default);
 
+    // const options = list.map((sku, index) => {
+    //   return {
+    //     label: sku.size,
+    //     value: sku.size,
+    //     key: index,
+    //   };
+    // });
+    // console.log(options);
 
     return (
       <div className="cart-container">
-        <select className="select-size" name="sizes">
-          <option value="1">SELECT SIZE</option>
+
+        <select className="select-size" >
+        <option>SELECT SIZE</option>
+        {list.map((sku, index) => (
+            <option key={index} value={sku.size}>
+              {sku.size}
+            </option>
+          ))}
         </select>
 
-        <select
-          className="select-quantity"
-          // style={{ textalign: "center" }}
-        >
+        <select name='name' className="select-quantity" value="-">
+          <option>-</option>
         </select>
 
         <div>

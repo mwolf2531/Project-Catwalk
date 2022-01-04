@@ -49,8 +49,6 @@ class ReviewWidget extends React.Component {
     return <div className="reviews"> Reviews Section
       <Averages meta={this.state.meta} />
       <BodyElement reviews={this.state.reviews} />
-      <button>More Reviews</button>
-      <button>Add A Review +</button>
     </div>
   }
 

@@ -122,9 +122,9 @@ router.get('/questions', (req, getRes) => {
     url: url + '/qa/questions',
     headers: headers,
     params: {
-      product_id: 37312,
+      product_id: 37314,
       page: 1,
-      count: 100
+      count: 5
     }
   };
   axios(options)

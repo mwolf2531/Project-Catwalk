@@ -103,7 +103,7 @@ export class OverviewWidget extends Component {
           />
           <AddToCart
             size={this.state.styles}
-            item={this.state.clickedItem}
+            item={this.state.clickedItem.skus}
             default={this.state.currentStyleCart}
           />
         </div>

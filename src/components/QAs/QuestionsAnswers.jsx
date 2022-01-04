@@ -1,47 +1,30 @@
 import React, { Component } from 'react';
-import Helpful from './Helpful.jsx';
+import HelpfulQuestion from './HelpfulQuestion.jsx';
+import HelpfulAnswer from './HelpfulAnswer.jsx'
 import AddAnswer from './AddAnswer.jsx';
 import Report from './Report.jsx';
 
 
-const QuestionsAnswers = ({ search, question, handleSearchChange }) => {
+const QuestionsAnswers = ({ search, question, handleSearchChange, render }) => {
 
-  const questionMap = question.results.map((questions, i) =>
-    <div>
-      <div key={Math.random()}>Q: {questions.question_body}
-        <div className='q-top-right'><Helpful /></div>
-      </div>
-      <div key={Math.random()}>A: {questions.answers.answer_body}
-      </div>
-      <div key={Math.random()}>by {questions.answers.answerer_name}
-      </div>
-      <span key={Math.random()}>{questions.answers.date}
-        <Helpful /> <Report />
-      </span>
-    </div>
-  );
-
-  // const filterMap = question.results.filter((questions, i) => {
-  //   if (search === null) {
-  //     return questions.question_body;
-  //   }
-  //   else if (questions.question_body.toLowerCase().includes(search.toLowerCase())) {
-  //     return questions;
-  //   }
-  // }).map((questions, i) =>
-  //   <div>
-  //     <div key={i}>Q: {questions.question_body}
-  //       <Helpful />
-  //     </div>
-  //     <div key={i + 1}>A: {questions.answers.answer_body}</div>
-  //     <div key={i + 2}>by {questions.answers.answerer_name}</div>
-  //     <div key={i + 3}>{questions.answers.date}</div>
-  //   </div>
-  // );
+  const filteredMap =
+    question.results.filter(questions => questions.question_body.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div>
-      {questionMap}
+      {filteredMap.slice(0, render).map((questions, i) =>
+        <div key={i}>
+          <div>Q: {questions.question_body}
+            <div className='q-top-right'><HelpfulQuestion helpful={questions.question_helpfulness} /></div>
+          </div>
+          <div>A: {questions.answers.body}
+          </div>
+          <div>by {questions.answers.answerer_name}
+          </div>
+          <span>{questions.answers.date}
+            <HelpfulAnswer helpful={questions.answers.helpfulness} /> <Report />
+          </span>
+        </div>)}
     </div>
   )
 }

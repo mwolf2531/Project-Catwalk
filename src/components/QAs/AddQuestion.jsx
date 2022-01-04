@@ -24,6 +24,9 @@ const AddQuestion = ({ handleQuestionClose, showQuestion, children }) => {
           <button type="button" onClick={handleQuestionClose}>
             Ask your Question
           </button>
+          <button type="button" onClick={handleQuestionClose}>
+            Close
+          </button>
         </section>
       </div>
     </>

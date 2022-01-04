@@ -1,7 +1,8 @@
 import React from 'react';
 import AddAnswer from './AddAnswer.jsx';
 import AddQuestion from './AddQuestion.jsx';
-import Helpful from './Helpful.jsx';
+import HelpfulQuestion from './HelpfulQuestion.jsx';
+import HelpfulAnswer from './HelpfulAnswer.jsx';
 import QuestionsAnswers from './QuestionsAnswers.jsx';
 import Report from './Report.jsx';
 import SearchBar from './SearchBar.jsx';
@@ -15,7 +16,8 @@ class QAWidget extends React.Component {
       showQuestion: false,
       showAnswer: false,
       questions: { results: [] },
-      searchTerm: ''
+      searchTerm: '',
+      renderAmount: 2
     }
 
     this.showQuestionModal = this.showQuestionModal.bind(this);
@@ -59,6 +61,10 @@ class QAWidget extends React.Component {
     this.setState({ searchTerm: event.target.value })
   };
 
+  onMoreAnswersClick = (prevState) => {
+    event.preventDefault();
+    this.setState({ renderAmount: this.state.renderAmount + 2 })
+  }
 
   componentDidMount() {
     this.getAllQuestions()
@@ -75,7 +81,10 @@ class QAWidget extends React.Component {
         </div>
         <div className='q-middle'>
           <QuestionsAnswers
-            question={this.state.questions} />
+            question={this.state.questions}
+            search={this.state.searchTerm}
+            render={this.state.renderAmount}
+          />
           <AddAnswer
             handleAnswerClose={this.hideAnswerModal}
             showAnswer={this.state.showAnswer} />
@@ -85,7 +94,7 @@ class QAWidget extends React.Component {
           </button>
         </div>
         <span className='q-middle'>
-          <MoreAnswers />
+          <MoreAnswers rendering={this.onMoreAnswersClick} />
         </span>
         <span className='q-middle'>
           <AddQuestion

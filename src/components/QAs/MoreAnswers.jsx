@@ -2,17 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-class MoreAnswers extends React.Component {
+const MoreAnswers = ({ rendering }) => {
 
-
-  render() {
-    return (
-      <div>
-        <button>More Answered Questions</button>
-      </div>
-    )
-  }
-
+  return (
+    <div>
+      <button onClick={rendering}>More Answered Questions</button>
+    </div>
+  )
 }
+
 
 export default MoreAnswers;

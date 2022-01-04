@@ -25,6 +25,9 @@ const AddAnswer = ({ handleAnswerClose, showAnswer, showAnswerModal, children })
           <button type="button" onClick={handleAnswerClose}>
             Submit your Answer
           </button>
+          <button type="button" onClick={handleAnswerClose}>
+            Close
+          </button>
         </section>
       </div>
     </div>

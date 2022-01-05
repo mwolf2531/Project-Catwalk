@@ -42,7 +42,7 @@ class BodyElement extends React.Component {
     });
   }
   onChangeReco(e) {
-    if( e === 'true'){
+    if (e === 'true') {
       this.setState({
         uRecommend: true
       });
@@ -162,8 +162,14 @@ class BodyElement extends React.Component {
 
   render() {
     return (
-      <div className="revBody"> MAIN ELEMENT
-        <div>Sort Reviews by: ~PulldownPlaceholder~</div>
+      <div>
+        <div>
+          <label htmlFor="cars">Sort Reviews By:</label>
+          <select id="cars" name="cars">
+            <option value="newest">Newest</option>
+            <option value="helpful">Helpful</option>
+            <option value="relevant">Relevant</option>
+          </select></div>
         <ReviewScroll reviews={this.state.renderRevs} />
         <button type="button" onClick={this.moreRevsClick}>More Reviews</button>
         <span className='q-middle'>

@@ -32,9 +32,9 @@ class ReviewWidget extends React.Component {
     this.getMeta();
   }
   render() {
-    return <div className="reviews"> Reviews Section
-      <Averages meta={this.state.meta} />
-      <BodyElement />
+    return <div className="reviews">Ratings & Reviews
+      <Averages className="revAverages" meta={this.state.meta} />
+      <BodyElement className="revBody"/>
     </div>
   }
 

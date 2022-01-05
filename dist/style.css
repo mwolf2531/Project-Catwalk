@@ -319,21 +319,26 @@ margin: 0 10px 10px 0;
 
 /* ------------------------Reviews---------------------- */
 
+.revBody {
+  grid-area: main;
+}
+.revAverages {
+  grid-area: sidebar;
+}
+.revHeader {
+  grid-area: header;
+}
+
 .reviews {
   order: 3;
-  border: 2px solid green;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
 }
-.reviewsContainer {
-  display: flex;
-}
-.revStars {
-  order: 0;
-  border: 2px solid blue;
-}
-.revBody {
-  order: 1;
-  border: 2px solid red;
-}
+
 .revScroll {
   height: 200px;
   overflow: auto;

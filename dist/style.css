@@ -1,3 +1,7 @@
+html {
+  background-color: hotpink;
+}
+
 .main {
   /*container flexbox settings */
   display: flex;
@@ -5,6 +9,8 @@
   flex-direction: column;
   border: 2px solid black;
   font-family: sans-serif;
+  margin: 50px;
+  background-color: white;
 }
 
 /* ------------------------Header---------------------- */
@@ -12,6 +18,7 @@
 .header {
   order: 0;
   border: 2px solid red;
+
 }
 
 /* --------------Over View------------------ */

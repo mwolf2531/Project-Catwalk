@@ -108,7 +108,7 @@ class QAWidget extends React.Component {
           <AddAnswer
             handleAnswerClose={this.hideAnswerModal}
             showAnswer={this.state.showAnswer} />
-          <button type="button"
+          <button type="button" className="helpful-button-yes"
             onClick={this.showAnswerModal}>
             Add Answer
           </button>

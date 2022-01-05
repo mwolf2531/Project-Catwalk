@@ -305,11 +305,22 @@ margin: 0 10px 10px 0;
   margin-right: 5px;
 }
 
-.helpful-button {
-  width: 150px;
-  height: 20px;
+.helpful-button-yes {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  text-decoration: underline;
 }
 
+.helpful-button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+}
 .q-search-bar {
   width: 500px;
   padding: 15px;
@@ -320,6 +331,10 @@ margin: 0 10px 10px 0;
   background: white;
   border: 1px solid grey;
   border-radius: 5px;
+}
+
+.question-map {
+  font-weight: bold;
 }
 
 

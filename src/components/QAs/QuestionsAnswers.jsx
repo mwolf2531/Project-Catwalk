@@ -17,14 +17,14 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render }) => {
       {filteredMap.slice(0, render).map((questions, i) =>
         <div key={i}>
           <br></br>
-          <div>Q: {questions.question_body}
+          <div className='question-map'>Q: {questions.question_body}
             <div className='q-top-right'><HelpfulQuestion helpful={questions.question_helpfulness} /></div>
           </div>
           <br></br>
           <div>
             {questions.answerData.map((answer, i) =>
               <div key={i}>
-                <div> A: {answer.body}</div>
+                <div><span className='question-map'> A: </span>{answer.body}</div>
                 <div>by: {answer.answerer_name} {answer.date}</div>
                 <HelpfulAnswer helpful={answer.helpfulness} /> <Report />
                 <br></br>

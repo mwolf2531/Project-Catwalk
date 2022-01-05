@@ -1,6 +1,5 @@
 //This file houses the reviewSort element as well as the reviewScroll of reviews
 import React from 'react';
-import ReviewSort from './reviewSort.jsx';
 import ReviewScroll from './reviewScroll.jsx';
 import AddReview from './addReview.jsx';
 import axios from 'axios';
@@ -35,11 +34,23 @@ class BodyElement extends React.Component {
     this.onChangeRating = this.onChangeRating.bind(this);
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeReco = this.onChangeReco.bind(this);
   }
   onChangeRating(e) {
     this.setState({
       uRating: Number(e.target.value)
     });
+  }
+  onChangeReco(e) {
+    if( e === 'true'){
+      this.setState({
+        uRecommend: true
+      });
+    } else {
+      this.setState({
+        uRecommend: false
+      });
+    }
   }
   onChangeSummary(e) {
     this.setState({
@@ -68,7 +79,7 @@ class BodyElement extends React.Component {
         this.setState({
           allRevs: revs,
           numRevs: revs.length,
-          numRenders: 2
+          numRenders: 2,
         });
       }
     }
@@ -144,7 +155,7 @@ class BodyElement extends React.Component {
     if (this.state.allRevs.length !== this.state.reviews.results.length) {
       this.updateReviews();
     }
-    if (this.state.numRenders > this.state.renderRevs.length) {
+    if (this.state.numRenders !== this.state.renderRevs.length) {
       this.addTwo();
     }
   }
@@ -152,7 +163,7 @@ class BodyElement extends React.Component {
   render() {
     return (
       <div className="revBody"> MAIN ELEMENT
-        <ReviewSort />
+        <div>Sort Reviews by: ~PulldownPlaceholder~</div>
         <ReviewScroll reviews={this.state.renderRevs} />
         <button type="button" onClick={this.moreRevsClick}>More Reviews</button>
         <span className='q-middle'>
@@ -164,7 +175,8 @@ class BodyElement extends React.Component {
             onChangeBody={this.onChangeBody}
             onChangeUsername={this.onChangeUsername}
             onChangeEmail={this.onChangeEmail}
-            onChangeRating={this.onChangeRating} />
+            onChangeRating={this.onChangeRating}
+            onChangeReco={this.onChangeReco} />
           <button type="button"
             onClick={this.showReviewModal}>
             Add Review +

@@ -4,6 +4,7 @@
   gap: 10px; /* all gap */
   flex-direction: column;
   border: 2px solid black;
+  font-family: sans-serif;
 }
 
 /* ------------------------Header---------------------- */

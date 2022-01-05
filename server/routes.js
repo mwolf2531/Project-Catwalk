@@ -65,7 +65,7 @@ router.post('/reviews', (req, postRes) => {
       name: 'ReviewerName',
       email: 'ReviewerEmail@email.com',
       photos: [],
-      characteristics: { }
+      characteristics: {}
     }
   };
   axios(options)
@@ -133,14 +133,13 @@ router.get('/questions', (req, getRes) => {
     .catch((err) => { getRes.send(err) });
 })
 
-router.get('/answers', (req, getRes) => {
+router.get('/answers/:tagId', (req, getRes) => {
   //Call API, Get question data
   let options = {
     method: 'GET',
-    url: url + `/qa/questions/${options.params.question_id}/answers`,
+    url: url + `/qa/questions/${req.params.tagId}/answers`,
     headers: headers,
     params: {
-      question_id: 2,
       page: 1,
       count: 100
     }

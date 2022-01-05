@@ -18,7 +18,6 @@ class QAWidget extends React.Component {
       questions: { results: [] },
       searchTerm: '',
       renderAmount: 2,
-      answers: []
     }
 
     this.showQuestionModal = this.showQuestionModal.bind(this);
@@ -26,35 +25,31 @@ class QAWidget extends React.Component {
     this.showAnswerModal = this.showAnswerModal.bind(this);
     this.hideAnswerModal = this.hideAnswerModal.bind(this);
     this.searchBarUpdate = this.searchBarUpdate.bind(this);
+
   }
 
   getAllQuestions() {
     axios.get("/api/questions")
       .then((res) => {
         let data = res.data
-        this.setState({
-          questions: data
-        })
+        this.getAllAnswers(data);
       })
       .catch((err) => {
         console.log("Axios /questions ERR", err);
       });
   }
 
-  getAllAnswers() {
-    let questionData = this.state.questions.results
-    for (let i = 0; i < questionData.length; i++) {
-      axios.get(`api/qa/questions/:${questionData[i].question_id}/answers`, {
-        params: {
-          page: 1,
-          count: 100
-        }
-      })
+  getAllAnswers(questionData) {
+    for (let i = 0; i < questionData.results.length; i++) {
+      axios.get(`/api/answers/${questionData.results[i].question_id}`)
         .then((res) => {
-          let data = res.data
-          this.setState({
-            answer: data
-          })
+          let answerData = res.data.results;
+          questionData.results[i].answerData = answerData;
+          if (i == questionData.results.length - 1) {
+            this.setState({
+              questions: questionData
+            })
+          }
         })
         .catch((err) => {
           console.log("Axios /answers ERR", err);
@@ -92,11 +87,8 @@ class QAWidget extends React.Component {
 
   componentDidMount() {
     this.getAllQuestions();
+    //this.getAllAnswers();
   }
-
-  // componentDidUpdate() {
-  //   this.getAllAnswers();
-  // }
 
   render() {
     return (

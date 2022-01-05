@@ -12,29 +12,28 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render }) => {
   const filteredMap =
     question.results.filter(questions => questions.question_body.toLowerCase().includes(search.toLowerCase()));
 
-  const savedQuestions =
-    question.results.map((questions) => { questions.question_id })
-  //console.log(Object.values(question.results[0]))
-
-  //const answerArray = Object.values()
-
   return (
-
     <div>
       {filteredMap.slice(0, render).map((questions, i) =>
         <div key={i}>
+          <br></br>
           <div>Q: {questions.question_body}
             <div className='q-top-right'><HelpfulQuestion helpful={questions.question_helpfulness} /></div>
           </div>
-          <div>A: {questions.question_id}
+          <br></br>
+          <div>
+            {questions.answerData.map((answer, i) =>
+              <div key={i}>
+                <div> A: {answer.body}</div>
+                <div>by: {answer.answerer_name} {answer.question_date}</div>
+                <HelpfulAnswer helpful={answer.helpfulness} /> <Report />
+                <br></br>
+              </div>
+            )}
           </div>
-          <div>by {questions.answers.answerer_name}
-          </div>
-          <span>{questions.answers.date}
-            <HelpfulAnswer helpful={questions.answers.helpfulness} /> <Report />
-          </span>
-        </div>)}
-    </div>
+        </div>)
+      }
+    </div >
   )
 }
 

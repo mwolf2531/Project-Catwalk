@@ -8,22 +8,20 @@ class BodyElement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: {results: []},
+      reviews: { results: [] },
       allRevs: [],
       numRevs: 0,
       renderRevs: [],
       numRenders: 0,
-      userRev: {
-        product_id: 37314,
-        rating: 3,
-        summary: 'ReviewTitleFromReact',
-        body: 'REACT react REACT react REAAAAAAAACCCCCCCTTTTTT',
-        recommend: true,
-        name: 'ReviewerNameReact',
-        email: 'ReviewerEmail@email.com',
-        photos: [],
-        characteristics: { }
-      }
+      uProduct_id: 37314,
+      uRating: 3,
+      uSummary: 'ReviewTitleFromReact',
+      uBody: 'REACT react REACT react REAAAAAAAACCCCCCCTTTTTT',
+      uRecommend: true,
+      uName: 'ReviewerNameReact',
+      uEmail: 'ReviewerEmail@email.com',
+      uPhotos: [],
+      uCharacteristics: {}
     };
     this.updateReviews = this.updateReviews.bind(this);
     this.addTwo = this.addTwo.bind(this);
@@ -32,13 +30,27 @@ class BodyElement extends React.Component {
     this.hideReviewModal = this.hideReviewModal.bind(this);
     this.submitReview = this.submitReview.bind(this);
     this.getReviews = this.getReviews.bind(this);
-    this.onChangeRating = this.onChangeRating.bind(this);
+    this.onChangeSummary = this.onChangeSummary.bind(this);
+    this.onChangeBody = this.onChangeBody.bind(this);
   }
-  onChangeRating (e) {
+  onChangeSummary(e) {
     this.setState({
-      userRev: {
-        summary:  e.target.value
-      }
+      uSummary: e.target.value
+    });
+  }
+  onChangeBody(e) {
+    this.setState({
+      uBody: e.target.value
+    });
+  }
+  onChangeUsername(e) {
+    this.setState({
+      uName: e.target.value
+    });
+  }
+  onChangeEmail(e) {
+    this.setState({
+      uEmail: e.target.value
     });
   }
   updateReviews() {
@@ -73,18 +85,18 @@ class BodyElement extends React.Component {
   }
   getReviews() {
     axios.get('/api/reviews')
-      .then( (res) => {
-        this.setState({reviews: res.data});
+      .then((res) => {
+        this.setState({ reviews: res.data });
         // console.log(this.state)
       })
-      .catch( (err) => {
+      .catch((err) => {
         console.log('Axios /reviews failed >', err);
       });
   }
   moreRevsClick() {
     let numRenders = this.state.numRenders;
     numRenders += 2;
-    this.setState({numRenders});
+    this.setState({ numRenders });
   }
   showReviewModal = () => {
     this.setState({ showReview: true });
@@ -95,11 +107,22 @@ class BodyElement extends React.Component {
   };
 
   submitReview = () => {
-    axios.post('/api/reviews', this.state.userRev)
-      .then( (res) => {
+    let userRev = {
+      product_id: this.state.uProduct_id,
+      rating: this.state.uRating,
+      summary: this.state.uSummary,
+      body: this.state.uBody,
+      recommend: this.state.uRecommend,
+      name: this.state.uName,
+      email: this.state.uEmail,
+      photos: this.state.uPhotos,
+      characteristics: this.state.uCharacteristics
+    }
+    axios.post('/api/reviews', userRev)
+      .then((res) => {
         this.getReviews();
       })
-      .catch( (err) => {
+      .catch((err) => {
         console.log('Axios post review failed');
       })
     this.hideReviewModal();
@@ -119,22 +142,25 @@ class BodyElement extends React.Component {
 
   render() {
     return (
-    <div className="revBody"> MAIN ELEMENT
-      <ReviewSort />
-      <ReviewScroll reviews={this.state.renderRevs}/>
-      <button type="button" onClick={this.moreRevsClick}>More Reviews</button>
-      <span className='q-middle'>
+      <div className="revBody"> MAIN ELEMENT
+        <ReviewSort />
+        <ReviewScroll reviews={this.state.renderRevs} />
+        <button type="button" onClick={this.moreRevsClick}>More Reviews</button>
+        <span className='q-middle'>
           <AddReview
             showReview={this.state.showReview}
             handleReviewSubmit={this.submitReview}
             handleReviewClose={this.hideReviewModal}
-            onChangeRating={this.onChangeRating} />
+            onChangeSummary={this.onChangeSummary}
+            onChangeBody={this.onChangeBody}
+            onChangeUsername={this.onChangeUsername}
+            onChangeEmail={this.onChangeEmail} />
           <button type="button"
             onClick={this.showReviewModal}>
             Add Review +
           </button>
         </span>
-    </div>
+      </div>
     )
   }
 

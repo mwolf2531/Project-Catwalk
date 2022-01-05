@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const AddReview = ({ handleReviewClose, showReview, children }) => {
+const AddReview = ({ onChangeBody, onChangeSummary, handleReviewSubmit, handleReviewClose, showReview, children }) => {
 
   let showHideClassName = showReview ? "modal display-block" : "modal display-none";
 
@@ -13,10 +13,19 @@ const AddReview = ({ handleReviewClose, showReview, children }) => {
           {children}
           <h1>Add a Review</h1>
 
-          <form action="">
-            <input type="text" placeholder="ReviewTest...." name="test" />
+          <form> Review Summary:
+            <input type="text" onChange={onChangeSummary} placeholder="Example: Best purchase ever!" name="ReviewSummary" />
           </form>
-          <button type="button" onClick={handleReviewClose}>
+          <form> Review Body:
+            <input type="text" onChange={onChangeBody} placeholder="Why did you like the product or not? (min 50characters)" name="ReviewBody" />
+          </form>
+          <form> Username:
+            <input type="text" onChange={onChangeBody} placeholder="Do Not Use Real Names" name="Username" />
+          </form>
+          <form> Email (internal use only):
+            <input type="text" onChange={onChangeBody} placeholder="Valid Email Address Only" name="UserEmail" />
+          </form>
+          <button type="button" onClick={handleReviewSubmit}>
             Submit Review
           </button>
           <button type="button" onClick={handleReviewClose}>

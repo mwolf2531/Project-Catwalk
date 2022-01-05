@@ -164,15 +164,15 @@ class BodyElement extends React.Component {
     return (
       <div>
         <div>
-          <label htmlFor="cars">Sort Reviews By:</label>
-          <select id="cars" name="cars">
+          <label htmlFor="sort">Sort Reviews By:</label>
+          <select id="sort" name="sort">
             <option value="newest">Newest</option>
             <option value="helpful">Helpful</option>
             <option value="relevant">Relevant</option>
           </select></div>
         <ReviewScroll reviews={this.state.renderRevs} />
         <button type="button" onClick={this.moreRevsClick}>More Reviews</button>
-        <span className='q-middle'>
+        <span className='revButtons'>
           <AddReview
             showReview={this.state.showReview}
             handleReviewSubmit={this.submitReview}

@@ -319,7 +319,7 @@ margin: 0 10px 10px 0;
 
 /* ------------------------Reviews---------------------- */
 
-.revBody {
+.revMain {
   grid-area: main;
 }
 .revAverages {
@@ -342,6 +342,38 @@ margin: 0 10px 10px 0;
 .revScroll {
   height: 200px;
   overflow: auto;
+}
+.revTitle {
+  grid-area: revTitle;
+}
+.revStars {
+  grid-area: revStars;
+}
+.revBody {
+  grid-area: revBody;
+}
+.revUser {
+  grid-area: revUser;
+}
+.revTime {
+  grid-area: revTime;
+}
+.revHelp {
+  grid-area: revHelp;
+}
+.revReco {
+  grid-area: revReco;
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "revTitle revTitle revUser"
+    "revStars . revTime"
+    "revBody revBody revBody"
+    "revHelp revReco .";
 }
 
 /* ------------------------Footer---------------------- */

@@ -21,21 +21,24 @@ class ReviewWidget extends React.Component {
 
   getMeta() {
     axios.get('/api/revMeta')
-    .then( (res) => {
-      this.setState({meta: res.data});
-    })
-    .catch( (err) => {
-      console.log('Axios /revMeta failed >', err);
-    });
+      .then((res) => {
+        this.setState({ meta: res.data });
+      })
+      .catch((err) => {
+        console.log('Axios /revMeta failed >', err);
+      });
   }
   componentDidMount() {
     this.getMeta();
   }
   render() {
-    return <div className="reviews">Ratings & Reviews
-      <Averages className="revAverages" meta={this.state.meta} />
-      <BodyElement className="revBody"/>
-    </div>
+    return (
+      <div className="reviews">
+      <h1 className="revHeader">Ratings & Reviews</h1>
+        <Averages className="revAverages" meta={this.state.meta} />
+        <BodyElement className="revMain" />
+      </div>
+    )
   }
 
 }

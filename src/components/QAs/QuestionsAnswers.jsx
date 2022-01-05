@@ -25,7 +25,7 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render }) => {
             {questions.answerData.map((answer, i) =>
               <div key={i}>
                 <div> A: {answer.body}</div>
-                <div>by: {answer.answerer_name} {answer.question_date}</div>
+                <div>by: {answer.answerer_name} {answer.date}</div>
                 <HelpfulAnswer helpful={answer.helpfulness} /> <Report />
                 <br></br>
               </div>

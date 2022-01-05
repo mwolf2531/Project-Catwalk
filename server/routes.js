@@ -255,7 +255,7 @@ router.get('/products', (req, getRes) => {
     headers: headers,
     params: {
       page: 1, // 	Selects the page of results to return. Default 1.
-      count: 5, // Specifies how many results per page to return. Default 5.
+      count: 10, // Specifies how many results per page to return. Default 5.
     }
   };
   axios(options)

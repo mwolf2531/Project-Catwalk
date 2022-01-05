@@ -53,8 +53,11 @@
   overflow:auto;
 }
 
-/* .o-bottom-right-container {
-} */
+
+
+.o-bottom-right-container {
+  border-left: rgba(128, 128, 128, 0.664) 2px dotted;
+}
 
 .right-arrow {
   display: block;

@@ -274,7 +274,7 @@ router.get('/products', (req, getRes) => {
       getRes.send(res.data)
     })
     .catch((err) => {
-      res.send(err)
+      getRes.send(err)
     });
 })
 
@@ -294,7 +294,7 @@ router.get(`/products/product_id`, (req, getRes) => {
       getRes.send(res.data)
     })
     .catch((err) => {
-      res.send(err)
+      getRes.send(err)
     });
 })
 
@@ -314,7 +314,7 @@ router.get(`/products/product_id/styles`, (req, getRes) => {
       getRes.send(res.data)
     })
     .catch((err) => {
-      res.send(err)
+      getRes.send(err)
     });
 })
 
@@ -330,7 +330,7 @@ router.get(`/cart`, (req, getRes) => {
       getRes.send(res.data)
     })
     .catch((err) => {
-      res.send(err)
+      getRes.send(err)
     });
 })
 
@@ -351,7 +351,7 @@ router.post(`/cart`, (req, getRes) => {
       getRes.send(res.data)
     })
     .catch((err) => {
-      res.send(err)
+      getRes.send(err)
     });
 })
 

@@ -16,7 +16,8 @@ export class OverviewWidget extends Component {
       currentStyle: [],
       loaded: false,
       clickedItem:{},
-      currentStyleCart: {}
+      currentStyleCart: {},
+      currentStyleName: undefined
     };
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyle = this.getProductStyle.bind(this);

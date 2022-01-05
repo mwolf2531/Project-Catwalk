@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const AddReview = ({ onChangeRating, onChangeUsername, onChangeEmail, onChangeBody, onChangeSummary, handleReviewSubmit, handleReviewClose, showReview, children }) => {
+const AddReview = ({ onChangeReco, onChangeRating, onChangeUsername, onChangeEmail, onChangeBody, onChangeSummary, handleReviewSubmit, handleReviewClose, showReview, children }) => {
 
   let showHideClassName = showReview ? "modal display-block" : "modal display-none";
 
@@ -23,6 +23,12 @@ const AddReview = ({ onChangeRating, onChangeUsername, onChangeEmail, onChangeBo
             <label htmlFor="4Star">4Star</label>
             <input type="radio" id="5Star" name="rating" value={5} />
             <label htmlFor="5Star">5Star</label>
+          </div>
+          <div onChange={onChangeReco}>Would you recommend this product?
+          <input type="radio" id="Yes" name="reco" value="true" />
+            <label htmlFor="Yes">Yes</label>
+            <input type="radio" id="No" name="reco" value="false" />
+            <label htmlFor="No">No</label>
           </div>
           <form> Review Summary:
             <input type="text" onChange={onChangeSummary} placeholder="Example: Best purchase ever!" name="ReviewSummary" />
@@ -51,39 +57,6 @@ const AddReview = ({ onChangeRating, onChangeUsername, onChangeEmail, onChangeBo
 
 export default AddReview;
 
-//element that will popup to handle user submitting a new review
-
-//Overal Rating
-//User selects one from 1,2,3,4 or 5 Stars
-
-//Would You Recommend This?
-//User selects from yes or no
-
-//Traits
-//Create one trait prompt for each trait assigned to object
-//User selects one from -1, -1/2, 0, +1/2 or +1 for the given trait
-
-//Review Title
-//Up to 60 characters, optional, placeholder: Example: Best purchase ever!
-
-//Review Body
-//Min 50 Characters, Max 1000 Characters, Placeholder: Why did you like the product or not?
-
-//Click to Add Photos Button
-//Click to open import photos prompt
-//Low priority optional review element. Only takes images.
-
-//Imported Photos
-//Display the names of each photo imported, up to 5 imports
-
-//Nickname Form
-//Up to 60 characters to be used as displayName
-
-//Email form
-//up to 60 characters, internal use only
-
-//Submit Button
-//Submits the form if all required fields are filled out
 
 /*
 {

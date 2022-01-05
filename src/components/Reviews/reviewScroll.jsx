@@ -37,7 +37,7 @@ class ReviewScroll extends React.Component {
   }
   render() {
     return (
-    <div className="revScroll"> Review Scroll Starts Here
+    <div className="revScroll">
       {this.state.revs.map((review, i) => (
         <Review key={i} review={review} />
       ))}

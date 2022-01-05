@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       products: [],
-      productId: ''
+      productId: '37311'
     };
 
     this.onChange = this.onChange.bind(this)

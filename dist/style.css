@@ -326,24 +326,74 @@ margin: 0 10px 10px 0;
 
 /* ------------------------Reviews---------------------- */
 
+.revMain {
+  grid-area: main;
+}
+.revAverages {
+  grid-area: sidebar;
+  border: 2px solid maroon;
+  margin: 10px;
+}
+.revHeader {
+  grid-area: header;
+}
+
 .reviews {
   order: 3;
-  border: 2px solid green;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  border: 2px solid goldenrod;
+  margin: 5px;
 }
-.reviewsContainer {
-  display: flex;
+
+.revScroll {
+  height: 500px;
+  overflow: auto;
+}
+.revTitle {
+  grid-area: revTitle;
+  margin: 2px;
 }
 .revStars {
-  order: 0;
-  border: 2px solid blue;
+  grid-area: revStars;
+  margin: 2px;
 }
 .revBody {
-  order: 1;
-  border: 2px solid red;
+  grid-area: revBody;
+  margin: 2px;
 }
-.revScroll {
-  height: 200px;
-  overflow: auto;
+.revUser {
+  grid-area: revUser;
+  margin: 2px;
+}
+.revTime {
+  grid-area: revTime;
+  margin: 2px;
+}
+.revHelp {
+  grid-area: revHelp;
+  margin: 2px;
+}
+.revReco {
+  grid-area: revReco;
+  margin: 2px;
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "revTitle revUser"
+    "revStars revTime"
+    "revBody revBody"
+    "revHelp revReco";
+  border: 2px solid aqua;
+  margin: 20px;
 }
 
 /* ------------------------Footer---------------------- */

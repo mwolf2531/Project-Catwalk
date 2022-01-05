@@ -7,6 +7,7 @@ class BodyElement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '37311',
       reviews: { results: [] },
       allRevs: [],
       numRevs: 0,
@@ -14,11 +15,11 @@ class BodyElement extends React.Component {
       numRenders: 0,
       uProduct_id: 37314,
       uRating: 3,
-      uSummary: 'ReviewTitleFromReact',
-      uBody: 'REACT react REACT react REAAAAAAAACCCCCCCTTTTTT',
+      uSummary: '',
+      uBody: '',
       uRecommend: true,
-      uName: 'ReviewerNameReact',
-      uEmail: 'ReviewerEmail@email.com',
+      uName: '',
+      uEmail: '',
       uPhotos: [],
       uCharacteristics: {}
     };
@@ -42,7 +43,7 @@ class BodyElement extends React.Component {
     });
   }
   onChangeReco(e) {
-    if( e === 'true'){
+    if (e === 'true') {
       this.setState({
         uRecommend: true
       });
@@ -158,15 +159,24 @@ class BodyElement extends React.Component {
     if (this.state.numRenders !== this.state.renderRevs.length) {
       this.addTwo();
     }
+    if (this.props.id !== prevProps.id){
+      this.setState({id: this.props.id, uProduct_id: Number(this.props.id)})
+    }
   }
 
   render() {
     return (
-      <div className="revBody"> MAIN ELEMENT
-        <div>Sort Reviews by: ~PulldownPlaceholder~</div>
+      <div>
+        <div>
+          <label htmlFor="sort">Sort Reviews By:</label>
+          <select id="sort" name="sort">
+            <option value="newest">Newest</option>
+            <option value="helpful">Helpful</option>
+            <option value="relevant">Relevant</option>
+          </select></div>
         <ReviewScroll reviews={this.state.renderRevs} />
         <button type="button" onClick={this.moreRevsClick}>More Reviews</button>
-        <span className='q-middle'>
+        <span className='revButtons'>
           <AddReview
             showReview={this.state.showReview}
             handleReviewSubmit={this.submitReview}

@@ -5,16 +5,15 @@ import Report from './Report.jsx';
 //This Element creates a single review
 const Review = ({ review }) => {
   if (review) {
-    // console.log(review);
     return (
-      <div> Review
-        <div className="reviewTitle">{review.summary}</div>
-        <div className="reviewBody">{review.body}</div>
+      <div className="review">
+        <div className="revTitle">{review.summary}</div>
+        <div className="revBody">{review.body}</div>
         <StarDisplay rating={review.rating} />
         <div className="revUser">{review.reviewer_name}</div>
-        <div className="timestamp">{review.date}</div>
-        <Helpful helpfulness={review.helpfulness} />
-        <Report />
+        <div className="revTime">{review.date}</div>
+        <Helpful className="revHelp"helpfulness={review.helpfulness} />
+        <Report className="revReco"/>
       </div>
     )
   } else {

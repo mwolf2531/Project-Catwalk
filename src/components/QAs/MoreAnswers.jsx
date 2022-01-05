@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom';
 const MoreAnswers = ({ rendering }) => {
 
   return (
-    <div>
-      <button onClick={rendering}>More Answered Questions</button>
-    </div>
+    <>
+      <button className='more-questions-button' onClick={rendering}>MORE ANSWERED QUESTIONS</button>
+    </>
   )
 }
 

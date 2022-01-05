@@ -32,6 +32,14 @@ class BodyElement extends React.Component {
     this.getReviews = this.getReviews.bind(this);
     this.onChangeSummary = this.onChangeSummary.bind(this);
     this.onChangeBody = this.onChangeBody.bind(this);
+    this.onChangeRating = this.onChangeRating.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+  }
+  onChangeRating(e) {
+    this.setState({
+      uRating: Number(e.target.value)
+    });
   }
   onChangeSummary(e) {
     this.setState({
@@ -107,6 +115,7 @@ class BodyElement extends React.Component {
   };
 
   submitReview = () => {
+    console.log('Submit State', this.state)
     let userRev = {
       product_id: this.state.uProduct_id,
       rating: this.state.uRating,
@@ -117,7 +126,7 @@ class BodyElement extends React.Component {
       email: this.state.uEmail,
       photos: this.state.uPhotos,
       characteristics: this.state.uCharacteristics
-    }
+    };
     axios.post('/api/reviews', userRev)
       .then((res) => {
         this.getReviews();
@@ -154,7 +163,8 @@ class BodyElement extends React.Component {
             onChangeSummary={this.onChangeSummary}
             onChangeBody={this.onChangeBody}
             onChangeUsername={this.onChangeUsername}
-            onChangeEmail={this.onChangeEmail} />
+            onChangeEmail={this.onChangeEmail}
+            onChangeRating={this.onChangeRating} />
           <button type="button"
             onClick={this.showReviewModal}>
             Add Review +

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const AddReview = ({ onChangeBody, onChangeSummary, handleReviewSubmit, handleReviewClose, showReview, children }) => {
+const AddReview = ({ onChangeRating, onChangeUsername, onChangeEmail, onChangeBody, onChangeSummary, handleReviewSubmit, handleReviewClose, showReview, children }) => {
 
   let showHideClassName = showReview ? "modal display-block" : "modal display-none";
 
@@ -12,7 +12,18 @@ const AddReview = ({ onChangeBody, onChangeSummary, handleReviewSubmit, handleRe
         <section className="modal-main">
           {children}
           <h1>Add a Review</h1>
-
+          <div onChange={onChangeRating}>Rating:
+            <input type="radio" id="1Star" name="rating" value={1} />
+            <label htmlFor="1Star">1Star</label>
+            <input type="radio" id="2Star" name="rating" value={2} />
+            <label htmlFor="2Star">2Star</label>
+            <input type="radio" id="3Star" name="rating" value={3} />
+            <label htmlFor="3Star">3Star</label>
+            <input type="radio" id="4Star" name="rating" value={4} />
+            <label htmlFor="4Star">4Star</label>
+            <input type="radio" id="5Star" name="rating" value={5} />
+            <label htmlFor="5Star">5Star</label>
+          </div>
           <form> Review Summary:
             <input type="text" onChange={onChangeSummary} placeholder="Example: Best purchase ever!" name="ReviewSummary" />
           </form>
@@ -20,10 +31,10 @@ const AddReview = ({ onChangeBody, onChangeSummary, handleReviewSubmit, handleRe
             <input type="text" onChange={onChangeBody} placeholder="Why did you like the product or not? (min 50characters)" name="ReviewBody" />
           </form>
           <form> Username:
-            <input type="text" onChange={onChangeBody} placeholder="Do Not Use Real Names" name="Username" />
+            <input type="text" onChange={onChangeUsername} placeholder="Do Not Use Real Names" name="Username" />
           </form>
           <form> Email (internal use only):
-            <input type="text" onChange={onChangeBody} placeholder="Valid Email Address Only" name="UserEmail" />
+            <input type="text" onChange={onChangeEmail} placeholder="Valid Email Address Only" name="UserEmail" />
           </form>
           <button type="button" onClick={handleReviewSubmit}>
             Submit Review

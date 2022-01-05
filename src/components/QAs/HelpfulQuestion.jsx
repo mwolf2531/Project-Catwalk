@@ -28,7 +28,7 @@ class HelpfulQuestion extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>Helpful? Yes ({this.state.count})</button>
+        <button className="helpful-button" onClick={this.handleClick}>Helpful? Yes ({this.state.count})</button>
       </div>
     )
   }

@@ -87,12 +87,12 @@ class QAWidget extends React.Component {
 
   componentDidMount() {
     this.getAllQuestions();
-    //this.getAllAnswers();
   }
 
   render() {
     return (
       <div className='questions'>
+        <h2>QUESTIONS AND ANSWERS</h2>
         <div className='q-top-row'>
           <SearchBar
             search={this.state.searchTerm}
@@ -113,20 +113,15 @@ class QAWidget extends React.Component {
             Add Answer
           </button>
         </div>
-        <span className='q-middle'>
+        <div>
           <MoreAnswers rendering={this.onMoreAnswersClick} />
-        </span>
-        <span className='q-middle'>
           <AddQuestion
             showQuestion={this.state.showQuestion}
             handleQuestionClose={this.hideQuestionModal} />
-          <button type="button"
+          <button className="add-question-button" type="button"
             onClick={this.showQuestionModal}>
-            Add Question
+            ADD A QUESTION +
           </button>
-        </span>
-        <div>
-
         </div>
       </div >
     )

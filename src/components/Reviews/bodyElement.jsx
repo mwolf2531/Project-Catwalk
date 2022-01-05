@@ -7,6 +7,7 @@ class BodyElement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '37311',
       reviews: { results: [] },
       allRevs: [],
       numRevs: 0,
@@ -14,11 +15,11 @@ class BodyElement extends React.Component {
       numRenders: 0,
       uProduct_id: 37314,
       uRating: 3,
-      uSummary: 'ReviewTitleFromReact',
-      uBody: 'REACT react REACT react REAAAAAAAACCCCCCCTTTTTT',
+      uSummary: '',
+      uBody: '',
       uRecommend: true,
-      uName: 'ReviewerNameReact',
-      uEmail: 'ReviewerEmail@email.com',
+      uName: '',
+      uEmail: '',
       uPhotos: [],
       uCharacteristics: {}
     };
@@ -157,6 +158,9 @@ class BodyElement extends React.Component {
     }
     if (this.state.numRenders !== this.state.renderRevs.length) {
       this.addTwo();
+    }
+    if (this.props.id !== prevProps.id){
+      this.setState({id: this.props.id, uProduct_id: Number(this.props.id)})
     }
   }
 

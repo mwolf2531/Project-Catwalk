@@ -14,7 +14,8 @@ class ReviewWidget extends React.Component {
         ratings: {},
         recommended: {},
         characteristics: {}
-      }
+      },
+      id: '37311'
     };
     this.getMeta = this.getMeta.bind(this);
   }
@@ -31,12 +32,17 @@ class ReviewWidget extends React.Component {
   componentDidMount() {
     this.getMeta();
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id){
+      this.setState({id: this.props.id})
+    }
+  }
   render() {
     return (
       <div className="reviews">
       <h1 className="revHeader">Ratings & Reviews</h1>
         <Averages className="revAverages" meta={this.state.meta} />
-        <BodyElement className="revMain" />
+        <BodyElement className="revMain" id={this.state.id} />
       </div>
     )
   }

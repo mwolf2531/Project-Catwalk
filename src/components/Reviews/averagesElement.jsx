@@ -56,8 +56,8 @@ class averagesElement extends React.Component {
       <StarDisplay className="stars" rating={this.state.avgRate} />
       <div className="revRecos">{this.state.recPercent}% of reviews recommend this product</div>
       <ScoreTable className="scoreTable" scores={this.props.meta.ratings}/>
-      {/* TODO: Traits mapped off meta data */}
-      <Trait />
+      {/* TODO: Traits mapped off meta data
+      <Trait /> */}
       <div>~~~END OF AVERAGES ELEMENT~~~</div>
     </div>
     )

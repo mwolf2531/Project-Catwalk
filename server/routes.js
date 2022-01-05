@@ -56,17 +56,7 @@ router.post('/reviews', (req, postRes) => {
     method: 'POST',
     url: url + '/reviews',
     headers: headers,
-    data: {
-      product_id: 37314,
-      rating: 3,
-      summary: 'ReviewTitle',
-      body: 'Review Body For The Review That We Are Testing This Review Text Must Meet A Minumum Number Of Characters To Work But I Dont Know Why I Did A Camel Case Sentence Thats Just Weird',
-      recommend: true,
-      name: 'ReviewerName',
-      email: 'ReviewerEmail@email.com',
-      photos: [],
-      characteristics: {}
-    }
+    data: req.body
   };
   axios(options)
     .then((res) => {

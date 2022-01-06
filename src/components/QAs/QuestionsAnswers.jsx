@@ -7,7 +7,6 @@ import axios from 'axios';
 import MoreAnswers from './MoreAnswers.jsx';
 
 
-
 const QuestionsAnswers = ({ search, question, handleSearchChange, render, answerRender }) => {
 
   const filteredMap =

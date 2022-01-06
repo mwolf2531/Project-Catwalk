@@ -313,6 +313,7 @@ margin: 0 10px 10px 0;
   cursor:pointer;
   overflow: hidden;
   text-decoration: underline;
+  color: rgb(155, 155, 155)
 }
 
 .helpful-button {
@@ -321,6 +322,7 @@ margin: 0 10px 10px 0;
   border: none;
   cursor:pointer;
   overflow: hidden;
+  color: rgb(155, 155, 155)
 }
 .q-search-bar {
   width: 500px;
@@ -336,9 +338,23 @@ margin: 0 10px 10px 0;
 
 .question-map {
   font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+
 }
 
+.answer-style {
+  font-size: 18px;
+  padding-bottom: 10px;
+  padding-top: 10px
+}
 
+.answer-user-style {
+  padding-left: 25px;
+  padding-bottom: 10px;
+  color: rgb(155, 155, 155);
+  font-size: 14px
+}
 
 /* ------------------------Reviews---------------------- */
 

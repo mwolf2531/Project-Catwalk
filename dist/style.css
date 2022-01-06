@@ -405,7 +405,7 @@ margin: 0 10px 10px 0;
 }
 .revHeader {
   grid-area: header;
-  margin-left: 40px;
+  margin-left: 25px;
   color:rgb(226, 226, 226);
 }
 

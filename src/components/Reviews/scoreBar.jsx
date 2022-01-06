@@ -6,7 +6,7 @@ const ScoreBar = ({ score }) => {
     score = 0;
   }
   const parentDiv = {
-    height: 20,
+    height: 25,
     width: '80%',
     backgroundColor: 'grey',
     borderRadius: 100,
@@ -15,14 +15,15 @@ const ScoreBar = ({ score }) => {
   const childDiv = {
     height: '100%',
     width: `${score}%`,
-    backgroundColor: 'yellow',
+    backgroundColor: 'gold',
     borderRadius: 100,
     textAlign: 'center'
   }
   const scoreText = {
     padding: 0,
     color: 'black',
-    fontWeight: 900
+    fontWeight: 600,
+    textAlign: 'center'
   }
   return (
     <div style={parentDiv}>

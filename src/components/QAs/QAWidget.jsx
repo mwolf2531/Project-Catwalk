@@ -7,6 +7,7 @@ import QuestionsAnswers from './QuestionsAnswers.jsx';
 import Report from './Report.jsx';
 import SearchBar from './SearchBar.jsx';
 import MoreQuestions from './MoreQuestions.jsx';
+import MoreAnswers from './MoreAnswers.jsx'
 import axios from 'axios';
 
 class QAWidget extends React.Component {
@@ -122,13 +123,6 @@ class QAWidget extends React.Component {
             render={this.state.renderAmount}
             answerRender={this.state.answerRenderAmount}
           />
-          <AddAnswer
-            handleAnswerClose={this.hideAnswerModal}
-            showAnswer={this.state.showAnswer} />
-          <button type="button" className="helpful-button-yes"
-            onClick={this.showAnswerModal}>
-            Add Answer
-          </button>
         </div>
         <div>
           <MoreQuestions rendering={this.onMoreQuestionsClick} />

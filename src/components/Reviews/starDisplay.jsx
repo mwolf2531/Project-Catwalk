@@ -9,91 +9,91 @@ const StarDisplay = ({rating}) => {
   if (rating === 5) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
       </div>
     )
   } else if (rating === 4.5) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarHalf />
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarHalf className="star"/>
       </div>
     )
   } else if (rating === 4) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStar />
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStar className="star"/>
       </div>
     )
   } else if (rating === 3.5) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarHalf />
-        <BsStar />
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarHalf className="star"/>
+        <BsStar className="star"/>
       </div>
     )
   } else if (rating === 3) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarFill />
-        <BsStar />
-        <BsStar />
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
       </div>
     )
   } else if (rating === 2.5) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStarHalf />
-        <BsStar />
-        <BsStar />
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStarHalf className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
       </div>
     )
   } else if (rating === 2) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarFill />
-        <BsStar />
-        <BsStar />
-        <BsStar />
+        <BsStarFill className="star"/>
+        <BsStarFill className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
       </div>
     )
   } else if (rating === 1.5) {
     return (
       <div>
-        <BsStarFill />
-        <BsStarHalf />
-        <BsStar />
-        <BsStar />
-        <BsStar />
+        <BsStarFill className="star"/>
+        <BsStarHalf className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
       </div>
     )
   } else if (rating === 1) {
     return (
       <div>
-        <BsStarFill />
-        <BsStar />
-        <BsStar />
-        <BsStar />
-        <BsStar />
+        <BsStarFill className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
+        <BsStar className="star"/>
       </div>
     )
   } else {

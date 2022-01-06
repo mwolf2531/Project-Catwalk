@@ -345,6 +345,7 @@ margin: 0 10px 10px 0;
   cursor:pointer;
   overflow: hidden;
   text-decoration: underline;
+  color: rgb(155, 155, 155)
 }
 
 .helpful-button {
@@ -353,6 +354,7 @@ margin: 0 10px 10px 0;
   border: none;
   cursor:pointer;
   overflow: hidden;
+  color: rgb(155, 155, 155)
 }
 .q-search-bar {
   width: 500px;
@@ -368,9 +370,23 @@ margin: 0 10px 10px 0;
 
 .question-map {
   font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+
 }
 
+.answer-style {
+  font-size: 18px;
+  padding-bottom: 10px;
+  padding-top: 10px
+}
 
+.answer-user-style {
+  padding-left: 25px;
+  padding-bottom: 10px;
+  color: rgb(155, 155, 155);
+  font-size: 14px
+}
 
 /* ------------------------Reviews---------------------- */
 
@@ -379,11 +395,15 @@ margin: 0 10px 10px 0;
 }
 .revAverages {
   grid-area: sidebar;
-  border: 2px solid maroon;
   margin: 10px;
+  height: 200px;
+  padding: 10px;
+  background:rgb(112, 18, 18);
+  border-radius: 25px;
 }
 .revHeader {
   grid-area: header;
+  margin-left: 40px;
 }
 
 .reviews {
@@ -394,7 +414,8 @@ margin: 0 10px 10px 0;
   grid-template-areas:
     "header header"
     "sidebar main";
-  border: 2px solid goldenrod;
+  border-radius: 25px;
+  background: rgb(161, 35, 35);
   margin: 5px;
 }
 
@@ -404,44 +425,53 @@ margin: 0 10px 10px 0;
 }
 .revTitle {
   grid-area: revTitle;
-  margin: 2px;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: bold;
 }
 .revStars {
   grid-area: revStars;
-  margin: 2px;
+  margin: 5px;
 }
 .revBody {
   grid-area: revBody;
-  margin: 2px;
+  margin: 5px;
 }
 .revUser {
   grid-area: revUser;
-  margin: 2px;
+  margin: 5px;
 }
 .revTime {
   grid-area: revTime;
-  margin: 2px;
+  margin: 5px;
 }
 .revHelp {
   grid-area: revHelp;
-  margin: 2px;
+  margin: 5px;
 }
 .revReco {
   grid-area: revReco;
-  margin: 2px;
+  margin: 5px;
 }
 
 .review {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 80% 20%;
   grid-template-rows: auto;
   grid-template-areas:
     "revTitle revUser"
     "revStars revTime"
     "revBody revBody"
     "revHelp revReco";
-  border: 2px solid aqua;
+  background: rgb(197, 62, 62);
   margin: 20px;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.star {
+  color: gold;
+  font-size: 1.65em;
 }
 
 /* ------------------------Footer---------------------- */

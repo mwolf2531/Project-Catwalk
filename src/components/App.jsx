@@ -48,20 +48,20 @@ class App extends React.Component {
       <>
         <div className='header'>
 
-        <span className='header-title'>Project Catwalk : <i>Artemis Edition</i></span>
+          <span className='header-title'>Project Catwalk : <i>Artemis Edition</i></span>
 
-        <select className="select-product-main"  onChange={this.onChange}>
-          {this.state.products.map((product, index) => (
-            <option key={index} value={product.id}>
-              {product.name}
-            </option>
-          ))}
-        </select>
+          <select className="select-product-main" onChange={this.onChange}>
+            {this.state.products.map((product, index) => (
+              <option key={index} value={product.id}>
+                {product.name}
+              </option>
+            ))}
+          </select>
         </div>
 
-        <OverviewWidget  id={this.state.productId} />
-        <QAWidget id={this.state.productId}/>
-        <ReviewWidget id={this.state.productId}/>
+        <OverviewWidget id={this.state.productId} />
+        <QAWidget id={this.state.productId} />
+        <ReviewWidget id={this.state.productId} />
       </>
     );
   }

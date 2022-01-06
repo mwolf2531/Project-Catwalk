@@ -4,6 +4,7 @@ import HelpfulAnswer from './HelpfulAnswer.jsx'
 import AddAnswer from './AddAnswer.jsx';
 import Report from './Report.jsx';
 import axios from 'axios';
+import MoreAnswers from './MoreAnswers.jsx';
 
 
 
@@ -25,7 +26,7 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render, answer
             {questions.answerData.slice(0, 2).map((answer, i) =>
               <div key={i}>
                 <div><span className='question-map'> A: </span>{answer.body}</div>
-                <div>by: {answer.answerer_name} {answer.date}</div>
+                <span>by: {answer.answerer_name} {answer.date}</span>
                 <HelpfulAnswer helpful={answer.helpfulness} /> <Report />
                 <br></br>
               </div>

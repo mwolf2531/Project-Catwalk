@@ -6,7 +6,7 @@ const MoreAnswers = (props) => {
 
   return (
     <>
-      <button className='more-questions-button' onClick={rendering}>MORE ANSWERED QUESTIONS</button>
+      <button className='more-questions-button' onClick={rendering}>LOAD MORE ANSWERS</button>
     </>
   )
 }

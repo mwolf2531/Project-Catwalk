@@ -21,7 +21,6 @@ class App extends React.Component {
       .get("/api/products")
       .then((res) => {
         let data = res.data;
-        console.log('data:', data)
         this.setState({
           products: data,
         });

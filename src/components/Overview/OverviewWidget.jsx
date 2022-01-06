@@ -93,7 +93,6 @@ export class OverviewWidget extends Component {
     axios.get(`api/products/${id}/styles`)
     .then((res) => {
       let data = res.data
-      console.log('data:', data)
       this.setState({
         styles: data,
         loaded: true,

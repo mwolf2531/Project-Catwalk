@@ -6,7 +6,7 @@ import HelpfulAnswer from './HelpfulAnswer.jsx';
 import QuestionsAnswers from './QuestionsAnswers.jsx';
 import Report from './Report.jsx';
 import SearchBar from './SearchBar.jsx';
-import MoreAnswers from './MoreAnswers.jsx';
+import MoreQuestions from './MoreQuestions.jsx';
 import axios from 'axios';
 
 class QAWidget extends React.Component {
@@ -18,6 +18,7 @@ class QAWidget extends React.Component {
       questions: { results: [] },
       searchTerm: '',
       renderAmount: 2,
+      answerRenderAmount: 2
     }
 
     this.showQuestionModal = this.showQuestionModal.bind(this);
@@ -29,7 +30,7 @@ class QAWidget extends React.Component {
   }
 
   getAllQuestions() {
-    axios.get("/api/questions")
+    axios.get(`/api/questions/${this.props.id}`)
       .then((res) => {
         let data = res.data
         this.getAllAnswers(data);
@@ -80,13 +81,28 @@ class QAWidget extends React.Component {
     this.setState({ searchTerm: event.target.value })
   };
 
-  onMoreAnswersClick = (event) => {
+  onMoreQuestionsClick = (event) => {
     event.preventDefault();
     this.setState({ renderAmount: this.state.renderAmount + 2 })
   }
 
+  onMoreAnswersClick = (event) => {
+    event.preventDefault();
+    this.setState({ answerRenderAmount: this.state.answerRenderAmount + 2 })
+  }
+
   componentDidMount() {
     this.getAllQuestions();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id) {
+      this.getAllQuestions();
+      this.setState({
+        renderAmount: 2,
+        answerRenderAmount: 2
+      })
+    }
   }
 
   render() {
@@ -104,6 +120,7 @@ class QAWidget extends React.Component {
             question={this.state.questions}
             search={this.state.searchTerm}
             render={this.state.renderAmount}
+            answerRender={this.state.answerRenderAmount}
           />
           <AddAnswer
             handleAnswerClose={this.hideAnswerModal}
@@ -114,7 +131,7 @@ class QAWidget extends React.Component {
           </button>
         </div>
         <div>
-          <MoreAnswers rendering={this.onMoreAnswersClick} />
+          <MoreQuestions rendering={this.onMoreQuestionsClick} />
           <AddQuestion
             showQuestion={this.state.showQuestion}
             handleQuestionClose={this.hideQuestionModal} />

@@ -40,7 +40,7 @@ class ReviewWidget extends React.Component {
   render() {
     return (
       <div className="reviews">
-      <h1 className="revHeader">Ratings & Reviews</h1>
+      <h2 className="revHeader">RATINGS & REVIEWS</h2>
         <Averages className="revAverages" meta={this.state.meta} />
         <BodyElement className="revMain" id={this.props.id} />
       </div>

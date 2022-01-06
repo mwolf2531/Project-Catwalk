@@ -14,14 +14,14 @@ class ReviewWidget extends React.Component {
         ratings: {},
         recommended: {},
         characteristics: {}
-      },
-      id: '37311'
+      }
     };
     this.getMeta = this.getMeta.bind(this);
   }
 
   getMeta() {
-    axios.get('/api/revMeta')
+    let id = Number(this.props.id);
+    axios.get(`/api/revMeta/${id}`)
       .then((res) => {
         this.setState({ meta: res.data });
       })
@@ -34,7 +34,7 @@ class ReviewWidget extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props.id !== prevProps.id){
-      this.setState({id: this.props.id})
+      this.getMeta();
     }
   }
   render() {
@@ -42,7 +42,7 @@ class ReviewWidget extends React.Component {
       <div className="reviews">
       <h1 className="revHeader">Ratings & Reviews</h1>
         <Averages className="revAverages" meta={this.state.meta} />
-        <BodyElement className="revMain" id={this.state.id} />
+        <BodyElement className="revMain" id={this.props.id} />
       </div>
     )
   }

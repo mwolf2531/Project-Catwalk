@@ -12,7 +12,7 @@ router.get('/tests', (req, res) => {
 })
 //ALEX's ROUTES
 // get "allReviews" - pulls all review data for the current item
-router.get('/reviews', (req, getRes) => {
+router.get('/reviews/:id', (req, getRes) => {
   //Call API, Get review data
   let options = {
     method: 'GET',
@@ -22,7 +22,7 @@ router.get('/reviews', (req, getRes) => {
       page: 1, //review page to pull from
       count: 50, //number of reviews to pull
       sort: 'newest', //placeholder - replace with currently selected sort method
-      product_id: 37314 //placeholder - replace with id of current product
+      product_id: req.params.id //placeholder - replace with id of current product
     }
   };
   axios(options)
@@ -32,14 +32,14 @@ router.get('/reviews', (req, getRes) => {
     .catch((err) => { getRes.send(err) });
 })
 // get "metaData" - pulls all review meta data for the current item
-router.get('/revMeta', (req, getRes) => {
+router.get('/revMeta/:id', (req, getRes) => {
   //Call API, Get review data
   let options = {
     method: 'GET',
     url: url + '/reviews/meta',
     headers: headers,
     params: {
-      product_id: 37314 //placeholder - replace with id of current product
+      product_id: req.params.id //placeholder - replace with id of current product
     }
   };
   axios(options)

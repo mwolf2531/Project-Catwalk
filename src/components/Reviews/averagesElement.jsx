@@ -17,13 +17,17 @@ class averagesElement extends React.Component {
     this.makeAverage = this.makeAverage.bind(this);
   }
   makeAverage() {
+
     let rates = this.props.meta.ratings;
+    for (let i = 1; i < 6; i++) {
+      if (isNaN(rates[i])) {
+        rates[i] = 0;
+      }
+    }
     if(rates[1]) {
-      rates[1] = Number(rates[1]);
-      rates[2] = Number(rates[2]);
-      rates[3] = Number(rates[3]);
-      rates[4] = Number(rates[4]);
-      rates[5] = Number(rates[5]);
+      for (let i = 1; i < 6; i++) {
+        rates[i] = Number(rates[i])
+      }
       let totalRates = rates[1] + rates[2] + rates[3] + rates[4] + rates[5];
       let totalScore = rates[1] + (2 * rates[2]) + (3 * rates[3]) + (4 * rates[4]) + (5 * rates[5]);
       let avg = (totalScore / totalRates);
@@ -34,9 +38,18 @@ class averagesElement extends React.Component {
     if(recos.true) {
       recos.true = Number(recos.true);
       recos.false = Number(recos.false);
+      if(isNaN(recos.true)) {
+        recos.true = 0;
+      }
+      if(isNaN(recos.false)) {
+        recos.true = 0;
+      }
       let totalRecos = recos.true + recos.false;
       let avgReco = recos.true / totalRecos;
       avgReco = Math.round(avgReco * 100);
+      if (isNaN(avgReco)) {
+        avgReco = 0;
+      }
       this.setState({recPercent: avgReco})
     }
   }

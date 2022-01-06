@@ -268,15 +268,15 @@ router.get('/products', (req, getRes) => {
     });
 })
 
-router.get(`/products/product_id`, (req, getRes) => {
+router.get(`/products/:product_id`, (req, getRes) => {
   //Call API, Get review data
   let id = 37313; // grab this from the request || using sample product
   let options = {
-    url: url + `/products/${id}`,
+    url: url + `/products/${req.params.product_id}`,
     headers: headers,
-    params: {
-      product_id: id // Required ID of the Product requested | current placeholder
-    }
+    // params: {
+    //   product_id: req.params.product_id // Required ID of the Product requested | current placeholder
+    // }
   };
   axios(options)
     .then((res) => {
@@ -288,15 +288,15 @@ router.get(`/products/product_id`, (req, getRes) => {
     });
 })
 
-router.get(`/products/product_id/styles`, (req, getRes) => {
+router.get(`/products/:product_id/styles`, (req, getRes) => {
   //Call API, Get review data
   let id = 37313; // grab this from the request || using sample product
   let options = {
-    url: url + `/products/${id}/styles`,
+    url: url + `/products/${req.params.product_id}/styles`,
     headers: headers,
-    params: {
-      product_id: id // Required ID of the Product requested | current placeholder
-    }
+    // params: {
+    //   product_id: id // Required ID of the Product requested | current placeholder
+    // }
   };
   axios(options)
     .then((res) => {

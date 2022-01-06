@@ -13,10 +13,10 @@ const SearchBar = ({ search, question, handleSearchChange }) => {
   return (
     <div className="search-container">
       <form action="/action_page.php">
-        <input type="text" className='q-search-bar' onChange={handleSearchChange} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS... " name="search" />
-        <style>
-          background-image: <BsSearch />
-        </style>
+        <input type="text" className='q-search-bar' onChange={handleSearchChange} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." name="search" />
+        <button type="button" className="search-button">
+          {<BsSearch />}
+        </button>
       </form>
     </div>
   )

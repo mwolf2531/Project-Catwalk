@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const MoreAnswers = (props) => {
+const MoreAnswers = ({ moreAnswerRender }) => {
 
   return (
     <>
-      <button className='more-questions-button' onClick={rendering}>LOAD MORE ANSWERS</button>
+      <button className='more-questions-button' onClick={moreAnswerRender}>LOAD MORE ANSWERS</button>
     </>
   )
 }

@@ -319,6 +319,7 @@ margin: 0 10px 10px 0;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  padding: 1%;
 }
 
 .display-block {
@@ -367,16 +368,16 @@ margin: 0 10px 10px 0;
   font-size: 17px;
   border: none;
   float: left;
-  width: 85%;
+  width: 92%;
   background: white;
   border: 1px solid grey;
+  position: relative;
 }
 
 .question-map {
   font-weight: bold;
   font-size: 20px;
   padding-bottom: 10px;
-
 }
 
 .answer-style {
@@ -402,6 +403,33 @@ margin: 0 10px 10px 0;
   background: white;
   border: 1px solid grey;
   display: inline-block;
+  position: relative;
+}
+
+.modal-inputs {
+  width: 500px;
+  padding: 25px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 92%;
+  background: white;
+  border: 1px solid grey;
+  margin: 1%;
+}
+
+.modal-message {
+  width: 500px;
+  height: 250px;
+  padding: 25px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 92%;
+  background: white;
+  border: 1px solid grey;
+  text-align: start;
+  margin: 1%;
 }
 
 /* ------------------------Reviews---------------------- */

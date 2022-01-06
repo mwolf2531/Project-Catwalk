@@ -1,6 +1,7 @@
 import React from "react";
+import StarDisplay from "../Reviews/starDisplay.jsx";
 
-const ProductInfo = ({ product, style, name }) => {
+const ProductInfo = ({ avgRate, product, style, name }) => {
   let price;
   let defaultPrice;
   let styleView;
@@ -26,6 +27,7 @@ const ProductInfo = ({ product, style, name }) => {
     <div>
       <p>{product.category}</p>
       <h1>{product.name}</h1>
+      <StarDisplay className="stars" rating={avgRate} />
       {defaultPrice}
       {price}
       {styleView}

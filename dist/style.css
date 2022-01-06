@@ -1,6 +1,5 @@
-html {
-  background-color: hotpink;
-}
+/* html {
+} */
 
 .main {
   /*container flexbox settings */
@@ -17,8 +16,35 @@ html {
 
 .header {
   order: 0;
-  border: 2px solid red;
+  padding: 20px;
+  background-color: maroon;
+  color: white;
+	font-size: 40px;
+	text-shadow: -1px 1px 0 #000,
+				  1px 1px 0 #000,
+				 1px -1px 0 #000,
+				-1px -1px 0 #000;
+}
 
+.header-title {
+  font-size: 34px;
+  float: inline-start;
+  text-underline-position: from-font;
+}
+
+.header-title:hover {
+  filter: drop-shadow(0 0 0.75rem black);
+
+}
+
+.select-product-main {
+  float:right;
+  font-size: large;
+  cursor: pointer;
+}
+
+.select-product-main:hover {
+  cursor: pointer;
 }
 
 /* --------------Over View------------------ */
@@ -116,6 +142,12 @@ html {
   transition-duration: 1s ease;
   transform: scale(1.08);
   opacity: 1;
+}
+
+.current-image:hover {
+  transform: scale(1.10);
+  box-shadow: 0 0 13px rgb(151, 0, 0);
+  cursor: crosshair;
 }
 
 .caraselle-container {

@@ -48,7 +48,7 @@ class App extends React.Component {
       <>
         <div className='header'>
 
-        <span className='header-title'>Project Catwalk : Artemis Edition</span>
+        <span className='header-title'>Project Catwalk : <i>Artemis Edition</i></span>
 
         <select className="select-product-main"  onChange={this.onChange}>
           {this.state.products.map((product, index) => (

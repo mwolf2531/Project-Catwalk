@@ -18,11 +18,19 @@ export class OverviewWidget extends Component {
       clickedItem:{},
       currentStyleCart: {},
       currentStyleName: undefined,
-      id: 37312
+      id: 37312,
+      meta: {
+        ratings: {},
+        recommended: {},
+        characteristics: {}
+      },
+      avgRate: 3
     };
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyle = this.getProductStyle.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.getMeta = this.getMeta.bind(this);
+    this.makeAverage = this.makeAverage.bind(this);
   }
 
   handleClick(event, item) {
@@ -30,6 +38,37 @@ export class OverviewWidget extends Component {
       currentStyle: event,
       clickedItem: item
     })
+  }
+
+  getMeta() {
+    let id = Number(this.props.id);
+    axios.get(`/api/revMeta/${id}`)
+      .then((res) => {
+        this.setState({ meta: res.data });
+        this.makeAverage();
+      })
+      .catch((err) => {
+        console.log('Axios /revMeta failed >', err);
+      });
+  }
+
+  makeAverage() {
+    let rates = this.state.meta.ratings;
+    for (let i = 1; i < 6; i++) {
+      if (isNaN(rates[i])) {
+        rates[i] = 0;
+      }
+    }
+    if(rates[1]) {
+      for (let i = 1; i < 6; i++) {
+        rates[i] = Number(rates[i])
+      }
+      let totalRates = rates[1] + rates[2] + rates[3] + rates[4] + rates[5];
+      let totalScore = rates[1] + (2 * rates[2]) + (3 * rates[3]) + (4 * rates[4]) + (5 * rates[5]);
+      let avg = (totalScore / totalRates);
+      avg = Math.round(avg*2)/2;
+      this.setState({avgRate: avg});
+    }
   }
 
   //TODO:
@@ -70,11 +109,13 @@ export class OverviewWidget extends Component {
 
   componentDidMount() {
     this.getProduct();
+    this.getMeta();
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.id !== prevProps.id){
-      this.getProduct()
+      this.getProduct();
+      this.getMeta();
     }
 
   }
@@ -92,6 +133,7 @@ export class OverviewWidget extends Component {
             product={this.state.products}
             style={this.state.clickedItem}
             name={this.state.currentStyleName}
+            avgRate={this.state.avgRate}
           />
           <StyleSelector
             styles={this.state.styles.results}

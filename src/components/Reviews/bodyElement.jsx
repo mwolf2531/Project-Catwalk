@@ -7,7 +7,6 @@ class BodyElement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '37311',
       reviews: { results: [] },
       allRevs: [],
       numRevs: 0,
@@ -104,7 +103,9 @@ class BodyElement extends React.Component {
     }
   }
   getReviews() {
-    axios.get('/api/reviews')
+    let id = Number(this.props.id);
+    this.setState({uProduct_id: id});
+    axios.get(`/api/reviews/${id}`)
       .then((res) => {
         this.setState({ reviews: res.data });
         // console.log(this.state)
@@ -127,7 +128,6 @@ class BodyElement extends React.Component {
   };
 
   submitReview = () => {
-    console.log('Submit State', this.state)
     let userRev = {
       product_id: this.state.uProduct_id,
       rating: this.state.uRating,
@@ -160,7 +160,23 @@ class BodyElement extends React.Component {
       this.addTwo();
     }
     if (this.props.id !== prevProps.id){
-      this.setState({id: this.props.id, uProduct_id: Number(this.props.id)})
+      this.setState({
+        reviews: { results: [] },
+        allRevs: [],
+        numRevs: 0,
+        renderRevs: [],
+        numRenders: 0,
+        uProduct_id: 37314,
+        uRating: 3,
+        uSummary: '',
+        uBody: '',
+        uRecommend: true,
+        uName: '',
+        uEmail: '',
+        uPhotos: [],
+        uCharacteristics: {}
+      });
+      this.getReviews();
     }
   }
 

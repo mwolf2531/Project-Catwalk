@@ -28,7 +28,6 @@ class ReviewScroll extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props.reviews !== prevProps.reviews) {
-      console.log(this.props.reviews, prevProps.reviews)
       this.updateReviews();
     }
     if (this.props.reviews.length > this.state.revs.length) {

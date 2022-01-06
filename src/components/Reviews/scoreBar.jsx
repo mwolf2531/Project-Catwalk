@@ -2,7 +2,9 @@ import React from 'react';
 
 
 const ScoreBar = ({ score }) => {
-
+  if (!score) {
+    score = 0;
+  }
   const parentDiv = {
     height: 20,
     width: '80%',

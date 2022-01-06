@@ -9,7 +9,7 @@ const Review = ({ review }) => {
       <div className="review">
         <div className="revTitle">{review.summary}</div>
         <div className="revBody">{review.body}</div>
-        <StarDisplay rating={review.rating} />
+        <StarDisplay className="revStars" rating={review.rating} />
         <div className="revUser">{review.reviewer_name}</div>
         <div className="revTime">{review.date}</div>
         <Helpful className="revHelp"helpfulness={review.helpfulness} />

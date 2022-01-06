@@ -4,6 +4,13 @@ import Helpful from './Helpful.jsx';
 import Report from './Report.jsx';
 //This Element creates a single review
 const Review = ({ review }) => {
+
+  function newDate(oldDate) {
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let newDate = new Date(oldDate);
+    return months[newDate.getMonth()] + ' ' + newDate.getDay() + ', ' + newDate.getFullYear();
+  };
+
   if (review) {
     return (
       <div className="review">
@@ -11,7 +18,7 @@ const Review = ({ review }) => {
         <div className="revBody">{review.body}</div>
         <StarDisplay className="revStars" rating={review.rating} />
         <div className="revUser">{review.reviewer_name}</div>
-        <div className="revTime">{review.date}</div>
+        <div className="revTime">{newDate(review.date)}</div>
         <Helpful className="revHelp"helpfulness={review.helpfulness} />
         <Report className="revReco"/>
       </div>

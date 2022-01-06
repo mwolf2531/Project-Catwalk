@@ -183,7 +183,7 @@ class BodyElement extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="scrollOpt">
           <label htmlFor="sort">Sort Reviews By:</label>
           <select id="sort" name="sort">
             <option value="newest">Newest</option>
@@ -191,8 +191,8 @@ class BodyElement extends React.Component {
             <option value="relevant">Relevant</option>
           </select></div>
         <ReviewScroll reviews={this.state.renderRevs} />
-        <button type="button" onClick={this.moreRevsClick}>More Reviews</button>
-        <span className='revButtons'>
+        <button className='revButtons' type="button" onClick={this.moreRevsClick}>More Reviews</button>
+        <span>
           <AddReview
             showReview={this.state.showReview}
             handleReviewSubmit={this.submitReview}
@@ -203,7 +203,7 @@ class BodyElement extends React.Component {
             onChangeEmail={this.onChangeEmail}
             onChangeRating={this.onChangeRating}
             onChangeReco={this.onChangeReco} />
-          <button type="button"
+          <button className='revButtons' type="button"
             onClick={this.showReviewModal}>
             Add Review +
           </button>

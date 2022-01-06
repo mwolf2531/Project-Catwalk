@@ -398,7 +398,7 @@ margin: 0 10px 10px 0;
 .revAverages {
   grid-area: sidebar;
   margin: 10px;
-  height: 200px;
+  height: auto;
   padding: 10px;
   background:rgb(112, 18, 18);
   border-radius: 25px;
@@ -406,6 +406,21 @@ margin: 0 10px 10px 0;
 .revHeader {
   grid-area: header;
   margin-left: 40px;
+  color:rgb(226, 226, 226);
+}
+
+.starScore {
+  font-size: 1.2em;
+  color:rgb(175, 175, 175);
+}
+
+.revRecos {
+  font-size: 1.2em;
+  color:rgb(175, 175, 175);
+}
+
+.scrollOpt {
+  margin-left: 3%;
 }
 
 .reviews {
@@ -419,6 +434,12 @@ margin: 0 10px 10px 0;
   border-radius: 25px;
   background: rgb(161, 35, 35);
   margin: 5px;
+}
+
+.ScoreTable {
+  color:rgb(226, 226, 226);
+  font-size: 1.1em;
+  margin-top: 10px;
 }
 
 .revScroll {
@@ -456,9 +477,17 @@ margin: 0 10px 10px 0;
   margin: 5px;
 }
 
+.revButtons {
+  background-color:rgb(117, 4, 151);
+  border-radius: 25px;
+  margin: 5px;
+  margin-bottom: 20px;
+  color:rgb(226, 226, 226);
+}
+
 .review {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 85% 15%;
   grid-template-rows: auto;
   grid-template-areas:
     "revTitle revUser"
@@ -474,6 +503,24 @@ margin: 0 10px 10px 0;
 .star {
   color: gold;
   font-size: 1.65em;
+}
+.rHelpful-button-yes {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  text-decoration: underline;
+  color: rgb(155, 155, 155)
+}
+
+.rHelpful-button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  color: rgb(155, 155, 155)
 }
 
 /* ------------------------Footer---------------------- */

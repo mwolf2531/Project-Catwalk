@@ -30,11 +30,13 @@
   font-size: 34px;
   float: inline-start;
   text-underline-position: from-font;
+  font-style:italic;
+  text-decoration:underline;
+  /* text-decoration-style:wavy */
 }
 
 .header-title:hover {
-  filter: drop-shadow(0 0 0.75rem black);
-
+  filter: drop-shadow(0 0 0.75rem rgb(255, 255, 255));
 }
 
 .select-product-main {
@@ -146,7 +148,7 @@
 
 .current-image:hover {
   transform: scale(1.10);
-  box-shadow: 0 0 13px rgb(151, 0, 0);
+  box-shadow: 0 0 13px maroon;
   cursor: crosshair;
 }
 

@@ -27,13 +27,12 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render, answer
           <div className='question-map'>Q: {questions.question_body}
             <div className='q-top-right'><HelpfulQuestion helpful={questions.question_helpfulness} /></div>
           </div>
-          <br></br>
           <div>
             {questions.answerData.slice(0, 2).map((answer, i) =>
               <div key={i}>
-                <div><span className='question-map'> A: </span>{answer.body}</div>
-                <span>by: {answer.answerer_name}, {newDate(answer.date)}</span>
-                <HelpfulAnswer helpful={answer.helpfulness} /> | <Report />
+                <div className='answer-style'><span className='question-map'> A: </span>{answer.body}</div>
+                <span className='answer-user-style'>by: {answer.answerer_name}, {newDate(answer.date)}</span>
+                <span className='helpful-button'><HelpfulAnswer helpful={answer.helpfulness} /> | <Report /></span>
                 <br></br>
               </div>
             )}

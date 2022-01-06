@@ -73,8 +73,9 @@ export class ImageGallery extends Component {
   render() {
     return (
       <div className="image-gallery">
+
         <div className="caraselle-container">
-          {this.state.currentPic.map((image, i) => (
+          {this.state.currentPic.slice(0,6).map((image, i) => (
             <Caraselle
               key={i}
               index={i}

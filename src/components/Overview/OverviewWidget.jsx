@@ -17,7 +17,8 @@ export class OverviewWidget extends Component {
       loaded: false,
       clickedItem:{},
       currentStyleCart: {},
-      currentStyleName: undefined
+      currentStyleName: undefined,
+      id: 37312
     };
     this.getProduct = this.getProduct.bind(this);
     this.getProductStyle = this.getProductStyle.bind(this);
@@ -31,23 +32,10 @@ export class OverviewWidget extends Component {
     })
   }
 
-  getAllProducts() {
-    axios.get("/api/products")
-      .then((res) => {
-        let data = res.data
-        // console.log("/products", data);
-        this.setState({
-          productz: data
-        })
-      })
-      .catch((err) => {
-        console.log("Axios /products ERR", err);
-      });
-  }
-
   //TODO:
   getProduct() {
-    axios.get("/api/products/product_id")
+    let id = this.props.id
+    axios.get(`/api/products/${id}`)
       .then((res) => {
         let data = res.data
         this.setState({
@@ -62,9 +50,11 @@ export class OverviewWidget extends Component {
 //TODO:
 
   getProductStyle() {
-    axios.get("api/products/product_id/styles")
+    let id = this.props.id
+    axios.get(`api/products/${id}/styles`)
     .then((res) => {
       let data = res.data
+      console.log('data:', data)
       this.setState({
         styles: data,
         loaded: true,
@@ -80,6 +70,13 @@ export class OverviewWidget extends Component {
 
   componentDidMount() {
     this.getProduct();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id){
+      this.getProduct()
+    }
+
   }
 
   render() {

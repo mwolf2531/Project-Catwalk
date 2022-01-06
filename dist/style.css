@@ -121,6 +121,7 @@ html {
 .caraselle-container {
   overflow: auto;
   text-align: center;
+  max-height: 500px;
 }
 
 .current-gallery-thumbnail {

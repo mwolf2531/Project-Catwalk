@@ -122,6 +122,7 @@ class QAWidget extends React.Component {
             search={this.state.searchTerm}
             render={this.state.renderAmount}
             answerRender={this.state.answerRenderAmount}
+            answerRenderClick={this.onMoreAnswersClick}
           />
         </div>
         <div>

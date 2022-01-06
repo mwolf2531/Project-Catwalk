@@ -11,21 +11,21 @@ const AddQuestion = ({ handleQuestionClose, showQuestion, children }) => {
       <div className={showHideClassName}>
         <section className="modal-main">
           {children}
-          <h1>Add a Question</h1>
+          <h1>ADD YOUR QUESTION</h1>
           <form action="/action_page.php">
-            <input type="text" placeholder="Name..." name="name" />
+            <input type="text" className="modal-inputs" placeholder="Name..." name="name" />
           </form>
           <form action="/action_page.php">
-            <input type="text" placeholder="Email..." name="email" />
+            <input type="text" className="modal-inputs" placeholder="Email..." name="email" />
           </form>
           <form action="/action_page.php">
-            <input type="text" placeholder="Question..." name="question" />
+            <input type="text" className='modal-message' placeholder="Question..." name="question" />
           </form>
-          <button type="button" onClick={handleQuestionClose}>
-            Ask your Question
+          <button type="button" className='more-questions-button' onClick={handleQuestionClose}>
+            ASK YOUR QUESTION
           </button>
-          <button type="button" onClick={handleQuestionClose}>
-            Close
+          <button type="button" className='more-questions-button' onClick={handleQuestionClose}>
+            CLOSE
           </button>
         </section>
       </div>

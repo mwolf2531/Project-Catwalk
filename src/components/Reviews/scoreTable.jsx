@@ -14,11 +14,11 @@ const ScoreTable = ({ scores }) => {
     };
     return (
       <div className="ScoreTable" >
-        <ScoreBar score={scores[1]} />
-        <ScoreBar score={scores[2]} />
-        <ScoreBar score={scores[3]} />
-        <ScoreBar score={scores[4]} />
-        <ScoreBar score={scores[5]} />
+        <span>1-Star <ScoreBar score={scores[1]} /></span>
+        <span>2-Stars<ScoreBar score={scores[2]} /></span>
+        <span>3-Stars<ScoreBar score={scores[3]} /></span>
+        <span>4-Stars<ScoreBar score={scores[4]} /></span>
+        <span>5-Stars<ScoreBar score={scores[5]} /></span>
       </div>
     )
   } else {

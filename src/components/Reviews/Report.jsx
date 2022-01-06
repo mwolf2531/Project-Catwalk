@@ -27,7 +27,7 @@ class Report extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>{this.state.placeholder}</button>
+        <button className="rHelpful-button-yes" onClick={this.handleClick}>{this.state.placeholder}</button>
       </div>
     )
   }

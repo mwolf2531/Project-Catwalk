@@ -1,12 +1,13 @@
-/* html {
-} */
+html {
+  background-color: grey
+}
 
 .main {
   /*container flexbox settings */
   display: flex;
   gap: 10px; /* all gap */
   flex-direction: column;
-  border: 2px solid black;
+  /* border: 5px groove black; */
   font-family: sans-serif;
   margin: 50px;
   background-color: white;
@@ -15,8 +16,9 @@
 /* ------------------------Header---------------------- */
 
 .header {
+  /* border: solid black 3px; */
   order: 0;
-  padding: 20px;
+  padding: 25px;
   background-color: maroon;
   color: white;
 	font-size: 40px;

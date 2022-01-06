@@ -26,16 +26,12 @@ class Report extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.handleClick}>{this.state.placeholder}</button>
-      </div>
+      <>
+        <button className='helpful-button-yes' onClick={this.handleClick}>{this.state.placeholder}</button>
+      </>
     )
   }
 
 }
 
 export default Report;
-
-// To do:
-//   If this is clicked, it will flag the answer for review
-//   Then, the 'report' should change to 'reported'

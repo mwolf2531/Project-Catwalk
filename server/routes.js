@@ -104,14 +104,14 @@ router.put('/report', (req, putRes) => {
 
 //MEGAN'S ROUTES
 
-router.get('/questions', (req, getRes) => {
+router.get('/questions/:questionId', (req, getRes) => {
   //Call API, Get question data
   let options = {
     method: 'GET',
     url: url + '/qa/questions',
     headers: headers,
     params: {
-      product_id: 37312,
+      product_id: req.params.questionId,
       page: 1,
       count: 100
     }

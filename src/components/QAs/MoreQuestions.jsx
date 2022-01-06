@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const MoreAnswers = (props) => {
+const MoreQuestions = ({ rendering }) => {
 
   return (
     <>
@@ -12,4 +12,4 @@ const MoreAnswers = (props) => {
 }
 
 
-export default MoreAnswers;
+export default MoreQuestions;

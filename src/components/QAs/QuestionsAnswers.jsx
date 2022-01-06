@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const QuestionsAnswers = ({ search, question, handleSearchChange, render }) => {
+const QuestionsAnswers = ({ search, question, handleSearchChange, render, answerRender }) => {
 
   const filteredMap =
     question.results.filter(questions => questions.question_body.toLowerCase().includes(search.toLowerCase()));
@@ -22,7 +22,7 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render }) => {
           </div>
           <br></br>
           <div>
-            {questions.answerData.map((answer, i) =>
+            {questions.answerData.slice(0, 2).map((answer, i) =>
               <div key={i}>
                 <div><span className='question-map'> A: </span>{answer.body}</div>
                 <div>by: {answer.answerer_name} {answer.date}</div>

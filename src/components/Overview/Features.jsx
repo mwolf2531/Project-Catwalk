@@ -10,6 +10,9 @@ const Features = ({product, loaded}) => {
   const featureInner = {
     'marginBottom': '5px',
   };
+  if (product === undefined) {
+    return (<div></div>)
+  }
 
     return (
       <div style={feature}>

@@ -142,20 +142,16 @@ router.get('/answers/:tagId', (req, getRes) => {
 })
 
 router.post('/questionPost', (req, postRes) => {
-  //Call API, Get review data
   let options = {
     method: 'POST',
     url: url + '/qa/questions',
     headers: headers,
-    data: {
-      body: 'body of question',
-      name: 'Megan',
-      email: 'user@gmail.com',
-      product_id: 37314
-    }
+    data: req.body
   };
+  console.log("Megan", options.data)
   axios(options)
     .then((res) => {
+      //console.log(res.data);
       postRes.send(res.data)
     })
     .catch((err) => { postRes.send(err) });

@@ -19,7 +19,10 @@ class QAWidget extends React.Component {
       questions: { results: [] },
       searchTerm: '',
       renderAmount: 2,
-      answerRenderAmount: 2
+      answerRenderAmount: 2,
+      name: '',
+      email: '',
+      description: ''
     }
 
     this.showQuestionModal = this.showQuestionModal.bind(this);
@@ -27,7 +30,9 @@ class QAWidget extends React.Component {
     this.showAnswerModal = this.showAnswerModal.bind(this);
     this.hideAnswerModal = this.hideAnswerModal.bind(this);
     this.searchBarUpdate = this.searchBarUpdate.bind(this);
-
+    this.handleNameInput = this.handleNameInput.bind(this);
+    this.handleEmailInput = this.handleEmailInput.bind(this);
+    this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
   }
 
   getAllQuestions() {
@@ -59,7 +64,21 @@ class QAWidget extends React.Component {
     }
   }
 
-
+  postQuestion = () => {
+    axios.post('/api/questionPost', {
+      body: this.state.description,
+      name: this.state.name,
+      email: this.state.email,
+      product_id: Number(this.props.id)
+    })
+      .then((response) => {
+        this.getAllQuestions();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    this.hideQuestionModal();
+  }
 
   showQuestionModal = () => {
     this.setState({ showQuestion: true });
@@ -81,6 +100,25 @@ class QAWidget extends React.Component {
     event.preventDefault();
     this.setState({ searchTerm: event.target.value })
   };
+
+  handleNameInput = (event) => {
+    //event.preventDefault();
+    this.setState({ name: event.target.value })
+  }
+
+  handleEmailInput = (event) => {
+    //event.preventDefault();
+    this.setState({
+      email: event.target.value
+    })
+  }
+
+  handleDescriptionInput = (event) => {
+    // event.preventDefault();
+    this.setState({
+      description: event.target.value
+    })
+  }
 
   onMoreQuestionsClick = (event) => {
     event.preventDefault();
@@ -132,7 +170,12 @@ class QAWidget extends React.Component {
           <MoreQuestions rendering={this.onMoreQuestionsClick} />
           <AddQuestion
             showQuestion={this.state.showQuestion}
-            handleQuestionClose={this.hideQuestionModal} />
+            handleQuestionClose={this.hideQuestionModal}
+            nameInput={this.handleNameInput}
+            emailInput={this.handleEmailInput}
+            handleSubmit={this.postQuestion}
+            descriptionInput={this.handleDescriptionInput}
+          />
           <button className="add-question-button" type="button"
             onClick={this.showQuestionModal}>
             ADD A QUESTION +

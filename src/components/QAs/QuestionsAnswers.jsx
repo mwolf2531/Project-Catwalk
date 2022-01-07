@@ -45,10 +45,9 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render, answer
                 <span className='helpful-button'><HelpfulAnswer helpful={answer.helpfulness} /> | <Report /></span>
                 <br></br>
               </div>
-              // <div className='more-questions-button' onClick={moreAnswerRender}>LOAD MORE ANSWERS</div>
             )}
           </div>
-          {/* <div onClick={answerRenderClick}><MoreAnswers onClick={answerRenderClick} /></div> */}
+          <div onClick={answerRenderClick}><MoreAnswers onClick={answerRenderClick} answerLength={questions.answerData} renderAmount={answerRender} /></div>
         </div>)
       }
     </div >

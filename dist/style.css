@@ -440,6 +440,18 @@ margin: 0 10px 10px 0;
   margin: 1%;
 }
 
+.more-answers {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px;
+  padding-left: 25px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+}
+
 /* ------------------------Reviews---------------------- */
 
 .revMain {

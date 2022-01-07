@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 class HelpfulQuestion extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class HelpfulQuestion extends React.Component {
     }
 
     this.handleClick = this.handleClick.bind(this);
+
   }
 
 
@@ -23,12 +25,13 @@ class HelpfulQuestion extends React.Component {
       disabled: true,
       count: this.state.count + 1
     });
+
   }
 
   render() {
     return (
       <div>
-        <button className="helpful-button" onClick={this.handleClick}>Helpful? <span className="helpful-button-yes">Yes ({this.state.count})</span></button>
+        <button className="helpful-button" onClick={this.handleClick}>Helpful? <span className="helpful-button-yes">{this.state.disabled ? <AiOutlineCheck /> : 'Yes'} ({this.state.count})</span></button>
       </div>
     )
   }

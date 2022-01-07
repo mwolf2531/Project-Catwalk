@@ -3,34 +3,34 @@ import ReactDOM from 'react-dom';
 
 
 
-const AddAnswer = ({ handleAnswerClose, showAnswer, showAnswerModal, children }) => {
+const AddAnswer = ({ handleAnswerClose, showAnswer, showAnswerModal, children, addAnAnswer }) => {
 
   let showHideClassName = showAnswer ? "modal display-block" : "modal display-none";
 
   return (
-    <div>
+    <>
       <div className={showHideClassName}>
         <section className="modal-main">
           {children}
-          <h1>Add an Answer</h1>
+          <h1>ADD YOUR ANSWER</h1>
           <form action="/action_page.php">
-            <input type="text" placeholder="Name..." name="name" />
+            <input type="text" className="modal-inputs" placeholder="Name..." name="name" />
           </form>
           <form action="/action_page.php">
-            <input type="text" placeholder="Email..." name="email" />
+            <input type="text" className="modal-inputs" placeholder="Email..." name="email" />
           </form>
           <form action="/action_page.php">
-            <input type="text" placeholder="Answer..." name="question" />
+            <input type="text" className='modal-message' placeholder="Answer..." name="question" />
           </form>
-          <button type="button" onClick={handleAnswerClose}>
-            Submit your Answer
+          <button type="button" className='more-questions-button' onClick={handleAnswerClose}>
+            SUBMIT ANSWER
           </button>
-          <button type="button" onClick={handleAnswerClose}>
-            Close
+          <button type="button" className='more-questions-button' onClick={handleAnswerClose}>
+            CLOSE
           </button>
         </section>
       </div>
-    </div>
+    </>
   );
 }
 

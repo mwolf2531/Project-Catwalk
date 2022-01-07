@@ -19,6 +19,10 @@ class HelpfulQuestion extends React.Component {
   handleClick(event) {
     event.preventDefault();
     if (this.state.disabled) {
+      this.setState({
+        disabled: false,
+        count: this.state.count - 1
+      })
       return;
     }
     this.setState({

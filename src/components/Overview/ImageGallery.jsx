@@ -102,7 +102,7 @@ export class ImageGallery extends Component {
           {this.state.currentPic.map((image, index) => {
             if (this.state.currentIndex === index) {
               return (
-                <div classname="image-container" key={index}>
+                <div className="image-container" key={index}>
                   <img className="current-image" key={index} src={image.url} />
                   <main className="view-fullscreen">
                     <JumboScreen

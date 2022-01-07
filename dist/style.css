@@ -300,6 +300,14 @@ margin: 0 10px 10px 0;
 
 .q-top-right {
   float: right;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  color: rgb(155, 155, 155);
+  display: inline-flex;
+  font-size: 14px;
 }
 
 .modal {

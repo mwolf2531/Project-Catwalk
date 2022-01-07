@@ -123,6 +123,9 @@ class QAWidget extends React.Component {
             render={this.state.renderAmount}
             answerRender={this.state.answerRenderAmount}
             answerRenderClick={this.onMoreAnswersClick}
+            addAnAnswer={this.showAnswerModal}
+            hideAnAnswer={this.hideAnswerModal}
+            showAnswer={this.state.showAnswer}
           />
         </div>
         <div>

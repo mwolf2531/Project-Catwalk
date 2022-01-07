@@ -7,7 +7,7 @@ import axios from 'axios';
 import MoreAnswers from './MoreAnswers.jsx';
 
 
-const QuestionsAnswers = ({ search, question, handleSearchChange, render, answerRender, answerRenderClick }) => {
+const QuestionsAnswers = ({ search, question, handleSearchChange, render, answerRender, answerRenderClick, addAnAnswer, showAnswer, hideAnAnswer }) => {
 
   const filteredMap =
     question.results.filter(questions => questions.question_body.toLowerCase().includes(search.toLowerCase()));
@@ -18,13 +18,24 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render, answer
     return months[newDate.getMonth()] + ' ' + newDate.getDay() + ', ' + newDate.getFullYear();
   }
 
+
   return (
     <div>
       {filteredMap.slice(0, render).map((questions, i) =>
         <div key={i}>
           <br></br>
           <div className='question-map'>Q: {questions.question_body}
-            <div className='q-top-right'><HelpfulQuestion helpful={questions.question_helpfulness} /></div>
+            <div className='q-top-right'><HelpfulQuestion helpful={questions.question_helpfulness} /> |
+              <AddAnswer
+                showAnswer={showAnswer}
+                handleAnswerClose={hideAnAnswer} />
+              <span>
+                <button className="helpful-button-yes"
+                  onClick={addAnAnswer}>
+                  Add Answer
+                </button>
+              </span>
+            </div>
           </div>
           <div>
             {questions.answerData.slice(0, answerRender).map((answer, i) =>
@@ -34,9 +45,10 @@ const QuestionsAnswers = ({ search, question, handleSearchChange, render, answer
                 <span className='helpful-button'><HelpfulAnswer helpful={answer.helpfulness} /> | <Report /></span>
                 <br></br>
               </div>
+              // <div className='more-questions-button' onClick={moreAnswerRender}>LOAD MORE ANSWERS</div>
             )}
           </div>
-          {/* <div onClick={answerRenderClick}><MoreAnswers /></div> */}
+          {/* <div onClick={answerRenderClick}><MoreAnswers onClick={answerRenderClick} /></div> */}
         </div>)
       }
     </div >

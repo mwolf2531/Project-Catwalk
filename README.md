@@ -37,6 +37,7 @@ $ npm run watch
 $ npm start
 ```
 ### 🤝 Contributors
-- [Ryder Wendt - Overview Widget](https://www.linkedin.com/in/ryderw/)
+- [Ryder Wendt - Overview](https://www.linkedin.com/in/ryderw/)
 - [Megan Wolf - Questions & Answers](https://www.linkedin.com/in/megan-wolf-30557046/)
 - [Alex Kenney - Ratings and Reviews](www.linkedin.com/in/dareitus)
+

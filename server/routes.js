@@ -124,7 +124,7 @@ router.get('/questions/:questionId', (req, getRes) => {
 })
 
 router.get('/answers/:tagId', (req, getRes) => {
-  //Call API, Get question data
+  //Call API, Get answer data
   let options = {
     method: 'GET',
     url: url + `/qa/questions/${req.params.tagId}/answers`,
@@ -148,10 +148,8 @@ router.post('/questionPost', (req, postRes) => {
     headers: headers,
     data: req.body
   };
-  console.log("Megan", options.data)
   axios(options)
     .then((res) => {
-      //console.log(res.data);
       postRes.send(res.data)
     })
     .catch((err) => { postRes.send(err) });

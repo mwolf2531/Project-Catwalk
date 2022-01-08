@@ -102,19 +102,16 @@ class QAWidget extends React.Component {
   };
 
   handleNameInput = (event) => {
-    //event.preventDefault();
     this.setState({ name: event.target.value })
   }
 
   handleEmailInput = (event) => {
-    //event.preventDefault();
     this.setState({
       email: event.target.value
     })
   }
 
   handleDescriptionInput = (event) => {
-    // event.preventDefault();
     this.setState({
       description: event.target.value
     })

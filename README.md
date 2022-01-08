@@ -1,15 +1,13 @@
 # FEC - Team Artemis
+## Front End Capstone Project
 ![](https://cdn.kapwing.com/final_61d9c8a47884a600c732eb6a_735921.gif)
-Front End Capstone Project
 ### ✨ Demo
 #### Overview
-
 ![](https://i.imgur.com/76MAhC0.gif)
 #### Question & Answers
 ![](https://i.imgur.com/Pz88QQg.gif)
 #### Rating & Reviews
 ![](https://i.imgur.com/JQVwjKD.gif)
-
 ### 🧪 Technologies
 * Axios : Version 0.24.0,
 * Babel : Version 5.65.0,

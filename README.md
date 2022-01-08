@@ -2,7 +2,7 @@
 Front End Capstone Project
 ### ✨ Demo
 #### Overview
-![Imgur](https://i.imgur.com/76MAhC0.gif)
+![Imgur](https://i.imgur.com/76MAhC0.gifv)
 #### Question & Answers
 ![]()
 #### Rating & Reviews

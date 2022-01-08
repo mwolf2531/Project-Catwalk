@@ -1,12 +1,14 @@
 # FEC - Team Artemis
+![](https://cdn.kapwing.com/final_61d9c8a47884a600c732eb6a_735921.gif)
 Front End Capstone Project
 ### ✨ Demo
 #### Overview
-![Imgur](https://i.imgur.com/76MAhC0.gifv)
+
+![](https://i.imgur.com/76MAhC0.gif)
 #### Question & Answers
-![]()
+![](https://i.imgur.com/Pz88QQg.gif)
 #### Rating & Reviews
-![]()
+![](https://i.imgur.com/JQVwjKD.gif)
 
 ### 🧪 Technologies
 * Axios : Version 0.24.0,
@@ -14,7 +16,7 @@ Front End Capstone Project
 * Bluebird : Version 3.7.2,
 * Chai : Version 4.3.4,
 * Express : Version 4.17.2,
-* Jest : 27.4.5,
+* Jest : Version 27.4.5,
 * Mocha : Version 9.1.3,
 * Nodemon: Version 2.0.15,
 * React : Version 17.0.2,
@@ -31,5 +33,5 @@ $ npm start
 ### 🤝 Contributors
 - [Ryder Wendt - Overview](https://www.linkedin.com/in/ryderw/)
 - [Megan Wolf - Questions & Answers](https://www.linkedin.com/in/megan-wolf-30557046/)
-- [Alex Kenney - Ratings and Reviews](www.linkedin.com/in/dareitus)
+- [Alex Kenney - Ratings & Reviews](www.linkedin.com/in/dareitus)
 

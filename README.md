@@ -3,7 +3,7 @@
 ![](https://cdn.kapwing.com/final_61d9c8a47884a600c732eb6a_735921.gif)
 ### ✨ Demo
 #### Overview
-![](https://i.imgur.com/76MAhC0.gif)
+![]([Overview](https://i.imgur.com/9MfEyf6.gif)
 #### Question & Answers
 ![](https://i.imgur.com/Pz88QQg.gif)
 #### Rating & Reviews

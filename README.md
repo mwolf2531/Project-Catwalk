@@ -1,5 +1,4 @@
-# FEC - Team Artemis
-## Front End Capstone Project
+# Project Catwalk
 ![](https://cdn.kapwing.com/final_61d9c8a47884a600c732eb6a_735921.gif)
 ### ✨ Demo
 #### Overview
@@ -31,5 +30,5 @@ $ npm start
 ### 🤝 Contributors
 - [Ryder Wendt - Overview](https://www.linkedin.com/in/ryderw/)
 - [Megan Wolf - Questions & Answers](https://www.linkedin.com/in/megan-wolf-30557046/)
-- [Alex Kenney - Ratings & Reviews](www.linkedin.com/in/dareitus)
+- [Alex Kenney - Ratings & Reviews](https://www.linkedin.com/in/dareitus)
 
